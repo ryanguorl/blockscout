@@ -7,7 +7,7 @@ defmodule BlockScoutWeb.LayoutView do
 
   import BlockScoutWeb.AddressView, only: [from_address_hash: 1]
 
-  @issue_url "https://github.com/poanetwork/blockscout/issues/new"
+  @issue_url "https://github.com/blockscout/blockscout/issues/new"
   @default_other_networks [
     %{
       title: "POA",
@@ -19,8 +19,8 @@ defmodule BlockScoutWeb.LayoutView do
       test_net?: true
     },
     %{
-      title: "xDai",
-      url: "https://blockscout.com/poa/xdai"
+      title: "Gnosis Chain",
+      url: "https://blockscout.com/xdai/mainnet"
     },
     %{
       title: "Ethereum Classic",
@@ -37,12 +37,11 @@ defmodule BlockScoutWeb.LayoutView do
   alias BlockScoutWeb.SocialMedia
 
   def logo do
-    Keyword.get(application_config(), :logo) || "/images/blockscout_logo.svg"
+    Keyword.get(application_config(), :logo)
   end
 
   def logo_footer do
-    Keyword.get(application_config(), :logo_footer) || Keyword.get(application_config(), :logo) ||
-      "/images/blockscout_logo.svg"
+    Keyword.get(application_config(), :logo_footer) || Keyword.get(application_config(), :logo)
   end
 
   def logo_text do
@@ -120,7 +119,7 @@ defmodule BlockScoutWeb.LayoutView do
           nil
 
         release_link_env_var == "" || release_link_env_var == nil ->
-          "https://github.com/poanetwork/blockscout/releases/tag/" <> version
+          "https://github.com/blockscout/blockscout/releases/tag/" <> version
 
         true ->
           release_link_env_var

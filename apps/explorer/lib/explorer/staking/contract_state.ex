@@ -100,51 +100,71 @@ defmodule Explorer.Staking.ContractState do
     # dfc8bf4e = keccak256(validatorSetContract())
     validator_set_contract_signature = "dfc8bf4e"
 
-    %{
-      "2d21d217" => {:ok, [token_contract_address]},
-      "dfc8bf4e" => {:ok, [validator_set_contract_address]}
-    } =
-      Reader.query_contract(staking_contract_address, staking_abi, %{
-        "#{erc_677_token_contract_signature}" => [],
-        "#{validator_set_contract_signature}" => []
-      })
+    with %{
+           "2d21d217" => {:ok, [token_contract_address]},
+           "dfc8bf4e" => {:ok, [validator_set_contract_address]}
+         } <-
+           Reader.query_contract(
+             staking_contract_address,
+             staking_abi,
+             %{
+               "#{erc_677_token_contract_signature}" => [],
+               "#{validator_set_contract_signature}" => []
+             },
+             false
+           ),
+         # 56b54bae = keccak256(blockRewardContract())
+         block_reward_contract_signature = "56b54bae",
+         %{"56b54bae" => {:ok, [block_reward_contract_address]}} <-
+           Reader.query_contract(
+             validator_set_contract_address,
+             validator_set_abi,
+             %{
+               "#{block_reward_contract_signature}" => []
+             },
+             false
+           ) do
+      state = %__MODULE__{
+        eth_blocknumber_pull_interval: eth_blocknumber_pull_interval,
+        eth_subscribe_max_delay: eth_subscribe_max_delay,
+        snapshotting_finished: false,
+        timer: nil,
+        contracts: %{
+          staking: staking_contract_address,
+          validator_set: validator_set_contract_address,
+          block_reward: block_reward_contract_address
+        },
+        abi: staking_abi ++ validator_set_abi ++ block_reward_abi
+      }
 
-    # 56b54bae = keccak256(blockRewardContract())
-    block_reward_contract_signature = "56b54bae"
+      :ets.insert(@table_name,
+        block_reward_contract: %{abi: block_reward_abi, address: block_reward_contract_address},
+        is_snapshotting: false,
+        last_change_block: 0,
+        pool_rewards: %{},
+        seen_block: 0,
+        snapshotted_epoch_number: -1,
+        snapshotting_scheduled: false,
+        staking_contract: %{abi: staking_abi, address: staking_contract_address},
+        token_contract: %{abi: token_abi, address: token_contract_address},
+        token: get_token(token_contract_address),
+        validator_set_contract: %{abi: validator_set_abi, address: validator_set_contract_address}
+      )
 
-    %{"56b54bae" => {:ok, [block_reward_contract_address]}} =
-      Reader.query_contract(validator_set_contract_address, validator_set_abi, %{
-        "#{block_reward_contract_signature}" => []
-      })
-
-    state = %__MODULE__{
-      eth_blocknumber_pull_interval: eth_blocknumber_pull_interval,
-      eth_subscribe_max_delay: eth_subscribe_max_delay,
-      snapshotting_finished: false,
-      timer: nil,
-      contracts: %{
-        staking: staking_contract_address,
-        validator_set: validator_set_contract_address,
-        block_reward: block_reward_contract_address
-      },
-      abi: staking_abi ++ validator_set_abi ++ block_reward_abi
-    }
-
-    :ets.insert(@table_name,
-      block_reward_contract: %{abi: block_reward_abi, address: block_reward_contract_address},
-      is_snapshotting: false,
-      last_change_block: 0,
-      pool_rewards: %{},
-      seen_block: 0,
-      snapshotted_epoch_number: -1,
-      snapshotting_scheduled: false,
-      staking_contract: %{abi: staking_abi, address: staking_contract_address},
-      token_contract: %{abi: token_abi, address: token_contract_address},
-      token: get_token(token_contract_address),
-      validator_set_contract: %{abi: validator_set_abi, address: validator_set_contract_address}
-    )
-
-    {:ok, state, {:continue, []}}
+      {:ok, state, {:continue, []}}
+    else
+      _ ->
+        {:ok,
+         %__MODULE__{
+           eth_blocknumber_pull_interval: eth_blocknumber_pull_interval,
+           eth_subscribe_max_delay: eth_subscribe_max_delay,
+           snapshotting_finished: false,
+           timer: nil,
+           contracts: %{
+             staking: staking_contract_address
+           }
+         }, {:stop, "The archive node is unavailable"}}
+    end
   end
 
   def handle_continue(_, state) do
@@ -436,6 +456,7 @@ defmodule Explorer.Staking.ContractState do
     mining_address_to_id = get_mining_address_to_id(validators.all, contracts, abi, block_number)
 
     # the list of all pools (validators + active pools + inactive pools)
+    # (pool IDs)
     pools =
       Enum.uniq(
         Map.values(mining_address_to_id) ++
@@ -443,14 +464,14 @@ defmodule Explorer.Staking.ContractState do
           global_responses.inactive_pools
       )
 
-    %{
-      pool_staking_responses: pool_staking_responses,
-      pool_mining_responses: pool_mining_responses,
-      staker_responses: staker_responses
-    } = get_responses(pools, block_number, contracts, abi)
+    # read pool info from the contracts by its staking address
+    pool_staking_responses = get_pool_staking_responses(pools, block_number, contracts, abi)
 
-    # to keep sort order when using `perform_grouped_requests` (see below)
-    pool_ids = Enum.map(pool_staking_responses, fn {pool_id, _} -> pool_id end)
+    # read pool info from the contracts by its mining address
+    pool_mining_responses = get_pool_mining_responses(pools, pool_staking_responses, block_number, contracts, abi)
+
+    # read info of each staker from the contracts
+    staker_responses = get_staker_responses(pool_staking_responses, block_number, contracts, abi)
 
     # call `BlockReward.validatorShare` function for each pool
     # to get validator's reward share of the pool (needed for the `Delegators` list in UI)
@@ -458,7 +479,6 @@ defmodule Explorer.Staking.ContractState do
       get_candidate_reward_responses(
         pool_staking_responses,
         global_responses,
-        pool_ids,
         contracts,
         abi,
         block_number
@@ -466,11 +486,10 @@ defmodule Explorer.Staking.ContractState do
 
     # call `BlockReward.delegatorShare` function for each delegator
     # to get their reward share of the pool (needed for the `Delegators` list in UI)
-    delegator_responses = get_delegator_responses(staker_responses)
-
     delegator_reward_responses =
-      get_delegator_reward_responses(
-        delegator_responses,
+      staker_responses
+      |> get_delegator_responses()
+      |> get_delegator_reward_responses(
         pool_staking_responses,
         global_responses,
         contracts,
@@ -555,6 +574,9 @@ defmodule Explorer.Staking.ContractState do
       _ ->
         0
     end
+  catch
+    _ ->
+      0
   end
 
   defp get_settings(global_responses, state, block_number) do
@@ -609,63 +631,43 @@ defmodule Explorer.Staking.ContractState do
     |> Map.new(fn {mining_address, resp} -> {mining_address, address_string_to_bytes(resp.staking_address).bytes} end)
   end
 
-  defp get_responses(pools, block_number, contracts, abi) do
-    # read pool info from the contracts by its staking address
-    pool_staking_responses =
-      pools
-      |> Enum.map(&ContractReader.pool_staking_requests(&1, block_number))
-      |> ContractReader.perform_grouped_requests(pools, contracts, abi)
-
-    # read pool info from the contracts by its mining address
-    pool_mining_responses =
-      pools
-      |> Enum.map(&ContractReader.pool_mining_requests(pool_staking_responses[&1].mining_address_hash, block_number))
-      |> ContractReader.perform_grouped_requests(pools, contracts, abi)
-
-    # get a flat list of all stakers in the form of {pool_id, pool_staking_address, staker_address, is_active}
-    stakers =
-      Enum.flat_map(pool_staking_responses, fn {pool_id, resp} ->
-        [{pool_id, resp.staking_address_hash, resp.staking_address_hash, true}] ++
-          Enum.map(resp.active_delegators, &{pool_id, resp.staking_address_hash, &1, true}) ++
-          Enum.map(resp.inactive_delegators, &{pool_id, resp.staking_address_hash, &1, false})
-      end)
-
-    # read info of each staker from the contracts
-    staker_responses =
-      stakers
-      |> Enum.map(fn {pool_id, pool_staking_address, staker_address, _is_active} ->
-        ContractReader.staker_requests(pool_id, pool_staking_address, staker_address, block_number)
-      end)
-      |> ContractReader.perform_grouped_requests(stakers, contracts, abi)
-
-    %{
-      pool_staking_responses: pool_staking_responses,
-      pool_mining_responses: pool_mining_responses,
-      staker_responses: staker_responses
-    }
-  end
-
   defp get_candidate_reward_responses(
          pool_staking_responses,
          global_responses,
-         pool_ids,
          contracts,
          abi,
          block_number
        ) do
-    pool_staking_responses
-    |> Enum.map(fn {_pool_id, resp} ->
-      ContractReader.validator_reward_request(
-        [
-          global_responses.epoch_number,
-          resp.self_staked_amount,
-          resp.total_staked_amount,
-          1000_000
-        ],
-        block_number
-      )
+    # to keep sort order when using `perform_grouped_requests` (see below)
+    pool_ids = Enum.map(pool_staking_responses, fn {pool_id, _} -> pool_id end)
+
+    requests =
+      pool_staking_responses
+      |> Enum.map(fn {_pool_id, resp} ->
+        ContractReader.validator_reward_request(
+          [
+            global_responses.epoch_number,
+            resp.self_staked_amount,
+            resp.total_staked_amount,
+            1000_000
+          ],
+          block_number
+        )
+      end)
+
+    chunk_size = 100
+    chunks = 0..trunc(ceil(Enum.count(pool_ids) / chunk_size) - 1)
+
+    Enum.reduce(chunks, %{}, fn i, acc ->
+      pool_ids_slice = Enum.slice(pool_ids, i * chunk_size, chunk_size)
+
+      responses =
+        requests
+        |> Enum.slice(i * chunk_size, chunk_size)
+        |> ContractReader.perform_grouped_requests(pool_ids_slice, contracts, abi)
+
+      Map.merge(acc, responses)
     end)
-    |> ContractReader.perform_grouped_requests(pool_ids, contracts, abi)
   end
 
   defp get_delegator_responses(staker_responses) do
@@ -690,22 +692,36 @@ defmodule Explorer.Staking.ContractState do
     # to keep sort order when using `perform_grouped_requests` (see below)
     delegator_keys = Enum.map(delegator_responses, fn {key, _} -> key end)
 
-    delegator_responses
-    |> Enum.map(fn {{pool_id, _pool_staking_address, _staker_address, _is_active}, resp} ->
-      staking_resp = pool_staking_responses[pool_id]
+    requests =
+      delegator_responses
+      |> Enum.map(fn {{pool_id, _pool_staking_address, _staker_address, _is_active}, resp} ->
+        staking_resp = pool_staking_responses[pool_id]
 
-      ContractReader.delegator_reward_request(
-        [
-          global_responses.epoch_number,
-          resp.stake_amount,
-          staking_resp.self_staked_amount,
-          staking_resp.total_staked_amount,
-          1000_000
-        ],
-        block_number
-      )
+        ContractReader.delegator_reward_request(
+          [
+            global_responses.epoch_number,
+            resp.stake_amount,
+            staking_resp.self_staked_amount,
+            staking_resp.total_staked_amount,
+            1000_000
+          ],
+          block_number
+        )
+      end)
+
+    chunk_size = 100
+    chunks = 0..trunc(ceil(Enum.count(delegator_keys) / chunk_size) - 1)
+
+    Enum.reduce(chunks, %{}, fn i, acc ->
+      delegator_keys_slice = Enum.slice(delegator_keys, i * chunk_size, chunk_size)
+
+      responses =
+        requests
+        |> Enum.slice(i * chunk_size, chunk_size)
+        |> ContractReader.perform_grouped_requests(delegator_keys_slice, contracts, abi)
+
+      Map.merge(acc, responses)
     end)
-    |> ContractReader.perform_grouped_requests(delegator_keys, contracts, abi)
   end
 
   defp get_delegator_entries(staker_responses, delegator_reward_responses) do
@@ -723,6 +739,68 @@ defmodule Explorer.Staking.ContractState do
         is_active: is_active,
         reward_ratio: Float.floor(delegator_share / 10_000, 2)
       })
+    end)
+  end
+
+  defp get_pool_mining_responses(pools, pool_staking_responses, block_number, contracts, abi) do
+    # we split batch requests by chunks
+    chunk_size = 80
+    chunks = 0..trunc(ceil(Enum.count(pools) / chunk_size) - 1)
+
+    Enum.reduce(chunks, %{}, fn i, acc ->
+      pools_slice = Enum.slice(pools, i * chunk_size, chunk_size)
+
+      responses =
+        pools_slice
+        |> Enum.map(&ContractReader.pool_mining_requests(pool_staking_responses[&1].mining_address_hash, block_number))
+        |> ContractReader.perform_grouped_requests(pools_slice, contracts, abi)
+
+      Map.merge(acc, responses)
+    end)
+  end
+
+  defp get_pool_staking_responses(pools, block_number, contracts, abi) do
+    # we split batch requests by chunks
+    chunk_size = 20
+    chunks = 0..trunc(ceil(Enum.count(pools) / chunk_size) - 1)
+
+    Enum.reduce(chunks, %{}, fn i, acc ->
+      pools_slice = Enum.slice(pools, i * chunk_size, chunk_size)
+
+      responses =
+        pools_slice
+        |> Enum.map(&ContractReader.pool_staking_requests(&1, block_number))
+        |> ContractReader.perform_grouped_requests(pools_slice, contracts, abi)
+
+      Map.merge(acc, responses)
+    end)
+  end
+
+  defp get_staker_responses(pool_staking_responses, block_number, contracts, abi) do
+    # get a flat list of all stakers in the form of {pool_id, pool_staking_address, staker_address, is_active}
+    stakers =
+      pool_staking_responses
+      |> Enum.flat_map(fn {pool_id, resp} ->
+        [{pool_id, resp.staking_address_hash, resp.staking_address_hash, true}] ++
+          Enum.map(resp.active_delegators, &{pool_id, resp.staking_address_hash, &1, true}) ++
+          Enum.map(resp.inactive_delegators, &{pool_id, resp.staking_address_hash, &1, false})
+      end)
+
+    # we split batch requests by chunks
+    chunk_size = 100
+    chunks = 0..trunc(ceil(Enum.count(stakers) / chunk_size) - 1)
+
+    Enum.reduce(chunks, %{}, fn i, acc ->
+      stakers_slice = Enum.slice(stakers, i * chunk_size, chunk_size)
+
+      responses =
+        stakers_slice
+        |> Enum.map(fn {pool_id, pool_staking_address, staker_address, _is_active} ->
+          ContractReader.staker_requests(pool_id, pool_staking_address, staker_address, block_number)
+        end)
+        |> ContractReader.perform_grouped_requests(stakers_slice, contracts, abi)
+
+      Map.merge(acc, responses)
     end)
   end
 
@@ -835,7 +913,7 @@ defmodule Explorer.Staking.ContractState do
          total_likelihood: total_likelihood
        }) do
     # total amount staked into all active pools
-    staked_total = Enum.sum(for {_, pool} <- pool_staking_responses, pool.is_active, do: pool.total_staked_amount)
+    staked_total = sum_total_staked_amount(pool_staking_responses)
 
     Enum.map(pools, fn pool_id ->
       staking_resp = pool_staking_responses[pool_id]
@@ -866,6 +944,9 @@ defmodule Explorer.Staking.ContractState do
           100
         end
 
+      pool_name = if is_valid_string?(staking_resp.name), do: staking_resp.name
+      pool_description = if is_valid_string?(staking_resp.description), do: staking_resp.description
+
       %{
         staking_address_hash: pool_staking_address,
         delegators_count: delegators_count,
@@ -881,7 +962,9 @@ defmodule Explorer.Staking.ContractState do
         is_deleted: false,
         is_validator: is_validator,
         is_unremovable: is_unremovable,
-        ban_reason: binary_to_string(mining_resp.ban_reason)
+        ban_reason: binary_to_string(mining_resp.ban_reason),
+        name: pool_name,
+        description: pool_description
       }
       |> Map.merge(
         Map.take(staking_resp, [
@@ -1061,8 +1144,16 @@ defmodule Explorer.Staking.ContractState do
     end
   end
 
+  defp is_valid_string?(str) do
+    String.valid?(str) and String.length(String.trim(str)) > 0
+  end
+
   defp ratio(_numerator, 0), do: 0
   defp ratio(numerator, denominator), do: numerator / denominator * 100
+
+  defp sum_total_staked_amount(pool_staking_responses) do
+    Enum.sum(for {_, pool} <- pool_staking_responses, pool.is_active, do: pool.total_staked_amount)
+  end
 
   defp address_bytes_to_string(hash), do: "0x" <> Base.encode16(hash, case: :lower)
 

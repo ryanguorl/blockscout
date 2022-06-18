@@ -1,7 +1,8 @@
 defmodule BlockScoutWeb.API.RPC.BlockView do
   use BlockScoutWeb, :view
 
-  alias BlockScoutWeb.API.RPC.{EthRPCView, RPCView}
+  alias BlockScoutWeb.API.EthRPC.View, as: EthRPCView
+  alias BlockScoutWeb.API.RPC.RPCView
   alias Explorer.Chain.{Hash, Wei}
   alias Explorer.EthRPC, as: EthRPC
 
@@ -18,6 +19,14 @@ defmodule BlockScoutWeb.API.RPC.BlockView do
       "blockReward" => reward_as_string,
       "uncles" => nil,
       "uncleInclusionReward" => nil
+    }
+
+    RPCView.render("show.json", data: data)
+  end
+
+  def render("getblocknobytime.json", %{block_number: block_number}) do
+    data = %{
+      "blockNumber" => to_string(block_number)
     }
 
     RPCView.render("show.json", data: data)

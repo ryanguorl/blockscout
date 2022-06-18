@@ -1,5 +1,6 @@
 import $ from 'jquery'
 import '../app'
+import { escapeHtml } from './utils'
 
 // This file adds event handlers responsible for the 'Try it out' UI in the
 // Etherscan-compatible API documentation page.
@@ -44,12 +45,12 @@ function handleSuccess (query, xhr, clickedButton) {
   const requestUrl = $(`[data-selector="${module}-${action}-request-url"]`)[0]
   const code = $(`[data-selector="${module}-${action}-server-response-code"]`)[0]
   const body = $(`[data-selector="${module}-${action}-server-response-body"]`)[0]
-  const url = composeRequestUrl(query)
+  const url = composeRequestUrl(escapeHtml(query))
 
   curl.innerHTML = composeCurlCommand(url)
   requestUrl.innerHTML = url
   code.innerHTML = xhr.status
-  body.innerHTML = JSON.stringify(xhr.responseJSON, undefined, 2)
+  body.innerHTML = escapeHtml(JSON.stringify(xhr.responseJSON, undefined, 2))
   $(`[data-selector="${module}-${action}-try-api-ui-result"]`).show()
   $(`[data-selector="${module}-${action}-btn-try-api-clear"]`).show()
   clickedButton.html(clickedButton.data('original-text'))
