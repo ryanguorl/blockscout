@@ -250,7 +250,7 @@ msgstr ""
 #, elixir-format
 #: lib/block_scout_web/templates/layout/_footer.html.eex:20
 msgid "Blockscout is a tool for inspecting and analyzing EVM based blockchains. Blockchain explorer for Ethereum Networks."
-msgstr ""
+msgstr " "
 
 #, elixir-format
 #: lib/block_scout_web/views/internal_transaction_view.ex:21
@@ -638,7 +638,7 @@ msgstr ""
 #: lib/block_scout_web/templates/transaction/overview.html.eex:258
 #: lib/block_scout_web/views/wei_helpers.ex:78
 msgid "Ether"
-msgstr ""
+msgstr "HO"
 
 #, elixir-format
 #: lib/block_scout_web/templates/api_docs/_action_tile.html.eex:211

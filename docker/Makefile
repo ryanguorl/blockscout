@@ -13,6 +13,23 @@ endif
 DB_URL = postgresql://postgres:@$(HOST):5432/explorer?ssl=false
 BLOCKSCOUT_CONTAINER_PARAMS = -e 'MIX_ENV=prod' \
 															 -e 'DATABASE_URL=$(DB_URL)'
+
+
+COIN = HALO
+
+NETWORK = HALO
+
+SUBNETWORK = Main
+
+ETHEREUM_JSONRPC_VARIANT = geth
+
+ETHEREUM_JSONRPC_HTTP_URL = http://127.0.0.1:8545
+
+ETHEREUM_JSONRPC_WS_URL = ws://127.0.0.1:8546
+
+FIRST_BLOCK = 0
+
+
 ifeq ($(SYSTEM), Linux)
 	BLOCKSCOUT_CONTAINER_PARAMS += --network=host
 endif
