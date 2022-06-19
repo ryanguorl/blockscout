@@ -14,7 +14,7 @@ ifeq ($(SYSTEM), Linux)
 	HOST=localhost
 endif
 
-DATABASE_URL = postgresql://postgres:test_password@postgres-halo-browser.cbwqcycx9vok.ap-northeast-2.rds.amazonaws.com:5432/blockscout
+#DATABASE_URL = postgresql://postgres:test_password@postgres-halo-browser.cbwqcycx9vok.ap-northeast-2.rds.amazonaws.com:5432/blockscout
 
 ifdef DATABASE_URL
 	DB_URL = $(DATABASE_URL)
