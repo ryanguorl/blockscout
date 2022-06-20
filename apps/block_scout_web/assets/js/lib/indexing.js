@@ -8,7 +8,7 @@ function tryUpdateIndexedStatus (el, indexedRatio = el.dataset.indexedRatio, ind
   const blocksPercentComplete = numeral(indexedRatio).format('0%')
   let indexedText
   if (blocksPercentComplete === '100%') {
-    indexedText = window.localized['Indexing Tokens']
+//    indexedText = window.localized['Indexing Tokens']
     return $("[data-selector='indexed-status']").remove()
   } else {
     indexedText = `${blocksPercentComplete} ${window.localized['Blocks Indexed']}`
