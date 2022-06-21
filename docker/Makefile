@@ -197,6 +197,7 @@ endif
 ifdef WEBAPP_URL
 	BLOCKSCOUT_CONTAINER_PARAMS += -e 'WEBAPP_URL=$(WEBAPP_URL)'
 endif
+API_URL = https://browser.halo.land/api
 ifdef API_URL
 	BLOCKSCOUT_CONTAINER_PARAMS += -e 'API_URL=$(API_URL)'
 endif
