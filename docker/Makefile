@@ -3,7 +3,7 @@ HOST := host.docker.internal
 DOCKER_REPO := blockscout
 APP_NAME := blockscout
 BS_CONTAINER_IMAGE := $(DOCKER_REPO)/$(APP_NAME)
-BS_CONTAINER_NAME := blockscout
+BS_CONTAINER_NAME := halo-browser
 PG_CONTAINER_IMAGE := postgres:13.6
 PG_CONTAINER_NAME := db
 THIS_FILE = $(lastword $(MAKEFILE_LIST))
@@ -483,7 +483,7 @@ endif
 
 start: build postgres 
 	@echo "==> Starting blockscout"
-	@docker run --rm --name $(BS_CONTAINER_NAME) \
+	@docker run -d --name $(BS_CONTAINER_NAME) \
 					$(BLOCKSCOUT_CONTAINER_PARAMS) \
 					-p 4000:4000 \
 					$(BS_CONTAINER_IMAGE) /bin/sh -c "mix phx.server"
