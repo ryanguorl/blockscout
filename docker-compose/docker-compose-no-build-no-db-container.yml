@@ -6,6 +6,7 @@ services:
     restart: always
     container_name: 'halo-browser'
     command: 'mix do ecto.create, ecto.migrate, phx.server'
+    network_mode: 'host'
     extra_hosts:
       - 'host.docker.internal:host-gateway'
     env_file:
@@ -13,3 +14,4 @@ services:
     ports:
       - 4000:4000
 
+doc
