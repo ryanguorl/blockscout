@@ -7,7 +7,7 @@ services:
       context: ..
       dockerfile: ./docker/Dockerfile
       args:
-        COIN: ""
+        COIN: "HO"
     restart: always
     container_name: 'halo-browser'
     command: 'mix do ecto.create, ecto.migrate, phx.server'
