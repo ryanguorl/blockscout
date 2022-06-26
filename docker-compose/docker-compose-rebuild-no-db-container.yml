@@ -3,6 +3,11 @@ version: '3.8'
 services:
   blockscout:
     image: blockscout/blockscout:${DOCKER_TAG:-latest}
+    build:
+      context: ..
+      dockerfile: ./docker/Dockerfile
+      args:
+        COIN: ""
     restart: always
     container_name: 'halo-browser'
     command: 'mix do ecto.create, ecto.migrate, phx.server'
