@@ -23,8 +23,7 @@ defmodule BlockScoutWeb.ChainController do
     total_gas_usage = GasUsage.total()
     block_count = BlockCache.estimated_count()
     address_count = Chain.address_estimated_count()
-    coin_supply = AddressSum.get_sum()
-                  |> Decimal.new()
+    coin_supply = %Wei{value: Decimal.new(AddressSum.get_sum())}
                   |> Wei.to(:ether)
                   |> Decimal.to_integer()
 
