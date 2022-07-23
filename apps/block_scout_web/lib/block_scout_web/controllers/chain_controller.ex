@@ -25,6 +25,7 @@ defmodule BlockScoutWeb.ChainController do
     address_count = Chain.address_estimated_count()
     coin_supply = %Wei{value: Decimal.new(AddressSum.get_sum())}
                   |> Wei.to(:ether)
+                  |> Decimal.round(0)
                   |> Decimal.to_integer()
 
     market_cap_calculation =
