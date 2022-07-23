@@ -1519,6 +1519,9 @@ msgstr ""
 msgid "Market Cap"
 msgstr ""
 
+msgid "HO Supply"
+msgstr ""
+
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_modal_move.html.eex:42
 msgid "Max Amount to Move:"
