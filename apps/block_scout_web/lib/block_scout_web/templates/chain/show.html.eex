@@ -79,7 +79,7 @@
               <%= gettext "HO Supply" %>
               </span>
               <div class="d-flex" style="height: 20px; line-height: 20px;">
-                  <% coin_supply = BlockScoutWeb.Cldr.Number.to_string!(@market_cap_calculation, format: "#,###") %>
+                  <% coin_supply = BlockScoutWeb.Cldr.Number.to_string!(@coin_supply, format: "#,###") %>
                   <span style="display: contents;" class="dashboard-banner-chart-legend-value" data-selector="market-cap" data-usd-value="<%= coin_supply %>">
                 </span>
               </div>
