@@ -1519,7 +1519,7 @@ msgstr ""
 msgid "Market Cap"
 msgstr ""
 
-msgid "Circulating Supply"
+msgid "Total Supply"
 msgstr ""
 
 #, elixir-format
@@ -3360,7 +3360,7 @@ msgstr ""
 
 #, elixir-format
 #: lib/block_scout_web/templates/chain/show.html.eex:84
-msgid "Daily Transactions"
+msgid "Daily Txn"
 msgstr ""
 
 #, elixir-format
@@ -3371,7 +3371,7 @@ msgstr ""
 #, elixir-format
 #: lib/block_scout_web/templates/chain/gas_price_oracle_legend_item.html.eex:3
 #: lib/block_scout_web/templates/chain/gas_price_oracle_legend_item.html.eex:18
-msgid "Gas tracker"
+msgid "Gas Tracker"
 msgstr ""
 
 #, elixir-format
