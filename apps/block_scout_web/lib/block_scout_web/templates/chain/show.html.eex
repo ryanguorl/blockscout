@@ -76,11 +76,11 @@
           <% end %>
           <div class="dashboard-banner-chart-legend-item tx-per-day">
               <span class="dashboard-banner-chart-legend-label">
-                <%= gettext "HO Supply" %>
+                <%= gettext "Circulating Supply" %>
               </span>
               <span class="dashboard-banner-chart-legend-value">
                   <% coin_supply = BlockScoutWeb.Cldr.Number.to_string!(@coin_supply, format: "#,###") %>
-                  <%= coin_supply %>
+                  <%= coin_supply %>&nbsp;<%= System.get_env("COIN") %>
               </span>
           </div>
           <%= render BlockScoutWeb.ChainView, "gas_price_oracle_legend_item.html", gas_price: @gas_price %>
