@@ -74,15 +74,14 @@
             </div>
             <% end %>
           <% end %>
-          <div class="dashboard-banner-chart-legend-item market-cap-per-day">
+          <div class="dashboard-banner-chart-legend-item tx-per-day">
               <span class="dashboard-banner-chart-legend-label">
-              <%= gettext "HO Supply" %>
+                <%= gettext "HO Supply" %>
               </span>
-              <div class="d-flex" style="height: 20px; line-height: 20px;">
+              <span class="dashboard-banner-chart-legend-value">
                   <% coin_supply = BlockScoutWeb.Cldr.Number.to_string!(@coin_supply, format: "#,###") %>
-                  <span style="display: contents;" class="dashboard-banner-chart-legend-value" data-selector="market-cap" data-usd-value="<%= coin_supply %>">
-                </span>
-              </div>
+                  <%= coin_supply %>
+              </span>
           </div>
           <%= render BlockScoutWeb.ChainView, "gas_price_oracle_legend_item.html", gas_price: @gas_price %>
           <%= if Map.has_key?(@chart_config, :transactions) do %>

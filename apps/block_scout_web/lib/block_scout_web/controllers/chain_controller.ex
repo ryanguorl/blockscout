@@ -22,7 +22,7 @@ defmodule BlockScoutWeb.ChainController do
     total_gas_usage = GasUsage.total()
     block_count = BlockCache.estimated_count()
     address_count = Chain.address_estimated_count()
-    coin_supply = AddressSum.get_sum()
+    coin_supply = Chain.total_supply()
 
     market_cap_calculation =
       case Application.get_env(:explorer, :supply) do
