@@ -74,7 +74,7 @@
             </div>
             <% end %>
           <% end %>
-          <div class="dashboard-banner-chart-legend-item tx-per-day">
+          <div class="dashboard-banner-chart-legend-item circulating-supply">
               <span class="dashboard-banner-chart-legend-label">
                 <%= gettext "Circulating Supply" %>
               </span>
