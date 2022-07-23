@@ -16,13 +16,17 @@ defmodule BlockScoutWeb.ChainController do
   alias Explorer.Market
   alias Phoenix.View
   alias Explorer.Chain.Cache.{AddressSum, AddressSumMinusBurnt}
+  alias Explorer.Chain.Wei
 
   def show(conn, _params) do
     transaction_estimated_count = TransactionCache.estimated_count()
     total_gas_usage = GasUsage.total()
     block_count = BlockCache.estimated_count()
     address_count = Chain.address_estimated_count()
-    coin_supply = Chain.total_supply()
+    coin_supply = AddressSum.get_sum()
+                  |> Decimal.new()
+                  |> Wei.to(:ether)
+                  |> Decimal.to_integer()
 
     market_cap_calculation =
       case Application.get_env(:explorer, :supply) do
