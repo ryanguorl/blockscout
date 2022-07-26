@@ -1519,6 +1519,9 @@ msgstr ""
 msgid "Market Cap"
 msgstr ""
 
+msgid "Total Supply"
+msgstr ""
+
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_modal_move.html.eex:42
 msgid "Max Amount to Move:"
@@ -3368,7 +3371,7 @@ msgstr ""
 #, elixir-format
 #: lib/block_scout_web/templates/chain/gas_price_oracle_legend_item.html.eex:3
 #: lib/block_scout_web/templates/chain/gas_price_oracle_legend_item.html.eex:18
-msgid "Gas tracker"
+msgid "Gas Tracker"
 msgstr ""
 
 #, elixir-format

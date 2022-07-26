@@ -154,6 +154,12 @@ $dashboard-banner-chart-axis-font-color-alt: #333;
         background-color: $dashboard-line-color-transactions;
       }
     }
+
+    &.circulating-supply {
+      &::before {
+        background-color: $dashboard-line-color-transactions;
+      }
+    }
   }
 
   .dashboard-banner-chart-legend-label {
