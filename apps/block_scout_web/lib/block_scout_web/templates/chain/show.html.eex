@@ -75,13 +75,22 @@
             <% end %>
           <% end %>
           <%= render BlockScoutWeb.ChainView, "gas_price_oracle_legend_item.html", gas_price: @gas_price %>
+          <div class="dashboard-banner-chart-legend-item circulating-supply">
+            <span class="dashboard-banner-chart-legend-label">
+              <%= gettext "Total Supply" %>
+            </span>
+                <span class="dashboard-banner-chart-legend-value">
+                <% coin_supply = BlockScoutWeb.Cldr.Number.to_string!(@coin_supply, format: "#,###") %>
+                <%= coin_supply %>&nbsp;<%= System.get_env("COIN") %>
+            </span>
+          </div>
           <%= if Map.has_key?(@chart_config, :transactions) do %>
 
             <% transaction_chart_config = @chart_config.transactions%>
             <%= if Enum.member?(transaction_chart_config, :transactions_per_day) do %>
             <div class="dashboard-banner-chart-legend-item tx-per-day">
                 <span class="dashboard-banner-chart-legend-label">
-                    <%= gettext "Daily Txn" %>
+                    <%= gettext "Daily Transactions" %>
                 </span>
                 <span class="dashboard-banner-chart-legend-value" data-selector="tx_per_day">
                     <% num_of_transactions = BlockScoutWeb.Cldr.Number.to_string!(Enum.at(@transaction_stats, 0).number_of_transactions, format: "#,###") %>
@@ -101,15 +110,6 @@
             </div>
             <% end %>
           <% end %>
-          <div class="dashboard-banner-chart-legend-item circulating-supply">
-            <span class="dashboard-banner-chart-legend-label">
-              <%= gettext "Total Supply" %>
-            </span>
-              <span class="dashboard-banner-chart-legend-value">
-                <% coin_supply = BlockScoutWeb.Cldr.Number.to_string!(@coin_supply, format: "#,###") %>
-                <%= coin_supply %>&nbsp;<%= System.get_env("COIN") %>
-            </span>
-          </div>
         </div>
       </div>
       <!-- Stats -->
