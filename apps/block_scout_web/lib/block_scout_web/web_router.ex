@@ -9,6 +9,12 @@ defmodule BlockScoutWeb.WebRouter do
     plug(:fetch_session)
     plug(:fetch_flash)
     plug(:protect_from_forgery)
+    plug :put_secure_browser_headers
+    plug Cldr.Plug.SetLocale,
+         apps:    [cldr: BlockScoutWeb.Cldr, gettext: :global],
+         from:    [:query, :path, :body, :cookie, :accept_language],
+         param:   "locale",
+         session_key: "cldr_locale"
     plug(BlockScoutWeb.CSPHeader)
     plug(BlockScoutWeb.ChecksumAddress)
   end
