@@ -3371,8 +3371,8 @@ msgstr "快"
 #, elixir-format
 #: lib/block_scout_web/templates/chain/gas_price_oracle_legend_item.html.eex:3
 #: lib/block_scout_web/templates/chain/gas_price_oracle_legend_item.html.eex:18
-msgid "Gas Tracker"
-msgstr "Gas追踪"
+msgid "Gas Price"
+msgstr "Gas价格"
 
 #, elixir-format
 #: lib/block_scout_web/templates/chain/gas_price_oracle_legend_item.html.eex:20
