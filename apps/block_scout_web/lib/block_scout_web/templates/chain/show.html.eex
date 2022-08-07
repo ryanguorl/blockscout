@@ -59,22 +59,13 @@
             </div>
             <% end %>
           <% end %>
-          <div class="dashboard-banner-chart-legend-item price-per-day">
-                  <span class="dashboard-banner-chart-legend-label">
-                  <%= System.get_env("COIN_NAME") || System.get_env("COIN") %> <%= gettext "Price" %>
-                  </span>
-            <div class="dashboard-banner-chart-legend-value-container">
-                    <span class="dashboard-banner-chart-legend-value inline" data-selector="exchange-rate" data-wei-value="<%= Explorer.Chain.Wei.from(Decimal.new(1), :ether).value %>" data-usd-exchange-rate="<%= @exchange_rate.usd_value %>">
-                    </span>
-            </div>
-          </div>
           <div class="dashboard-banner-chart-legend-item circulating-supply">
             <span class="dashboard-banner-chart-legend-label">
-              <%= gettext "Total Supply" %>
+              <%= gettext "Market Supply" %>
             </span>
                 <span class="dashboard-banner-chart-legend-value">
-                <% coin_supply = BlockScoutWeb.Cldr.Number.to_string!(@coin_supply, format: "#,###") %>
-                <%= coin_supply %>&nbsp;<%= System.get_env("COIN") %>
+                <% circulating_supply = BlockScoutWeb.Cldr.Number.to_string!(@circulating_supply, format: "#,###") %>
+                <%= circulating_supply %>&nbsp;<%= System.get_env("COIN") %>
             </span>
           </div>
           <div class="dashboard-banner-chart-legend-item market-cap-per-day">
@@ -83,36 +74,29 @@
                 </span>
             <div class="d-flex" style="height: 20px; line-height: 20px;">
                   <span style="display: contents;" class="dashboard-banner-chart-legend-value">
-                    $<%= BlockScoutWeb.Cldr.Number.to_string!(@coin_market_cap, format: "#,###") %>
+                    $<%= BlockScoutWeb.Cldr.Number.to_string!(@circulating_market_cap, format: "#,###") %>
                   </span>
             </div>
           </div>
-          <%= if Map.has_key?(@chart_config, :transactions) do %>
-
-            <% transaction_chart_config = @chart_config.transactions%>
-            <%= if Enum.member?(transaction_chart_config, :transactions_per_day) do %>
-            <div class="dashboard-banner-chart-legend-item tx-per-day">
-                <span class="dashboard-banner-chart-legend-label">
-                    <%= gettext "Daily Transactions" %>
+          <div class="dashboard-banner-chart-legend-item circulating-supply">
+            <span class="dashboard-banner-chart-legend-label">
+              <%= gettext "Max Supply" %>
+            </span>
+                <span class="dashboard-banner-chart-legend-value">
+                <% max_supply = BlockScoutWeb.Cldr.Number.to_string!(@max_supply, format: "#,###") %>
+                <%= max_supply %>&nbsp;<%= System.get_env("COIN") %>
+            </span>
+          </div>
+          <div class="dashboard-banner-chart-legend-item market-cap-per-day">
+              <span class="dashboard-banner-chart-legend-label">
+              <%= gettext "Total Mkt Cap" %>
+              </span>
+              <div class="d-flex" style="height: 20px; line-height: 20px;">
+                <span style="display: contents;" class="dashboard-banner-chart-legend-value">
+                  $<%= BlockScoutWeb.Cldr.Number.to_string!(@total_market_cap, format: "#,###") %>
                 </span>
-                <span class="dashboard-banner-chart-legend-value" data-selector="tx_per_day">
-                    <% num_of_transactions = BlockScoutWeb.Cldr.Number.to_string!(Enum.at(@transaction_stats, 0).number_of_transactions, format: "#,###") %>
-                    <%= num_of_transactions %>
-                    <% gas_used = Enum.at(@transaction_stats, 0).gas_used %>
-                    <%= if gas_used && gas_used > 0 do %>
-                      <span
-                        data-toggle="tooltip"
-                        data-placement="top"
-                        data-html="true"
-                        data-template="<div class='tooltip tooltip-inversed-color tooltip-gas-usage' role='tooltip'><div class='arrow'></div><div class='tooltip-inner'></div></div>"
-                        title="<div class='custom-tooltip-header'>Gas used</div><div class='custom-tooltip-description'><b><%= BlockScoutWeb.Cldr.Number.to_string!(gas_used, format: "#,###") %><b></div>">
-                        <i style="color: #ffffff;" class="fa fa-info-circle ml-1"></i>
-                      </span>
-                    <% end %>
-                </span>
-            </div>
-            <% end %>
-          <% end %>
+              </div>
+          </div>
         </div>
       </div>
       <!-- Stats -->
@@ -124,10 +108,9 @@
             <% average_block_time -> %>
               <div class="dashboard-banner-network-stats-item dashboard-banner-network-stats-item-1">
                 <span class="dashboard-banner-network-stats-label">
-                  <%= gettext "Average block time" %>
+                  <%= System.get_env("COIN_NAME") || System.get_env("COIN") %> <%= gettext "Current Price" %>
                 </span>
-                <span class="dashboard-banner-network-stats-value" data-selector="average-block-time">
-                  <%= Timex.format_duration(average_block_time, Explorer.Counters.AverageBlockTimeDurationFormat) %>
+                <span class="dashboard-banner-network-stats-value" data-selector="exchange-rate" data-wei-value="<%= Explorer.Chain.Wei.from(Decimal.new(1), :ether).value %>" data-usd-exchange-rate="<%= @exchange_rate.usd_value %>">
                 </span>
               </div>
           <% end %>

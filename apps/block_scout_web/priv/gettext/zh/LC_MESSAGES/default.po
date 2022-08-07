@@ -1512,7 +1512,7 @@ msgstr "主网"
 #: lib/block_scout_web/templates/layout/app.html.eex:49 lib/block_scout_web/templates/tokens/overview/_details.html.eex:98
 #: lib/block_scout_web/views/address_view.ex:142
 msgid "Market Cap"
-msgstr "市值"
+msgstr "流通市值"
 
 msgid "Total Supply"
 msgstr "总供应量"
@@ -3376,3 +3376,16 @@ msgstr "占比"
 
 msgid "Token name or symbol"
 msgstr "币种名称"
+
+msgid "Max Supply"
+msgstr "最大供应量"
+
+msgid "Market Supply"
+msgstr "流通量"
+
+msgid "Total Mkt Cap"
+msgstr "总市值"
+
+msgid "Current Price"
+msgstr "当前价格"
+
