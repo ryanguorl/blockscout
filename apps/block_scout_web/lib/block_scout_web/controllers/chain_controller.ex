@@ -42,6 +42,8 @@ defmodule BlockScoutWeb.ChainController do
 
     exchange_rate = Market.get_exchange_rate(Explorer.coin()) || Token.null()
 
+    coin_market_cap = Decimal.round(Decimal.mult(coin_supply, exchange_rate.usd_value))
+
     transaction_stats = get_transaction_stats()
 
     chart_data_paths = %{
@@ -67,7 +69,8 @@ defmodule BlockScoutWeb.ChainController do
       transaction_stats: transaction_stats,
       block_count: block_count,
       gas_price: Application.get_env(:block_scout_web, :gas_price),
-      coin_supply: coin_supply
+      coin_supply: coin_supply,
+      coin_market_cap: coin_market_cap
     )
   end
 
