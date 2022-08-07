@@ -2713,11 +2713,6 @@ msgid "Total gas limit provided by all transactions in the block."
 msgstr ""
 
 #, elixir-format
-#: lib/block_scout_web/templates/tokens/overview/_details.html.eex:83
-msgid "Total supply"
-msgstr ""
-
-#, elixir-format
 #: lib/block_scout_web/templates/transaction/overview.html.eex:337
 msgid "Total transaction fee."
 msgstr ""
@@ -3298,11 +3293,6 @@ msgstr ""
 #, elixir-format
 #: lib/block_scout_web/templates/common_components/_pagination_container.html.eex:41
 msgid "of"
-msgstr ""
-
-#, elixir-format
-#: lib/block_scout_web/templates/smart_contract/_functions.html.eex:16
-msgid "page"
 msgstr ""
 
 #, elixir-format

@@ -52,7 +52,7 @@ msgstr "%{block_type}高度"
 #, elixir-format
 #: lib/block_scout_web/templates/block/index.html.eex:7
 msgid "%{block_type}s"
-msgstr ""
+msgstr "区块"
 
 #, elixir-format
 #: lib/block_scout_web/templates/block/overview.html.eex:85
@@ -577,7 +577,7 @@ msgstr "代码"
 #: lib/block_scout_web/templates/address/_tabs.html.eex:34
 #: lib/block_scout_web/views/address_view.ex:370
 msgid "Coin Balance History"
-msgstr "币种余额历史"
+msgstr "余额历史"
 
 #, elixir-format
 #: lib/block_scout_web/templates/transaction/_decoded_input_body.html.eex:55
@@ -602,12 +602,12 @@ msgstr "已确认"
 #, elixir-format
 #: lib/block_scout_web/templates/transaction/overview.html.eex:118
 msgid "Confirmed by "
-msgstr "确认由"
+msgstr "确认数"
 
 #, elixir-format
 #: lib/block_scout_web/templates/transaction/overview.html.eex:184
 msgid "Confirmed within"
-msgstr "确认在"
+msgstr "确认于"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address_contract_verification/new.html.eex:2
@@ -1210,7 +1210,7 @@ msgstr "论坛"
 #: lib/block_scout_web/templates/transaction/overview.html.eex:194 lib/block_scout_web/views/address_internal_transaction_view.ex:10
 #: lib/block_scout_web/views/address_token_transfer_view.ex:10 lib/block_scout_web/views/address_transaction_view.ex:10
 msgid "From"
-msgstr "从"
+msgstr "出账"
 
 #, elixir-format
 #: lib/block_scout_web/templates/api_docs/_action_tile.html.eex:18
@@ -1221,7 +1221,7 @@ msgstr ""
 #: lib/block_scout_web/templates/block/_tile.html.eex:67
 #: lib/block_scout_web/templates/block/overview.html.eex:187 lib/block_scout_web/templates/transaction/overview.html.eex:373
 msgid "Gas Limit"
-msgstr "Gas限制"
+msgstr "Gas上限"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address/overview.html.eex:256
@@ -1232,7 +1232,7 @@ msgstr "已使用Gas"
 #, elixir-format
 #: lib/block_scout_web/templates/transaction/overview.html.eex:426
 msgid "Gas Used by Transaction"
-msgstr "交易使用Gas"
+msgstr "Gas消耗"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address/overview.html.eex:255
@@ -1307,7 +1307,7 @@ msgstr "重要: 该信息是基于已验证合约接口的最好评估"
 #: lib/block_scout_web/templates/internal_transaction/_tile.html.eex:42
 #: lib/block_scout_web/templates/transaction/_tile.html.eex:86
 msgid "IN"
-msgstr "在"
+msgstr "进账"
 
 #, elixir-format
 #: lib/block_scout_web/templates/transaction/not_found.html.eex:26
@@ -1406,7 +1406,7 @@ msgstr "JSON RPC错误"
 #, elixir-format
 #: lib/block_scout_web/templates/address/overview.html.eex:274
 msgid "Last Balance Update"
-msgstr "上次余额更新"
+msgstr "最近更新区块"
 
 #, elixir-format
 #: lib/block_scout_web/templates/layout/app.html.eex:48
@@ -1515,7 +1515,7 @@ msgid "Market Cap"
 msgstr "市值"
 
 msgid "Total Supply"
-msgstr "供应总量"
+msgstr "总供应量"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_modal_move.html.eex:42
@@ -1738,12 +1738,12 @@ msgstr "从该地址进出的转账次数"
 #: lib/block_scout_web/templates/internal_transaction/_tile.html.eex:40
 #: lib/block_scout_web/templates/transaction/_tile.html.eex:82
 msgid "OUT"
-msgstr "出"
+msgstr "出账"
 
 #, elixir-format
 #: lib/block_scout_web/templates/common_components/_rap_pagination_container.html.eex:13
 msgid "Only the first"
-msgstr "仅首次"
+msgstr "仅前"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address_contract/index.html.eex:61
@@ -1916,18 +1916,18 @@ msgstr "询问"
 #, elixir-format
 #: lib/block_scout_web/templates/layout/_topnav.html.eex:133
 msgid "RPC"
-msgstr "RPC接口"
+msgstr "RPC文档"
 
 #, elixir-format
 #: lib/block_scout_web/templates/transaction/overview.html.eex:447
 msgid "Raw Input"
-msgstr "原始输入"
+msgstr "输入值"
 
 #, elixir-format
 #: lib/block_scout_web/templates/transaction/_tabs.html.eex:24
 #: lib/block_scout_web/templates/transaction_raw_trace/index.html.eex:7 lib/block_scout_web/views/transaction_view.ex:514
 msgid "Raw Trace"
-msgstr "原始追踪"
+msgstr "追踪"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address/_tabs.html.eex:81
@@ -2558,7 +2558,7 @@ msgstr "时间戳"
 #: lib/block_scout_web/templates/transaction/overview.html.eex:217 lib/block_scout_web/views/address_internal_transaction_view.ex:9
 #: lib/block_scout_web/views/address_token_transfer_view.ex:9 lib/block_scout_web/views/address_transaction_view.ex:9
 msgid "To"
-msgstr "到"
+msgstr "进账"
 
 #, elixir-format
 #: lib/block_scout_web/templates/transaction/_decoded_input.html.eex:20
@@ -2569,7 +2569,7 @@ msgstr "通过以上链接验证合约源码"
 #: lib/block_scout_web/templates/address_logs/_logs.html.eex:6
 #: lib/block_scout_web/templates/transaction/_decoded_input.html.eex:8 lib/block_scout_web/templates/transaction_log/_logs.html.eex:6
 msgid "To see accurate decoded input data, the contract must be verified."
-msgstr "只可查看已验证合约的解码输入数据"
+msgstr "只可查看已验证合约的输入数据。"
 
 #, elixir-format
 #: lib/block_scout_web/templates/layout/_topnav.html.eex:13
@@ -2712,10 +2712,6 @@ msgstr "最新出块难度"
 msgid "Total gas limit provided by all transactions in the block."
 msgstr "该区块所有交易提供的总gas限制"
 
-#, elixir-format
-#: lib/block_scout_web/templates/tokens/overview/_details.html.eex:83
-msgid "Total supply"
-msgstr "供应总量"
 
 #, elixir-format
 #: lib/block_scout_web/templates/transaction/overview.html.eex:337
@@ -2725,7 +2721,7 @@ msgstr "总交易费。"
 #, elixir-format
 #: lib/block_scout_web/templates/chain/show.html.eex:124
 msgid "Total transactions"
-msgstr "交易总数"
+msgstr "总交易数"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_top.html.eex:52
@@ -2807,7 +2803,7 @@ msgstr "交易及创建地址"
 #, elixir-format
 #: lib/block_scout_web/templates/address/_tile.html.eex:31
 msgid "Transactions sent"
-msgstr "已发送交易"
+msgstr "交易"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address/overview.html.eex:229
@@ -2867,7 +2863,7 @@ msgstr "上层奖励"
 #: lib/block_scout_web/templates/block/overview.html.eex:250
 #: lib/block_scout_web/templates/layout/_topnav.html.eex:31
 msgid "Uncles"
-msgstr "上层"
+msgstr "旁支"
 
 #, elixir-format
 #: lib/block_scout_web/views/transaction_view.ex:341
@@ -3037,12 +3033,12 @@ msgstr "查看合约"
 #, elixir-format
 #: lib/block_scout_web/templates/transaction/_tile.html.eex:67
 msgid "View Less Transfers"
-msgstr "显示更少转账"
+msgstr "显示更少"
 
 #, elixir-format
 #: lib/block_scout_web/templates/transaction/_tile.html.eex:66
 msgid "View More Transfers"
-msgstr "显示更多转账"
+msgstr "显示更多"
 
 #, elixir-format
 #: lib/block_scout_web/templates/block/overview.html.eex:39
@@ -3087,7 +3083,7 @@ msgstr "等待交易确认。。。"
 #, elixir-format
 #: lib/block_scout_web/templates/chain/show.html.eex:153
 msgid "Wallet addresses"
-msgstr "地址总数"
+msgstr "总地址数"
 
 #, elixir-format
 #: lib/block_scout_web/templates/common_components/_changed_bytecode_warning.html.eex:3
@@ -3262,7 +3258,7 @@ msgstr "自定义RPC"
 #, elixir-format
 #: lib/block_scout_web/templates/common_components/_rap_pagination_container.html.eex:13
 msgid "elements are displayed"
-msgstr "元素已显示"
+msgstr "条记录"
 
 #, elixir-format
 #: lib/block_scout_web/templates/smart_contract/_functions.html.eex:41
@@ -3299,11 +3295,6 @@ msgstr "返回"
 #: lib/block_scout_web/templates/common_components/_pagination_container.html.eex:41
 msgid "of"
 msgstr "的"
-
-#, elixir-format
-#: lib/block_scout_web/templates/smart_contract/_functions.html.eex:16
-msgid "page"
-msgstr "页"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_modal_delegators_list.html.eex:20
@@ -3356,7 +3347,7 @@ msgstr "平均"
 #, elixir-format
 #: lib/block_scout_web/templates/chain/show.html.eex:84
 msgid "Daily Transactions"
-msgstr "每日交易"
+msgstr "24h交易数"
 
 #, elixir-format
 #: lib/block_scout_web/templates/chain/gas_price_oracle_legend_item.html.eex:22
@@ -3373,3 +3364,15 @@ msgstr "Gas价格"
 #: lib/block_scout_web/templates/chain/gas_price_oracle_legend_item.html.eex:20
 msgid "Slow"
 msgstr "慢"
+
+msgid "Holders Count"
+msgstr "持有地址数"
+
+msgid "Txn Count"
+msgstr "交易数"
+
+msgid "Percentage"
+msgstr "占比"
+
+msgid "Token name or symbol"
+msgstr "币种名称"
