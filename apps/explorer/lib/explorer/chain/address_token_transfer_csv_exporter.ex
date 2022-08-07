@@ -4,7 +4,7 @@ defmodule Explorer.Chain.AddressTokenTransferCsvExporter do
   """
 
   alias Explorer.{Chain, PagingOptions}
-  alias Explorer.Chain.{Address, TokenTransfer}
+  alias Explorer.Chain.{Address, TokenTransfer, Wei}
   alias NimbleCSV.RFC4180
 
   @page_size 150
@@ -75,7 +75,7 @@ defmodule Explorer.Chain.AddressTokenTransferCsvExporter do
           token_transfer.token_contract_address_hash |> to_string() |> String.downcase(),
           type(token_transfer, address.hash),
           token_transfer.token.symbol,
-          Wei.to(token_transfer.amount, :ether),
+          %Wei{value: Decimal.new(token_transfer.amount)} |> Wei.to(:ether),
           fee(token_transfer.transaction),
           token_transfer.transaction.status,
           token_transfer.transaction.error
