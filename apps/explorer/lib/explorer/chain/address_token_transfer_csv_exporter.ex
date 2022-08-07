@@ -75,7 +75,7 @@ defmodule Explorer.Chain.AddressTokenTransferCsvExporter do
           token_transfer.token_contract_address_hash |> to_string() |> String.downcase(),
           type(token_transfer, address.hash),
           token_transfer.token.symbol,
-          token_transfer.amount,
+          Wei.to(token_transfer.amount, :ether),
           fee(token_transfer.transaction),
           token_transfer.transaction.status,
           token_transfer.transaction.error
@@ -93,7 +93,7 @@ defmodule Explorer.Chain.AddressTokenTransferCsvExporter do
 
   defp fee(transaction) do
     transaction
-    |> Chain.fee(:wei)
+    |> Chain.fee(:ether)
     |> case do
       {:actual, value} -> value
       {:maximum, value} -> "Max of #{value}"
