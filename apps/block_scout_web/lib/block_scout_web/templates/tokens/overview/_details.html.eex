@@ -80,7 +80,7 @@
               <dt class="col-sm-4 col-md-4 col-lg-3 text-muted">
                 <%= render BlockScoutWeb.CommonComponentsView, "_i_tooltip_2.html",
                 text: gettext("The total amount of tokens issued") %>
-                <%= gettext("Total supply") %>
+                <%= gettext("Total Supply") %>
               </dt>
               <dd class="col-sm-8 col-md-8 col-lg-9">
                 <%= if decimals?(@token) do %>

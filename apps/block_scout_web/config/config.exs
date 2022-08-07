@@ -111,7 +111,11 @@ config :block_scout_web, BlockScoutWeb.Tracer,
   trace_key: :blockscout
 
 # Configures gettext
-config :block_scout_web, BlockScoutWeb.Gettext, locales: ~w(en), default_locale: "en"
+config :block_scout_web, BlockScoutWeb.Gettext, locales: ~w(en zh), default_locale: "en"
+
+config :ex_cldr,
+       default_locale: "en",
+       default_backend: BlockScoutWeb.Cldr
 
 config :block_scout_web, BlockScoutWeb.SocialMedia,
   twitter: "PoaNetwork",

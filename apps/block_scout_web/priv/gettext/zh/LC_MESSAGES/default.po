@@ -2,161 +2,161 @@
 #: lib/block_scout_web/templates/stakes/_stakes_top.html.eex:6
 msgid "%{blocks} block"
 msgid_plural "%{blocks} blocks"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%{blocks}区块"
+msgstr[1] "{blocks}区块"
 
 #, elixir-format
 #: lib/block_scout_web/views/address_token_balance_view.ex:10
 msgid "%{count} token"
 msgid_plural "%{count} tokens"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%{count}代币"
+msgstr[1] "%{count}代币"
 
 #, elixir-format
 #: lib/block_scout_web/templates/block/_tile.html.eex:29
 msgid "%{count} transaction"
 msgid_plural "%{count} transactions"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%{count} 交易"
+msgstr[1] "%{count} 交易"
 
 #, elixir-format
 #: lib/block_scout_web/templates/common_components/_minimal_proxy_pattern.html.eex:9
 msgid " - minimal bytecode implementation that delegates all calls to a known address"
-msgstr ""
+msgstr " - 对已知地址委托调用所需的最少字节码"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_modal_delegators_list.html.eex:43
 msgid " Working Stake Amount is an amount which is accounted and working at the current staking epoch."
-msgstr ""
+msgstr " 质押数额指在现有工作状态下质押的数额统计"
 
 #, elixir-format
 #: lib/block_scout_web/templates/api_docs/eth_rpc.html.eex:14
 msgid " is recommended."
-msgstr ""
+msgstr " 被推荐"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address/_metatags.html.eex:3
 msgid "%{address} - %{subnetwork} Explorer"
-msgstr ""
+msgstr "%{address} - %{subnetwork}浏览器"
 
 #, elixir-format
 #: lib/block_scout_web/templates/block/overview.html.eex:12
 msgid "%{block_type} Details"
-msgstr ""
+msgstr "%{block_type}明细"
 
 #, elixir-format
 #: lib/block_scout_web/templates/block/overview.html.eex:55
 msgid "%{block_type} Height"
-msgstr ""
+msgstr "%{block_type}高度"
 
 #, elixir-format
 #: lib/block_scout_web/templates/block/index.html.eex:7
 msgid "%{block_type}s"
-msgstr ""
+msgstr "区块"
 
 #, elixir-format
 #: lib/block_scout_web/templates/block/overview.html.eex:85
 msgid "%{count} Transaction"
-msgstr ""
+msgstr "%{count} 交易"
 
 #, elixir-format
 #: lib/block_scout_web/templates/block/overview.html.eex:87
 #: lib/block_scout_web/templates/chain/_block.html.eex:11
 msgid "%{count} Transactions"
-msgstr ""
+msgstr "%{count} 交易"
 
 #, elixir-format
 #: lib/block_scout_web/templates/chain/_metatags.html.eex:2
 msgid "%{subnetwork} %{network} Explorer"
-msgstr ""
+msgstr "%{subnetwork} %{network}浏览器"
 
 #, elixir-format
 #: lib/block_scout_web/templates/layout/_default_title.html.eex:2
 msgid "%{subnetwork} Explorer - BlockScout"
-msgstr ""
+msgstr "%{subnetwork}浏览器 - 光环"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_metatags.html.eex:2
 msgid "%{subnetwork} Staking DApp - BlockScout"
-msgstr ""
+msgstr "%{subnetwork}质押DApp - 光环"
 
 #, elixir-format
 #: lib/block_scout_web/views/transaction_view.ex:349
 msgid "(Awaiting internal transactions for status)"
-msgstr ""
+msgstr "(等待内部交易状态)"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_rows.html.eex:26
 #: lib/block_scout_web/templates/stakes/_stakes_progress.html.eex:27
 msgid "(inactive pool)"
-msgstr ""
+msgstr "(已下线池)"
 
 #, elixir-format
 #: lib/block_scout_web/templates/api_docs/_action_tile.html.eex:59
 #: lib/block_scout_web/templates/api_docs/_action_tile.html.eex:70 lib/block_scout_web/templates/api_docs/_action_tile.html.eex:82
 #: lib/block_scout_web/templates/api_docs/_action_tile.html.eex:104
 msgid "(query)"
-msgstr ""
+msgstr "(查询)"
 
 #, elixir-format
 #: lib/block_scout_web/templates/layout/app.html.eex:226
 msgid "- We're indexing this chain right now. Some of the counts may be inaccurate."
-msgstr ""
+msgstr "- 主链索引进行中，有些统计可能不精确。"
 
 #, elixir-format
 #: lib/block_scout_web/templates/block/overview.html.eex:195
 msgid "64-bit hash of value verifying proof-of-work (note: null for POA chains)."
-msgstr ""
+msgstr "64位哈希值正在校验POW"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_modal_withdraw.html.eex:76
 msgid "<p>Pending stake (stake placed on a candidate pool or placed during the current staking epoch) may be withdrawn now.</p>\n        <p>Active stake (stake available after the current epoch) can be ordered for withdrawal from the pool, and will be available to claim after the current staking epoch is complete.</p>\n        <p>If you have already ordered (and the staking window is still open), you may increase your current order by entering a positive value, or decrease your current order by entering a negative value in the box and clicking 'Order Withdrawal'. You must either keep the minimum stake amount in the pool, or order your entire stake for withdrawal.</p>\n"
-msgstr ""
+msgstr "<p>等待质押(当下候选池子的质押)可以现在取出。</p>\n        <p>活跃质押(稍后可用的质押)可以预订取出, 并在随后可以领取。</p>\n        <p>如果你已预订, 你可以通过点击'订单取出'增加或者减少预订数额. 你必须保持池子最低质押数额, 或者取出所有质押。</p>\n"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_modal_become_candidate.html.eex:36
 msgid "<p>To become a candidate, your staking address must be funded with %{tokenSymbol} tokens <strong>and</strong> %{coinSymbol} coins, and your OpenEthereum node must be active and configured with the mining address you specify here.</p>\n      <p>To become a delegator, close this window and select an address from the list of pools you would like to place stake on. Click the <strong>Stake</strong> button next to the address to begin the process.</p>"
-msgstr ""
+msgstr "<p>要成为候选者, 你的质押地址中必须包含%{tokenSymbol}代币<strong>以及</strong> %{coinSymbol}币种, 并且在节点上你必须配置好挖矿地址并保持活跃。</p>\n      <p>要成为委托人, 关闭窗口并在池子列表中选择你要质押的地址。 点击地址旁边的<strong>质押</strong>按钮，以继续。</p>"
 
 #, elixir-format
 #: lib/block_scout_web/templates/block/overview.html.eex:97
 msgid "A block producer who successfully included the block onto the blockchain."
-msgstr ""
+msgstr "成功将区块导入主网的矿工"
 
 #, elixir-format
 #: lib/block_scout_web/templates/api_docs/_action_tile.html.eex:73
 msgid "A string with the name of the action to be invoked."
-msgstr ""
+msgstr "调用操作中的String名称"
 
 #, elixir-format
 #: lib/block_scout_web/templates/api_docs/_action_tile.html.eex:62
 msgid "A string with the name of the module to be invoked."
-msgstr ""
+msgstr "调用模块中的String名称"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address_contract_verification_common_fields/_constructor_args.html.eex:3
 msgid "ABI-encoded Constructor Arguments (if required by the contract)"
-msgstr ""
+msgstr "ABI-编码参量"
 
 #, elixir-format
 #: lib/block_scout_web/templates/api_docs/index.html.eex:4
 msgid "API Documentation"
-msgstr ""
+msgstr "API文档"
 
 #, elixir-format
 #: lib/block_scout_web/templates/api_docs/_metatags.html.eex:4
 msgid "API endpoints for the %{subnetwork}"
-msgstr ""
+msgstr "API端点 - %{subnetwork}"
 
 #, elixir-format
 #: lib/block_scout_web/templates/api_docs/_metatags.html.eex:2
 msgid "API for the %{subnetwork} - BlockScout"
-msgstr ""
+msgstr "API接口 %{subnetwork} - 光环"
 
 #, elixir-format
 #: lib/block_scout_web/templates/layout/_topnav.html.eex:124
 msgid "APIs"
-msgstr ""
+msgstr "接口文档"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_table.html.eex:39
@@ -166,53 +166,53 @@ msgstr ""
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_modal_delegators_list.html.eex:79
 msgid "APY & Predicted Reward"
-msgstr ""
+msgstr "APY和预期奖励"
 
 #, elixir-format
 #: lib/block_scout_web/templates/api_docs/_action_tile.html.eex:69
 msgid "Action"
-msgstr ""
+msgstr "操作"
 
 #, elixir-format
 #: lib/block_scout_web/templates/transaction/overview.html.eex:425
 msgid "Actual gas amount used by the transaction."
-msgstr ""
+msgstr "交易实际使用gas。"
 
 #, elixir-format
 #: lib/block_scout_web/templates/layout/_footer.html.eex:44
 msgid "Add"
-msgstr ""
+msgstr "添加"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address/_validator_metadata_modal.html.eex:16
 #: lib/block_scout_web/templates/transaction_log/_logs.html.eex:20 lib/block_scout_web/views/address_view.ex:104
 msgid "Address"
-msgstr ""
+msgstr "地址"
 
 #, elixir-format
 #: lib/block_scout_web/templates/transaction/overview.html.eex:213
 msgid "Address (external or contract) receiving the transaction."
-msgstr ""
+msgstr "收到交易的地址。"
 
 #, elixir-format
 #: lib/block_scout_web/templates/transaction/overview.html.eex:193
 msgid "Address (external or contract) sending the transaction."
-msgstr ""
+msgstr "发起交易的地址。"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address/overview.html.eex:165
 msgid "Address balance in xDAI (doesn't include ERC20, ERC721, ERC1155 tokens)."
-msgstr ""
+msgstr "地址余额。"
 
 #, elixir-format
 #: lib/block_scout_web/templates/tokens/overview/_details.html.eex:65
 msgid "Address of the token contract"
-msgstr ""
+msgstr "代币合约地址"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address/index.html.eex:5
 msgid "Addresses"
-msgstr ""
+msgstr "地址"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address_internal_transaction/index.html.eex:26
@@ -221,249 +221,249 @@ msgstr ""
 #: lib/block_scout_web/templates/layout/_topnav.html.eex:105 lib/block_scout_web/views/address_internal_transaction_view.ex:11
 #: lib/block_scout_web/views/address_token_transfer_view.ex:11 lib/block_scout_web/views/address_transaction_view.ex:11
 msgid "All"
-msgstr ""
+msgstr "所有"
 
 #, elixir-format
 #: lib/block_scout_web/templates/smart_contract/_functions.html.eex:13
 msgid "All functions displayed below are from ABI of that contract. In order to verify current contract, proceed with"
-msgstr ""
+msgstr "如下所有接口来自该合约ABI。为了验证该合约，请继续"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address_contract/index.html.eex:27
 msgid "All metadata displayed below is from that contract. In order to verify current contract, click"
-msgstr ""
+msgstr "如下所有数据来自该合约。点击验证该合约。"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_modal_delegators_list.html.eex:27
 msgid "All pool participant addresses. The top address belongs to the %{pool_type}."
-msgstr ""
+msgstr "所有池子参与地址。头部地址属于%{pool_type}。"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address/overview.html.eex:190
 msgid "All tokens in the account and total value."
-msgstr ""
+msgstr "账户中的代币以及价值"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_modal_withdraw.html.eex:27
 msgid "Already Ordered:"
-msgstr ""
+msgstr "已排序:"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_modal_become_candidate.html.eex:10 lib/block_scout_web/templates/stakes/_stakes_modal_move.html.eex:14
 #: lib/block_scout_web/templates/stakes/_stakes_modal_stake.html.eex:11 lib/block_scout_web/templates/stakes/_stakes_modal_withdraw.html.eex:11
 msgid "Amount"
-msgstr ""
+msgstr "数额"
 
 #, elixir-format
 #: lib/block_scout_web/templates/transaction/overview.html.eex:411
 msgid "Amount of"
-msgstr ""
+msgstr "数额"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_modal_delegators_list.html.eex:41
 msgid "Amount of %{symbol} placed by an address."
-msgstr ""
+msgstr "地址中执行的%{symbol}数额。"
 
 #, elixir-format
 #: lib/block_scout_web/templates/block/overview.html.eex:236
 msgid "Amount of distributed reward. Miners receive a static block reward + Tx fees + uncle fees."
-msgstr ""
+msgstr "已分发奖励数额。挖矿者获得固定比例奖励和费用。"
 
 #, elixir-format
 #: lib/block_scout_web/templates/api_docs/eth_rpc.html.eex:15
 msgid "Anything not in this list is not supported. Click on the method to be taken to the documentation for that method, and check the notes section for any potential differences."
-msgstr ""
+msgstr "不支持未出现在列表中的内容。点击该方法跳至文档，对于可能的差异请检查注解"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_modal_delegators_list.html.eex:80
 msgid "Approximate Current Annual Percentage Yield. If you see N/A, please reopen the popup in a few blocks (APY cannot be calculated at the very beginning of a staking epoch). Predicted Reward is the amount of %{symbol} a participant will receive for staking and can claim once the current epoch ends."
-msgstr ""
+msgstr "预估年化收益。如果显示为N/A，请稍后在新的弹窗打开"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_table.html.eex:39
 msgid "Approximate Current Annual Percentage Yield. If you see N/A, please wait for a few blocks (APY cannot be calculated at the very beginning of a staking epoch)."
-msgstr ""
+msgstr "预估年化收益。如果显示为N/A，请等待新区块产生"
 
 #, elixir-format
 #: lib/block_scout_web/templates/layout/_topnav.html.eex:152
 msgid "Apps"
-msgstr ""
+msgstr "应用"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_modal_withdraw.html.eex:48
 msgid "Available Now:"
-msgstr ""
+msgstr "可用:"
 
 #, elixir-format
 #: lib/block_scout_web/templates/chain/show.html.eex:115
 msgid "Average block time"
-msgstr ""
+msgstr "出块时间"
 
 #, elixir-format
 #: lib/block_scout_web/templates/transaction/not_found.html.eex:30
 msgid "Back Home"
-msgstr ""
+msgstr "返回主页"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address/overview.html.eex:166
 #: lib/block_scout_web/templates/address_token/overview.html.eex:51 lib/block_scout_web/templates/stakes/_stakes_stats_item_account.html.eex:42
 #: lib/block_scout_web/templates/stakes/_stakes_stats_item_account.html.eex:43
 msgid "Balance"
-msgstr ""
+msgstr "余额"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address_coin_balance/index.html.eex:14
 msgid "Balances"
-msgstr ""
+msgstr "余额"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_table.html.eex:32
 msgid "Banned"
-msgstr ""
+msgstr "封禁"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_rows.html.eex:46
 msgid "Banned until block #%{banned_until} (%{estimated_unban_day})"
-msgstr ""
+msgstr "封禁直至区块#%{banned_until} (%{estimated_unban_day})"
 
 #, elixir-format
 #: lib/block_scout_web/templates/block/overview.html.eex:207
 msgid "Base Fee per Gas"
-msgstr ""
+msgstr "Gas基础费用"
 
 #, elixir-format
 #: lib/block_scout_web/templates/api_docs/eth_rpc.html.eex:5
 #: lib/block_scout_web/templates/api_docs/index.html.eex:5
 msgid "Base URL:"
-msgstr ""
+msgstr "基础链接:"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_empty_content.html.eex:13
 #: lib/block_scout_web/templates/stakes/_stakes_modal_become_candidate.html.eex:5
 #: lib/block_scout_web/templates/stakes/_stakes_modal_become_candidate.html.eex:33 lib/block_scout_web/templates/stakes/_stakes_top.html.eex:24
 msgid "Become a Candidate"
-msgstr ""
+msgstr "成为候选"
 
 #, elixir-format
 #: lib/block_scout_web/templates/transaction/overview.html.eex:446
 msgid "Binary data included with the transaction. See input / logs below for additional info."
-msgstr ""
+msgstr "交易包括二进制数据，在输入/日志中查询额外信息"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address_coin_balance/_coin_balances.html.eex:8
 #: lib/block_scout_web/templates/block/overview.html.eex:29 lib/block_scout_web/templates/transaction/overview.html.eex:152
 msgid "Block"
-msgstr ""
+msgstr "区块"
 
 #, elixir-format
 #: lib/block_scout_web/templates/block/_link.html.eex:2
 #: lib/block_scout_web/templates/internal_transaction/_tile.html.eex:32 lib/block_scout_web/templates/tokens/transfer/_token_transfer.html.eex:43
 msgid "Block #%{number}"
-msgstr ""
+msgstr "区块 #%{number}"
 
 #, elixir-format
 #: lib/block_scout_web/templates/block/_metatags.html.eex:3
 msgid "Block %{block_number} - %{subnetwork} Explorer"
-msgstr ""
+msgstr "区块 %{block_number} - %{subnetwork}浏览器"
 
 #, elixir-format
 #: lib/block_scout_web/templates/block_transaction/404.html.eex:7
 msgid "Block Details"
-msgstr ""
+msgstr "区块明细"
 
 #, elixir-format
 #: lib/block_scout_web/templates/block/overview.html.eex:53
 msgid "Block Height"
-msgstr ""
+msgstr "区块高度"
 
 #, elixir-format
 #: lib/block_scout_web/templates/layout/app.html.eex:46
 msgid "Block Mined, awaiting import..."
-msgstr ""
+msgstr "区块已挖出，等待导入"
 
 #, elixir-format
 #: lib/block_scout_web/views/transaction_view.ex:33
 msgid "Block Pending"
-msgstr ""
+msgstr "区块确认中"
 
 #, elixir-format
 #: lib/block_scout_web/templates/block/overview.html.eex:158
 msgid "Block difficulty for miner, used to calibrate block generation time (Note: constant in POA based networks)."
-msgstr ""
+msgstr "挖矿的难度，会用于校对出块时间"
 
 #, elixir-format
 #: lib/block_scout_web/views/block_transaction_view.ex:15
 msgid "Block not found, please try again later."
-msgstr ""
+msgstr "未找到区块，请稍后尝试"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_top.html.eex:5
 msgid "Block number"
-msgstr ""
+msgstr "区块高度"
 
 #, elixir-format
 #: lib/block_scout_web/templates/transaction/overview.html.eex:151
 msgid "Block number containing the transaction."
-msgstr ""
+msgstr "包含交易的区块高度"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address/overview.html.eex:273
 msgid "Block number in which the address was updated."
-msgstr ""
+msgstr "地址更新的区块高度"
 
 #, elixir-format
 #: lib/block_scout_web/templates/chain/_metatags.html.eex:4
 msgid "BlockScout provides analytics data, API, and Smart Contract tools for the %{subnetwork}"
-msgstr ""
+msgstr "光环浏览器对%{subnetwork}提供数据分析，API，智能合约工具"
 
 #, elixir-format
 #: lib/block_scout_web/templates/chain/show.html.eex:168
 #: lib/block_scout_web/templates/layout/_topnav.html.eex:24 lib/block_scout_web/templates/layout/_topnav.html.eex:28
 msgid "Blocks"
-msgstr ""
+msgstr "区块"
 
 #, elixir-format
 #: lib/block_scout_web/templates/layout/app.html.eex:45
 msgid "Blocks Indexed"
-msgstr ""
+msgstr "区块已加索引"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address/_tabs.html.eex:48
 #: lib/block_scout_web/templates/address/overview.html.eex:291 lib/block_scout_web/templates/address_validation/index.html.eex:11
 #: lib/block_scout_web/views/address_view.ex:371
 msgid "Blocks Validated"
-msgstr ""
+msgstr "区块已校验"
 
 #, elixir-format
 #: lib/block_scout_web/templates/layout/_footer.html.eex:22
 msgid "Blockscout is a tool for inspecting and analyzing EVM based blockchains. Blockchain explorer for Ethereum Networks."
-msgstr ""
+msgstr "光环浏览器是基于EVM，用于检查和分析区块链的工具。以太坊网络的区块链浏览器。"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_top.html.eex:45
 msgid "Bridge STAKE to Ethereum"
-msgstr ""
+msgstr "跨链质押到以太主网"
 
 #, elixir-format
 #: lib/block_scout_web/templates/bridged_tokens/index.html.eex:7
 msgid "Bridged Tokens from "
-msgstr ""
+msgstr "跨链代币从"
 
 #, elixir-format
 #: lib/block_scout_web/templates/layout/_topnav.html.eex:84
 msgid "Bridged from BSC"
-msgstr ""
+msgstr "从币安主网跨链"
 
 #, elixir-format
 #: lib/block_scout_web/templates/layout/_topnav.html.eex:78
 msgid "Bridged from Ethereum"
-msgstr ""
+msgstr "从以太主网跨链"
 
 #, elixir-format
 #: lib/block_scout_web/templates/block/_tile.html.eex:64
 #: lib/block_scout_web/templates/block/overview.html.eex:216
 msgid "Burnt Fees"
-msgstr ""
+msgstr "销毁费用"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address_token/overview.html.eex:65
@@ -479,12 +479,12 @@ msgstr ""
 #: lib/block_scout_web/templates/transaction/_decoded_input_body.html.eex:10
 #: lib/block_scout_web/views/internal_transaction_view.ex:21
 msgid "Call"
-msgstr ""
+msgstr "调用"
 
 #, elixir-format
 #: lib/block_scout_web/views/internal_transaction_view.ex:22
 msgid "Call Code"
-msgstr ""
+msgstr "调用代码"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address_contract_verification/new.html.eex:105
@@ -494,76 +494,76 @@ msgstr ""
 #: lib/block_scout_web/templates/address_contract_verification_vyper/new.html.eex:51 lib/block_scout_web/templates/api_docs/_action_tile.html.eex:47
 #: lib/block_scout_web/templates/api_docs/_eth_rpc_item.html.eex:54
 msgid "Cancel"
-msgstr ""
+msgstr "取消"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_table.html.eex:10
 msgid "Candidate and Validator Pool Addresses. Current validator pools are specified by a checkmark."
-msgstr ""
+msgstr "候选和验证池子地址。现有验证池由checkmark确认"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_modal_pool_info.html.eex:47
 msgid "Candidate’s Staked Amount"
-msgstr ""
+msgstr "候选者质押数量"
 
 #, elixir-format
 #: lib/block_scout_web/templates/layout/_network_selector.html.eex:11
 msgid "Change Network"
-msgstr ""
+msgstr "切换网络"
 
 #, elixir-format
 #: lib/block_scout_web/templates/layout/_footer.html.eex:41
 msgid "Chat (#blockscout)"
-msgstr ""
+msgstr "在线交谈"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_modal_claim_reward_content.html.eex:6
 msgid "Choose Pool"
-msgstr ""
+msgstr "选择池子"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_modal_move.html.eex:22
 msgid "Choose Target Pool"
-msgstr ""
+msgstr "选择目标池子"
 
 #, elixir-format
 #: lib/block_scout_web/views/block_view.ex:63
 msgid "Chore Reward"
-msgstr ""
+msgstr "额外奖励"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_modal_claim_withdrawal.html.eex:7
 msgid "Claim Ordered Withdraw"
-msgstr ""
+msgstr "获得预订提取"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_modal_claim_reward.html.eex:6
 #: lib/block_scout_web/templates/stakes/_stakes_modal_claim_reward_content.html.eex:59 lib/block_scout_web/templates/stakes/_stakes_top.html.eex:30
 msgid "Claim Reward"
-msgstr ""
+msgstr "获取奖励"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_modal_claim_reward_content.html.eex:40
 msgid "Claim for"
-msgstr ""
+msgstr "获取"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_modal_claim_withdrawal.html.eex:18
 msgid "Claim the Amount"
-msgstr ""
+msgstr "获取数额"
 
 #, elixir-format
 #: lib/block_scout_web/templates/api_docs/_action_tile.html.eex:137
 #: lib/block_scout_web/templates/api_docs/_eth_rpc_item.html.eex:106
 msgid "Clear"
-msgstr ""
+msgstr "清除"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address/_validator_metadata_modal.html.eex:37
 #: lib/block_scout_web/templates/common_components/_modal_qr_code.html.eex:6 lib/block_scout_web/templates/common_components/_modal_qr_code.html.eex:14
 #: lib/block_scout_web/templates/tokens/instance/overview/_details.html.eex:84 lib/block_scout_web/templates/tokens/instance/overview/_details.html.eex:92
 msgid "Close"
-msgstr ""
+msgstr "关闭"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address/_tabs.html.eex:58
@@ -571,43 +571,43 @@ msgstr ""
 #: lib/block_scout_web/templates/api_docs/_eth_rpc_item.html.eex:126 lib/block_scout_web/templates/api_docs/_eth_rpc_item.html.eex:149
 #: lib/block_scout_web/views/address_view.ex:364
 msgid "Code"
-msgstr ""
+msgstr "代码"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address/_tabs.html.eex:34
 #: lib/block_scout_web/views/address_view.ex:370
 msgid "Coin Balance History"
-msgstr ""
+msgstr "余额历史"
 
 #, elixir-format
 #: lib/block_scout_web/templates/transaction/_decoded_input_body.html.eex:55
 msgid "Collapse"
-msgstr ""
+msgstr "收起"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address_contract_verification_common_fields/_compiler_field.html.eex:3
 msgid "Compiler"
-msgstr ""
+msgstr "编译器"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address_contract/index.html.eex:65
 msgid "Compiler version"
-msgstr ""
+msgstr "编译器版本"
 
 #, elixir-format
 #: lib/block_scout_web/views/transaction_view.ex:342
 msgid "Confirmed"
-msgstr ""
+msgstr "已确认"
 
 #, elixir-format
 #: lib/block_scout_web/templates/transaction/overview.html.eex:118
 msgid "Confirmed by "
-msgstr ""
+msgstr "确认数"
 
 #, elixir-format
 #: lib/block_scout_web/templates/transaction/overview.html.eex:184
 msgid "Confirmed within"
-msgstr ""
+msgstr "确认于"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address_contract_verification/new.html.eex:2
@@ -616,114 +616,114 @@ msgstr ""
 #: lib/block_scout_web/templates/address_contract_verification_via_standard_json_input/new.html.eex:6
 #: lib/block_scout_web/templates/address_contract_verification_vyper/new.html.eex:4 lib/block_scout_web/templates/tokens/holder/index.html.eex:15
 msgid "Connection Lost"
-msgstr ""
+msgstr "连接丢失"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address_coin_balance/index.html.eex:12
 #: lib/block_scout_web/templates/block/index.html.eex:5
 msgid "Connection Lost, click to load newer blocks"
-msgstr ""
+msgstr "连接丢失，点击加载新区块"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address_internal_transaction/index.html.eex:15
 msgid "Connection Lost, click to load newer internal transactions"
-msgstr ""
+msgstr "连接丢失，点击加载新内部交易"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address_transaction/index.html.eex:11
 #: lib/block_scout_web/templates/pending_transaction/index.html.eex:16 lib/block_scout_web/templates/transaction/index.html.eex:22
 msgid "Connection Lost, click to load newer transactions"
-msgstr ""
+msgstr "连接丢失，点击加载新交易"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address_validation/index.html.eex:10
 msgid "Connection Lost, click to load newer validations"
-msgstr ""
+msgstr "连接丢失，点击加载新验证"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address_contract/index.html.eex:90
 msgid "Constructor Arguments"
-msgstr ""
+msgstr "方法参量"
 
 #, elixir-format
 #: lib/block_scout_web/templates/tokens/overview/_details.html.eex:66
 #: lib/block_scout_web/templates/transaction/overview.html.eex:223
 msgid "Contract"
-msgstr ""
+msgstr "合约"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address_contract/index.html.eex:122
 msgid "Contract ABI"
-msgstr ""
+msgstr "合约ABI"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address_contract_verification_common_fields/_contract_address_field.html.eex:3 lib/block_scout_web/views/address_view.ex:102
 msgid "Contract Address"
-msgstr ""
+msgstr "合约地址"
 
 #, elixir-format
 #: lib/block_scout_web/templates/transaction/_pending_tile.html.eex:16
 #: lib/block_scout_web/views/address_view.ex:42 lib/block_scout_web/views/address_view.ex:76
 msgid "Contract Address Pending"
-msgstr ""
+msgstr "合约地址确认中"
 
 #, elixir-format
 #: lib/block_scout_web/views/transaction_view.ex:457
 msgid "Contract Call"
-msgstr ""
+msgstr "合约调用"
 
 #, elixir-format
 #: lib/block_scout_web/views/transaction_view.ex:454
 msgid "Contract Creation"
-msgstr ""
+msgstr "合约创建"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address_contract/index.html.eex:138
 #: lib/block_scout_web/templates/address_contract/index.html.eex:153
 msgid "Contract Creation Code"
-msgstr ""
+msgstr "合约创建代码"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address_contract_verification_via_flattened_code/new.html.eex:86
 msgid "Contract Libraries"
-msgstr ""
+msgstr "合约依赖库"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address/overview.html.eex:93
 #: lib/block_scout_web/templates/address_contract_verification_common_fields/_contract_name_field.html.eex:3
 msgid "Contract Name"
-msgstr ""
+msgstr "合约名称"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address_contract/index.html.eex:25
 #: lib/block_scout_web/templates/smart_contract/_functions.html.eex:11
 msgid "Contract is not verified. However, we found a verified contract with the same bytecode in Blockscout DB"
-msgstr ""
+msgstr "合约未验证，但在系统数据中发现已验证的同样合约代码"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address_contract/index.html.eex:57
 msgid "Contract name:"
-msgstr ""
+msgstr "合约名称:"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address_contract/index.html.eex:100
 msgid "Contract source code"
-msgstr ""
+msgstr "合约源码"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address_contract/index.html.eex:144
 msgid "Contracts that self destruct in their constructors have no contract code published and cannot be verified."
-msgstr ""
+msgstr "可自我销毁的合约没有公布源码，不可以被验证。"
 
 #, elixir-format
 #: lib/block_scout_web/templates/layout/_footer.html.eex:40
 msgid "Contribute"
-msgstr ""
+msgstr "贡献"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address_contract/index.html.eex:124
 msgid "Copy ABI"
-msgstr ""
+msgstr "复制ABI"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address/overview.html.eex:37
@@ -731,59 +731,59 @@ msgstr ""
 #: lib/block_scout_web/templates/block/overview.html.eex:105 lib/block_scout_web/templates/tokens/overview/_details.html.eex:50
 #: lib/block_scout_web/templates/tokens/overview/_details.html.eex:51
 msgid "Copy Address"
-msgstr ""
+msgstr "复制地址"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address_contract/index.html.eex:140
 #: lib/block_scout_web/templates/address_contract/index.html.eex:156
 msgid "Copy Contract Creation Code"
-msgstr ""
+msgstr "复制创建合约的代码"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address_decompiled_contract/index.html.eex:19
 msgid "Copy Decompiled Contract Code"
-msgstr ""
+msgstr "复制反向编译的合约代码"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address_contract/index.html.eex:183
 #: lib/block_scout_web/templates/address_contract/index.html.eex:193
 msgid "Copy Deployed ByteCode"
-msgstr ""
+msgstr "复制已部署代码"
 
 #, elixir-format
 #: lib/block_scout_web/templates/transaction/_total_transfers_from_to.html.eex:14
 #: lib/block_scout_web/templates/transaction/_total_transfers_from_to.html.eex:15 lib/block_scout_web/templates/transaction/overview.html.eex:203
 #: lib/block_scout_web/templates/transaction/overview.html.eex:204
 msgid "Copy From Address"
-msgstr ""
+msgstr "从地址复制"
 
 #, elixir-format
 #: lib/block_scout_web/templates/block/overview.html.eex:129
 #: lib/block_scout_web/templates/block/overview.html.eex:130
 msgid "Copy Hash"
-msgstr ""
+msgstr "复制哈希"
 
 #, elixir-format
 #: lib/block_scout_web/templates/tokens/instance/metadata/index.html.eex:20
 msgid "Copy Metadata"
-msgstr ""
+msgstr "复制元数据"
 
 #, elixir-format
 #: lib/block_scout_web/templates/block/overview.html.eex:149
 #: lib/block_scout_web/templates/block/overview.html.eex:150
 msgid "Copy Parent Hash"
-msgstr ""
+msgstr "复制上层哈希"
 
 #, elixir-format
 #: lib/block_scout_web/templates/transaction_raw_trace/index.html.eex:15
 msgid "Copy Raw Trace"
-msgstr ""
+msgstr "复制原始追踪"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address_contract/index.html.eex:102
 #: lib/block_scout_web/templates/address_contract/index.html.eex:113
 msgid "Copy Source Code"
-msgstr ""
+msgstr "复制源码"
 
 #, elixir-format
 #: lib/block_scout_web/templates/transaction/_total_transfers_from_to.html.eex:31
@@ -791,115 +791,115 @@ msgstr ""
 #: lib/block_scout_web/templates/transaction/overview.html.eex:233 lib/block_scout_web/templates/transaction/overview.html.eex:242
 #: lib/block_scout_web/templates/transaction/overview.html.eex:243
 msgid "Copy To Address"
-msgstr ""
+msgstr "复制到地址"
 
 #, elixir-format
 #: lib/block_scout_web/templates/tokens/instance/overview/_details.html.eex:32
 #: lib/block_scout_web/templates/tokens/instance/overview/_details.html.eex:33
 msgid "Copy Token ID"
-msgstr ""
+msgstr "复制代币ID"
 
 #, elixir-format
 #: lib/block_scout_web/templates/transaction/overview.html.eex:81
 msgid "Copy Transaction Hash"
-msgstr ""
+msgstr "复制交易哈希"
 
 #, elixir-format
 #: lib/block_scout_web/templates/transaction/overview.html.eex:82
 msgid "Copy Txn Hash"
-msgstr ""
+msgstr "复制交易哈希"
 
 #, elixir-format
 #: lib/block_scout_web/templates/transaction/overview.html.eex:472
 msgid "Copy Txn Hex Input"
-msgstr ""
+msgstr "复制交易Hex输入"
 
 #, elixir-format
 #: lib/block_scout_web/templates/transaction/overview.html.eex:478
 msgid "Copy Txn UTF-8 Input"
-msgstr ""
+msgstr "复制交易UTF-8输入"
 
 #, elixir-format
 #: lib/block_scout_web/templates/log/_data_decoded_view.html.eex:20
 #: lib/block_scout_web/templates/transaction/_decoded_input_body.html.eex:41 lib/block_scout_web/templates/transaction/overview.html.eex:471
 #: lib/block_scout_web/templates/transaction/overview.html.eex:477
 msgid "Copy Value"
-msgstr ""
+msgstr "复制值"
 
 #, elixir-format
 #: lib/block_scout_web/views/internal_transaction_view.ex:25
 msgid "Create"
-msgstr ""
+msgstr "创建"
 
 #, elixir-format
 #: lib/block_scout_web/views/internal_transaction_view.ex:26
 msgid "Create2"
-msgstr ""
+msgstr "创建2"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address/overview.html.eex:120
 msgid "Creator"
-msgstr ""
+msgstr "创建者"
 
 #, elixir-format
 #: lib/block_scout_web/templates/api_docs/_action_tile.html.eex:146
 #: lib/block_scout_web/templates/api_docs/_eth_rpc_item.html.eex:116
 msgid "Curl"
-msgstr ""
+msgstr "Curl"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_modal_delegators_list.html.eex:55
 msgid "Current Reward Share"
-msgstr ""
+msgstr "现有奖励份额"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_modal_delegators_list.html.eex:63
 msgid "Current Reward Share is calculated based on the Working Stake Amount."
-msgstr ""
+msgstr "现有奖励份额是基于质押数量计算出的"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_modal_delegators_list.html.eex:35
 #: lib/block_scout_web/templates/stakes/_stakes_modal_delegators_list.html.eex:37
 msgid "Current Stake Amount"
-msgstr ""
+msgstr "现有质押数额"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_modal_move.html.eex:36
 msgid "Current Stake:"
-msgstr ""
+msgstr "现有质押:"
 
 #, elixir-format
 #: lib/block_scout_web/templates/transaction/overview.html.eex:91
 msgid "Current transaction state: Success, Failed (Error), or Pending (In Process)"
-msgstr ""
+msgstr "现有交易状态: 成功，失败，等待(进行中)"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_metatags.html.eex:6
 msgid "DApp for Staking %{symbol} tokens"
-msgstr ""
+msgstr "用于质押%{symbol}代币的DApp"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address_logs/_logs.html.eex:101
 #: lib/block_scout_web/templates/log/_data_decoded_view.html.eex:7 lib/block_scout_web/templates/transaction/_decoded_input_body.html.eex:23
 #: lib/block_scout_web/templates/transaction_log/_logs.html.eex:121
 msgid "Data"
-msgstr ""
+msgstr "数据"
 
 #, elixir-format
 #: lib/block_scout_web/templates/block/overview.html.eex:70
 msgid "Date & time at which block was produced."
-msgstr ""
+msgstr "区块产生的日期和时间"
 
 #, elixir-format
 #: lib/block_scout_web/templates/transaction/overview.html.eex:170
 msgid "Date & time of transaction inclusion, including length of time for confirmation."
-msgstr ""
+msgstr "交易(包含确认)时间"
 
 #, elixir-format
 #: lib/block_scout_web/templates/tokens/instance/overview/_details.html.eex:52
 #: lib/block_scout_web/templates/tokens/overview/_details.html.eex:145
 msgid "Decimals"
-msgstr ""
+msgstr "小数"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address_logs/_logs.html.eex:32
@@ -907,97 +907,97 @@ msgstr ""
 #: lib/block_scout_web/templates/transaction_log/_logs.html.eex:34 lib/block_scout_web/templates/transaction_log/_logs.html.eex:42
 #: lib/block_scout_web/templates/transaction_log/_logs.html.eex:57 lib/block_scout_web/templates/transaction_log/_logs.html.eex:73
 msgid "Decoded"
-msgstr ""
+msgstr "解码"
 
 #, elixir-format
 #: lib/block_scout_web/views/address_view.ex:365
 msgid "Decompiled Code"
-msgstr ""
+msgstr "反向编译代码"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address/_tabs.html.eex:75
 msgid "Decompiled code"
-msgstr ""
+msgstr "反向编译代码"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address_decompiled_contract/index.html.eex:17
 msgid "Decompiled contract code"
-msgstr ""
+msgstr "反向编译合约代码"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address_decompiled_contract/index.html.eex:10
 msgid "Decompiler version"
-msgstr ""
+msgstr "反向编译器版本"
 
 #, elixir-format
 #: lib/block_scout_web/views/internal_transaction_view.ex:23
 msgid "Delegate Call"
-msgstr ""
+msgstr "委托调用"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_progress.html.eex:31
 #: lib/block_scout_web/templates/stakes/_table.html.eex:43
 msgid "Delegators"
-msgstr ""
+msgstr "委托者"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_modal_delegators_list.html.eex:6
 msgid "Delegators of "
-msgstr ""
+msgstr "委托者"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_modal_pool_info.html.eex:53
 msgid "Delegators’ Staked Amount"
-msgstr ""
+msgstr "委托者已质押数额"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address_contract/index.html.eex:181
 #: lib/block_scout_web/templates/address_contract/index.html.eex:189
 msgid "Deployed ByteCode"
-msgstr ""
+msgstr "已部署代码"
 
 #, elixir-format
 #: lib/block_scout_web/templates/api_docs/_action_tile.html.eex:53
 #: lib/block_scout_web/templates/api_docs/_action_tile.html.eex:188 lib/block_scout_web/templates/api_docs/_eth_rpc_item.html.eex:60
 #: lib/block_scout_web/templates/api_docs/_eth_rpc_item.html.eex:150
 msgid "Description"
-msgstr ""
+msgstr "描述"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address/overview.html.eex:30
 #: lib/block_scout_web/templates/api_docs/_action_tile.html.eex:166 lib/block_scout_web/templates/api_docs/_eth_rpc_item.html.eex:127
 msgid "Details"
-msgstr ""
+msgstr "明细"
 
 #, elixir-format
 #: lib/block_scout_web/templates/block/overview.html.eex:159
 msgid "Difficulty"
-msgstr ""
+msgstr "难度"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address_contract/index.html.eex:145
 msgid "Displaying the init data provided of the creating transaction."
-msgstr ""
+msgstr "由创建交易提供的初始数据展示中"
 
 #, elixir-format
 #: lib/block_scout_web/templates/csv_export/index.html.eex:25
 msgid "Download"
-msgstr ""
+msgstr "下载"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address_contract_verification_via_json/new.html.eex:18
 msgid "Drop sources and metadata JSON file or click here"
-msgstr ""
+msgstr "拖拽源(元)JSON文件或者点击这里"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address_contract_verification_via_standard_json_input/new.html.eex:28
 msgid "Drop the standard input JSON file or click here"
-msgstr ""
+msgstr "拖拽标准JSON文件或者点击这里"
 
 #, elixir-format
 #: lib/block_scout_web/templates/transaction/not_found.html.eex:22
 msgid "During times when the network is busy (i.e during ICOs) it can take a while for your transaction to propagate through the network and for us to index it."
-msgstr ""
+msgstr "在网络繁忙的时候，将需要更多时间来处理您的交易并加载索引"
 
 #, elixir-format
 #: lib/block_scout_web/templates/common_components/_minimal_proxy_pattern.html.eex:6
@@ -1029,84 +1029,84 @@ msgstr ""
 #, elixir-format
 #: lib/block_scout_web/templates/api_docs/eth_rpc.html.eex:4
 msgid "ETH RPC API Documentation"
-msgstr ""
+msgstr "HALO API文档"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address_contract/index.html.eex:76
 #: lib/block_scout_web/templates/address_contract_verification_via_flattened_code/new.html.eex:26
 msgid "EVM Version"
-msgstr ""
+msgstr "EVM版本"
 
 #, elixir-format
 #: lib/block_scout_web/views/block_transaction_view.ex:7
 msgid "Easy Cowboy! This block does not exist yet!"
-msgstr ""
+msgstr "该区块还不存在"
 
 #, elixir-format
 #: lib/block_scout_web/templates/transaction/_emission_reward_tile.html.eex:5
 msgid "Emission Contract"
-msgstr ""
+msgstr "排放合约"
 
 #, elixir-format
 #: lib/block_scout_web/views/block_view.ex:71
 msgid "Emission Reward"
-msgstr ""
+msgstr "排放奖励"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address_contract_verification_via_flattened_code/new.html.eex:68
 msgid "Enter the Solidity Contract Code"
-msgstr ""
+msgstr "进入Solidity合约代码"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address_contract_verification_vyper/new.html.eex:22
 msgid "Enter the Vyper Contract Code"
-msgstr ""
+msgstr "进入Vyper合约代码"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_top.html.eex:4
 msgid "Epoch number"
-msgstr ""
+msgstr "Epoch序号"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_modal_claim_reward_content.html.eex:44
 msgid "Epochs range(s) or enum, e.g.:   5-9,23-27,47,50"
-msgstr ""
+msgstr "Epoch范围，如5-9,23-27,47,50"
 
 #, elixir-format
 #: lib/block_scout_web/templates/internal_transaction/_tile.html.eex:11
 #: lib/block_scout_web/templates/transaction/_decoded_input_body.html.eex:10
 msgid "Error"
-msgstr ""
+msgstr "错误"
 
 #, elixir-format
 #: lib/block_scout_web/templates/transaction/_decoded_input_body.html.eex:33
 msgid "Error rendering value"
-msgstr ""
+msgstr "渲染值错误"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address/_balance_dropdown.html.eex:10
 msgid "Error trying to fetch balances."
-msgstr ""
+msgstr "获取余额错误"
 
 #, elixir-format
 #: lib/block_scout_web/views/transaction_view.ex:353
 msgid "Error: %{reason}"
-msgstr ""
+msgstr "错误: %{reason}"
 
 #, elixir-format
 #: lib/block_scout_web/views/transaction_view.ex:351
 msgid "Error: (Awaiting internal transactions for reason)"
-msgstr ""
+msgstr "错误: (等待内部交易原因)"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address/overview.html.eex:137
 msgid "Error: Could not determine contract creator."
-msgstr ""
+msgstr "错误: 无法确认合约创建者"
 
 #, elixir-format
 #: lib/block_scout_web/templates/layout/_topnav.html.eex:138
 msgid "Eth RPC"
-msgstr ""
+msgstr "HALO RPC"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address/_current_coin_balance.html.eex:11
@@ -1117,92 +1117,92 @@ msgstr ""
 #: lib/block_scout_web/templates/transaction/_tile.html.eex:43 lib/block_scout_web/templates/transaction/overview.html.eex:411
 #: lib/block_scout_web/views/wei_helpers.ex:78
 msgid "Ether"
-msgstr ""
+msgstr "HO"
 
 #, elixir-format
 #: lib/block_scout_web/templates/api_docs/_action_tile.html.eex:211
 #: lib/block_scout_web/templates/api_docs/_eth_rpc_item.html.eex:164
 msgid "Example Value"
-msgstr ""
+msgstr "演示值"
 
 #, elixir-format
 #: lib/block_scout_web/templates/api_docs/_action_tile.html.eex:128
 #: lib/block_scout_web/templates/api_docs/_eth_rpc_item.html.eex:99
 msgid "Execute"
-msgstr ""
+msgstr "执行"
 
 #, elixir-format
 #: lib/block_scout_web/templates/transaction/_decoded_input_body.html.eex:55
 msgid "Expand"
-msgstr ""
+msgstr "展开"
 
 #, elixir-format
 #: lib/block_scout_web/templates/csv_export/index.html.eex:10
 msgid "Export Data"
-msgstr ""
+msgstr "导出数据"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address_contract/index.html.eex:224
 msgid "External libraries"
-msgstr ""
+msgstr "外部库"
 
 #, elixir-format
 #: lib/block_scout_web/templates/transaction/_decoded_input.html.eex:40
 msgid "Failed to decode input data."
-msgstr ""
+msgstr "解码输入数据失败"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address_logs/_logs.html.eex:35
 #: lib/block_scout_web/templates/transaction_log/_logs.html.eex:37
 msgid "Failed to decode log data."
-msgstr ""
+msgstr "解码日志数据失败"
 
 #, elixir-format
 #: lib/block_scout_web/templates/layout/_network_selector.html.eex:24
 msgid "Favorites"
-msgstr ""
+msgstr "收藏"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address/overview.html.eex:263
 msgid "Fetching gas used..."
-msgstr ""
+msgstr "获取已使用gas中..."
 
 #, elixir-format
 #: lib/block_scout_web/templates/tokens/overview/_details.html.eex:126
 msgid "Fetching holders..."
-msgstr ""
+msgstr "获取持有者中..."
 
 #, elixir-format
 #: lib/block_scout_web/templates/address/_balance_dropdown.html.eex:7
 msgid "Fetching tokens..."
-msgstr ""
+msgstr "获取代币中..."
 
 #, elixir-format
 #: lib/block_scout_web/templates/address/overview.html.eex:210
 #: lib/block_scout_web/templates/address/overview.html.eex:218
 msgid "Fetching transactions..."
-msgstr ""
+msgstr "获取交易中..."
 
 #, elixir-format
 #: lib/block_scout_web/templates/address/overview.html.eex:237
 #: lib/block_scout_web/templates/address/overview.html.eex:245 lib/block_scout_web/templates/tokens/overview/_details.html.eex:137
 msgid "Fetching transfers..."
-msgstr ""
+msgstr "获取转账中..."
 
 #, elixir-format
 #: lib/block_scout_web/templates/admin/dashboard/index.html.eex:16
 msgid "For any existing contracts in the database, insert all ABI entries into the contract_methods table. Use this in case you have verified smart contracts before early March 2019 and you want other contracts with the same functions to show those ABI's as candidate matches."
-msgstr ""
+msgstr "对于数据库中所有已存在合约，插入ABI到合约接口表中。"
 
 #, elixir-format
 #: lib/block_scout_web/templates/layout/_topnav.html.eex:34
 msgid "Forked Blocks (Reorgs)"
-msgstr ""
+msgstr "分叉区块"
 
 #, elixir-format
 #: lib/block_scout_web/templates/layout/_footer.html.eex:42
 msgid "Forum"
-msgstr ""
+msgstr "论坛"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address_internal_transaction/index.html.eex:38
@@ -1210,7 +1210,7 @@ msgstr ""
 #: lib/block_scout_web/templates/transaction/overview.html.eex:194 lib/block_scout_web/views/address_internal_transaction_view.ex:10
 #: lib/block_scout_web/views/address_token_transfer_view.ex:10 lib/block_scout_web/views/address_transaction_view.ex:10
 msgid "From"
-msgstr ""
+msgstr "出账"
 
 #, elixir-format
 #: lib/block_scout_web/templates/api_docs/_action_tile.html.eex:18
@@ -1221,28 +1221,28 @@ msgstr ""
 #: lib/block_scout_web/templates/block/_tile.html.eex:67
 #: lib/block_scout_web/templates/block/overview.html.eex:187 lib/block_scout_web/templates/transaction/overview.html.eex:373
 msgid "Gas Limit"
-msgstr ""
+msgstr "Gas上限"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address/overview.html.eex:256
 #: lib/block_scout_web/templates/block/_tile.html.eex:73 lib/block_scout_web/templates/block/overview.html.eex:178
 msgid "Gas Used"
-msgstr ""
+msgstr "已使用Gas"
 
 #, elixir-format
 #: lib/block_scout_web/templates/transaction/overview.html.eex:426
 msgid "Gas Used by Transaction"
-msgstr ""
+msgstr "Gas消耗"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address/overview.html.eex:255
 msgid "Gas used by the address."
-msgstr ""
+msgstr "地址使用Gas"
 
 #, elixir-format
 #: lib/block_scout_web/templates/block/overview.html.eex:60
 msgid "Genesis Block"
-msgstr ""
+msgstr "创世区块"
 
 #, elixir-format
 #: lib/block_scout_web/templates/layout/_footer.html.eex:24
@@ -1252,12 +1252,12 @@ msgstr ""
 #, elixir-format
 #: lib/block_scout_web/templates/common_components/_rap_pagination_container.html.eex:8
 msgid "Go to"
-msgstr ""
+msgstr "前往"
 
 #, elixir-format
 #: lib/block_scout_web/templates/layout/_topnav.html.eex:128
 msgid "GraphQL"
-msgstr ""
+msgstr "可视化"
 
 #, elixir-format
 #: lib/block_scout_web/templates/chain/gas_price_oracle_legend_item.html.eex:11
@@ -1270,104 +1270,104 @@ msgstr ""
 #, elixir-format
 #: lib/block_scout_web/templates/block/overview.html.eex:123
 msgid "Hash"
-msgstr ""
+msgstr "哈希"
 
 #, elixir-format
 #: lib/block_scout_web/templates/transaction/overview.html.eex:454
 #: lib/block_scout_web/templates/transaction/overview.html.eex:458
 msgid "Hex (Default)"
-msgstr ""
+msgstr "Hex (默认)"
 
 #, elixir-format
 #: lib/block_scout_web/templates/tokens/overview/_details.html.eex:122
 msgid "Holders"
-msgstr ""
+msgstr "持有者"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_modal_pool_info.html.eex:77
 msgid "How Many Times this Address has been Banned"
-msgstr ""
+msgstr "该地址被禁止的次数"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_modal_pool_info.html.eex:71
 msgid "How Many Times this Address has been a Validator"
-msgstr ""
+msgstr "该地址成为验证者的次数"
 
 #, elixir-format
 #: lib/block_scout_web/templates/api_docs/eth_rpc.html.eex:11
 msgid "However, in general, the"
-msgstr ""
+msgstr "然而，通常情况下，"
 
 #, elixir-format
 #: lib/block_scout_web/templates/transaction/_decoded_input.html.eex:19
 msgid "IMPORTANT: This information is a best guess based on similar functions from other verified contracts."
-msgstr ""
+msgstr "重要: 该信息是基于已验证合约接口的最好评估"
 
 #, elixir-format
 #: lib/block_scout_web/templates/internal_transaction/_tile.html.eex:42
 #: lib/block_scout_web/templates/transaction/_tile.html.eex:86
 msgid "IN"
-msgstr ""
+msgstr "进账"
 
 #, elixir-format
 #: lib/block_scout_web/templates/transaction/not_found.html.eex:26
 msgid "If it still does not show up after 1 hour, please check with your sender/exchange/wallet/transaction provider for additional information."
-msgstr ""
+msgstr "如果一小时后还未显示，请检查您的sender/exchange/wallet/transaction提供商已获得更多信息。"
 
 #, elixir-format
 #: lib/block_scout_web/templates/transaction/not_found.html.eex:12
 msgid "If you have just submitted this transaction please wait for at least 30 seconds before refreshing this page."
-msgstr ""
+msgstr "如果您刚刚提交该交易，在刷新页面前，请等待至少30秒"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address/overview.html.eex:149
 msgid "Implementation"
-msgstr ""
+msgstr "执行"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address/overview.html.eex:148
 msgid "Implementation address of the proxy contract."
-msgstr ""
+msgstr "代理合约的执行地址"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_table.html.eex:12
 msgid "Inactive Pool Addresses. Current validator pools are specified by a checkmark."
-msgstr ""
+msgstr "已下线池子地址。现有验证池子是由checkmark指定的"
 
 #, elixir-format
 #: lib/block_scout_web/templates/transaction/overview.html.eex:438
 msgid "Index position of Transaction in the block."
-msgstr ""
+msgstr "区块交易中的索引位置"
 
 #, elixir-format
 #: lib/block_scout_web/templates/block/overview.html.eex:249
 msgid "Index position(s) of referenced stale blocks."
-msgstr ""
+msgstr "过期区块的索引位置"
 
 #, elixir-format
 #: lib/block_scout_web/templates/log/_data_decoded_view.html.eex:6
 msgid "Indexed?"
-msgstr ""
+msgstr "已索引？"
 
 #, elixir-format
 #: lib/block_scout_web/templates/layout/app.html.eex:47
 msgid "Indexing Tokens"
-msgstr ""
+msgstr "代币索引中"
 
 #, elixir-format
 #: lib/block_scout_web/templates/transaction/_decoded_input.html.eex:3
 msgid "Input"
-msgstr ""
+msgstr "输入"
 
 #, elixir-format
 #: lib/block_scout_web/templates/transaction/overview.html.eex:215
 msgid "Interacted With (To)"
-msgstr ""
+msgstr "交互和"
 
 #, elixir-format
 #: lib/block_scout_web/templates/internal_transaction/_tile.html.eex:7
 msgid "Internal Transaction"
-msgstr ""
+msgstr "内部交易"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address/_tabs.html.eex:28
@@ -1375,93 +1375,93 @@ msgstr ""
 #: lib/block_scout_web/templates/transaction_internal_transaction/index.html.eex:6 lib/block_scout_web/views/address_view.ex:361
 #: lib/block_scout_web/views/transaction_view.ex:512
 msgid "Internal Transactions"
-msgstr ""
+msgstr "内部交易"
 
 #, elixir-format
 #: lib/block_scout_web/templates/transaction/invalid.html.eex:6
 msgid "Invalid Transaction Hash"
-msgstr ""
+msgstr "无效交易哈希"
 
 #, elixir-format
 #: lib/block_scout_web/templates/tokens/inventory/index.html.eex:15
 #: lib/block_scout_web/templates/tokens/overview/_tabs.html.eex:19 lib/block_scout_web/views/tokens/overview_view.ex:44
 msgid "Inventory"
-msgstr ""
+msgstr "存货"
 
 #, elixir-format
 #: lib/block_scout_web/templates/transaction/not_found.html.eex:16
 msgid "It could still be in the TX Pool of a different node, waiting to be broadcasted."
-msgstr ""
+msgstr "可能存在于其他节点交易池子中，等待广播扩散"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_modal_delegators_list.html.eex:125
 msgid "It's me!"
-msgstr ""
+msgstr "是我"
 
 #, elixir-format
 #: lib/block_scout_web/channels/stakes_channel.ex:828
 msgid "JSON RPC error"
-msgstr ""
+msgstr "JSON RPC错误"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address/overview.html.eex:274
 msgid "Last Balance Update"
-msgstr ""
+msgstr "最近更新区块"
 
 #, elixir-format
 #: lib/block_scout_web/templates/layout/app.html.eex:48
 msgid "Less than"
-msgstr ""
+msgstr "少于"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address_contract_verification_common_fields/_library_address.html.eex:3
 msgid "Library Address"
-msgstr ""
+msgstr "库地址"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address_contract_verification_common_fields/_library_name.html.eex:3
 msgid "Library Name"
-msgstr ""
+msgstr "库名称"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address/_validator_metadata_modal.html.eex:24
 msgid "License Expires"
-msgstr ""
+msgstr "许可证过期"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address/_validator_metadata_modal.html.eex:10
 msgid "License ID"
-msgstr ""
+msgstr "许可证ID"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_modal_pool_info.html.eex:83
 msgid "Likelihood of Becoming a Validator on the Next Epoch"
-msgstr ""
+msgstr "在下个周期成为验证者的可能性。"
 
 #, elixir-format
 #: lib/block_scout_web/templates/transaction/overview.html.eex:305
 msgid "List of ERC-1155 tokens created in the transaction."
-msgstr ""
+msgstr "交易中创建的ERC-1155代币列表。"
 
 #, elixir-format
 #: lib/block_scout_web/templates/transaction/overview.html.eex:289
 msgid "List of token burnt in the transaction."
-msgstr ""
+msgstr "交易销毁的代币列表。"
 
 #, elixir-format
 #: lib/block_scout_web/templates/transaction/overview.html.eex:272
 msgid "List of token minted in the transaction."
-msgstr ""
+msgstr "交易挖出的代币列表。"
 
 #, elixir-format
 #: lib/block_scout_web/templates/transaction/overview.html.eex:256
 msgid "List of token transferred in the transaction."
-msgstr ""
+msgstr "交易转账的代币列表。"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address_coin_balance/index.html.eex:18
 msgid "Loading chart..."
-msgstr ""
+msgstr "加载图表中..."
 
 #, elixir-format
 #: lib/block_scout_web/templates/address_contract_verification/new.html.eex:70
@@ -1472,17 +1472,17 @@ msgstr ""
 #: lib/block_scout_web/templates/address_read_proxy/index.html.eex:12 lib/block_scout_web/templates/address_write_contract/index.html.eex:12
 #: lib/block_scout_web/templates/address_write_proxy/index.html.eex:12 lib/block_scout_web/templates/tokens/contract/index.html.eex:16
 msgid "Loading..."
-msgstr ""
+msgstr "加载中..."
 
 #, elixir-format
 #: lib/block_scout_web/templates/log/_data_decoded_view.html.eex:2
 msgid "Log Data"
-msgstr ""
+msgstr "日志数据"
 
 #, elixir-format
 #: lib/block_scout_web/templates/transaction_log/_logs.html.eex:131
 msgid "Log Index"
-msgstr ""
+msgstr "日志索引"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address/_tabs.html.eex:41
@@ -1490,208 +1490,208 @@ msgstr ""
 #: lib/block_scout_web/templates/transaction_log/index.html.eex:8 lib/block_scout_web/views/address_view.ex:372
 #: lib/block_scout_web/views/transaction_view.ex:513
 msgid "Logs"
-msgstr ""
+msgstr "日志"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_modal_delegators_list.html.eex:127
 msgid "ME"
-msgstr ""
+msgstr "我"
 
 #, elixir-format
 #: lib/block_scout_web/templates/layout/_footer.html.eex:52
 msgid "Main Networks"
-msgstr ""
+msgstr "主网络"
 
 #, elixir-format
 #: lib/block_scout_web/templates/layout/_network_selector.html.eex:22
 msgid "Mainnet"
-msgstr ""
+msgstr "主网"
 
 #, elixir-format
 #: lib/block_scout_web/templates/chain/show.html.eex:52
 #: lib/block_scout_web/templates/layout/app.html.eex:49 lib/block_scout_web/templates/tokens/overview/_details.html.eex:98
 #: lib/block_scout_web/views/address_view.ex:142
 msgid "Market Cap"
-msgstr ""
+msgstr "流通市值"
 
 msgid "Total Supply"
-msgstr ""
+msgstr "总供应量"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_modal_move.html.eex:42
 msgid "Max Amount to Move:"
-msgstr ""
+msgstr "最大可移动:"
 
 #, elixir-format
 #: lib/block_scout_web/templates/transaction/overview.html.eex:382
 msgid "Max Fee per Gas"
-msgstr ""
+msgstr "最大Gas费用"
 
 #, elixir-format
 #: lib/block_scout_web/templates/transaction/overview.html.eex:392
 msgid "Max Priority Fee per Gas"
-msgstr ""
+msgstr "最大加急Gas费用"
 
 #, elixir-format
 #: lib/block_scout_web/views/transaction_view.ex:319
 msgid "Max of"
-msgstr ""
+msgstr "最大"
 
 #, elixir-format
 #: lib/block_scout_web/templates/transaction/overview.html.eex:372
 msgid "Maximum gas amount approved for the transaction."
-msgstr ""
+msgstr "交易批准的最大gas额"
 
 #, elixir-format
 #: lib/block_scout_web/templates/transaction/overview.html.eex:381
 msgid "Maximum total amount per unit of gas a user is willing to pay for a transaction, including base fee and priority fee."
-msgstr ""
+msgstr "交易中，用户愿意支付的最大单位gas费用，包含基础和加急费用。"
 
 #, elixir-format
 #: lib/block_scout_web/templates/tokens/instance/metadata/index.html.eex:18
 #: lib/block_scout_web/templates/tokens/instance/overview/_tabs.html.eex:10 lib/block_scout_web/views/tokens/instance/overview_view.ex:196
 msgid "Metadata"
-msgstr ""
+msgstr "元数据"
 
 #, elixir-format
 #: lib/block_scout_web/templates/transaction/_decoded_input_body.html.eex:5
 msgid "Method Id"
-msgstr ""
+msgstr "方法Id"
 
 #, elixir-format
 #: lib/block_scout_web/templates/block/_tile.html.eex:41
 #: lib/block_scout_web/templates/block/overview.html.eex:98 lib/block_scout_web/templates/chain/_block.html.eex:16
 msgid "Miner"
-msgstr ""
+msgstr "矿工"
 
 #, elixir-format
 #: lib/block_scout_web/views/block_view.ex:61
 #: lib/block_scout_web/views/block_view.ex:66
 msgid "Miner Reward"
-msgstr ""
+msgstr "挖矿奖励"
 
 #, elixir-format
 #: lib/block_scout_web/templates/common_components/_minimal_proxy_pattern.html.eex:3
 msgid "Minimal Proxy Contract for"
-msgstr ""
+msgstr "最小代理合约"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_modal_stake.html.eex:22
 msgid "Minimum Stake Allowed:"
-msgstr ""
+msgstr "允许的最小质押："
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_modal_become_candidate.html.eex:17
 msgid "Minimum Stake:"
-msgstr ""
+msgstr "最小质押："
 
 #, elixir-format
 #: lib/block_scout_web/templates/block/overview.html.eex:206
 msgid "Minimum fee required per unit of gas. Fee adjusts based on network congestion."
-msgstr ""
+msgstr "需要的最小单位gas。费用会根据网络拥堵情况调整。"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_modal_pool_info.html.eex:24
 msgid "Mining Address:"
-msgstr ""
+msgstr "挖矿地址："
 
 #, elixir-format
 #: lib/block_scout_web/templates/api_docs/_action_tile.html.eex:223
 msgid "Model"
-msgstr ""
+msgstr "模式"
 
 #, elixir-format
 #: lib/block_scout_web/templates/api_docs/_action_tile.html.eex:58
 msgid "Module"
-msgstr ""
+msgstr "模块"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address_internal_transaction/index.html.eex:12
 msgid "More internal transactions have come in"
-msgstr ""
+msgstr "更多内部交易已到来"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address_transaction/index.html.eex:46
 #: lib/block_scout_web/templates/chain/show.html.eex:231 lib/block_scout_web/templates/pending_transaction/index.html.eex:13
 #: lib/block_scout_web/templates/transaction/index.html.eex:19
 msgid "More transactions have come in"
-msgstr ""
+msgstr "更多交易已到来"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_modal_move.html.eex:10
 #: lib/block_scout_web/templates/stakes/_stakes_modal_move.html.eex:57
 msgid "Move Stake"
-msgstr ""
+msgstr "移动质押"
 
 #, elixir-format
 #: lib/block_scout_web/templates/api_docs/_action_tile.html.eex:63
 #: lib/block_scout_web/templates/api_docs/_action_tile.html.eex:74
 msgid "Must be set to:"
-msgstr ""
+msgstr "必须设置为："
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_rows.html.eex:34
 #: lib/block_scout_web/templates/stakes/_stakes_modal_delegators_list.html.eex:186
 msgid "N/A"
-msgstr ""
+msgstr "不适用"
 
 #, elixir-format
 #: lib/block_scout_web/templates/block/overview.html.eex:116
 msgid "N/A bytes"
-msgstr ""
+msgstr "不适用字节"
 
 #, elixir-format
 #: lib/block_scout_web/templates/api_docs/_action_tile.html.eex:52
 #: lib/block_scout_web/templates/api_docs/_eth_rpc_item.html.eex:59 lib/block_scout_web/templates/log/_data_decoded_view.html.eex:4
 #: lib/block_scout_web/templates/transaction/_decoded_input_body.html.eex:21
 msgid "Name"
-msgstr ""
+msgstr "名称"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address_token/overview.html.eex:44
 msgid "Net Worth"
-msgstr ""
+msgstr "净值"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address_contract_verification/new.html.eex:5
 #: lib/block_scout_web/templates/address_contract_verification_via_json/new.html.eex:5
 #: lib/block_scout_web/templates/address_contract_verification_via_standard_json_input/new.html.eex:9
 msgid "New Smart Contract Verification"
-msgstr ""
+msgstr "新智能合约验证"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address_contract_verification_via_flattened_code/new.html.eex:9
 msgid "New Solidity Smart Contract Verification"
-msgstr ""
+msgstr "新Solidity智能合约验证"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address_contract_verification_vyper/new.html.eex:7
 msgid "New Vyper Smart Contract Verification"
-msgstr ""
+msgstr "新Vyper智能合约验证"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address_contract_verification/new.html.eex:73
 #: lib/block_scout_web/templates/address_contract_verification/new.html.eex:80 lib/block_scout_web/templates/address_contract_verification/new.html.eex:88
 #: lib/block_scout_web/templates/address_contract_verification/new.html.eex:96
 msgid "Next"
-msgstr ""
+msgstr "下一个"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_top.html.eex:6
 msgid "Next epoch in"
-msgstr ""
+msgstr "下一周期将在"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address_contract_verification_common_fields/_fetch_constructor_args.html.eex:9
 #: lib/block_scout_web/templates/address_contract_verification_common_fields/_include_nightly_builds_field.html.eex:9
 #: lib/block_scout_web/templates/address_contract_verification_via_flattened_code/new.html.eex:42 lib/block_scout_web/templates/stakes/_rows.html.eex:24
 msgid "No"
-msgstr ""
+msgstr "否"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_empty_content.html.eex:11
 msgid "No Information"
-msgstr ""
+msgstr "无信息"
 
 #, elixir-format
 #: lib/block_scout_web/templates/block/overview.html.eex:196
@@ -1702,80 +1702,80 @@ msgstr ""
 #, elixir-format
 #: lib/block_scout_web/templates/tokens/inventory/_token.html.eex:11
 msgid "Not unique Token"
-msgstr ""
+msgstr "非唯一代币"
 
 #, elixir-format
 #: lib/block_scout_web/templates/tokens/overview/_details.html.eex:121
 msgid "Number of accounts holding the token"
-msgstr ""
+msgstr "代币持有账户数"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address/overview.html.eex:290
 msgid "Number of blocks validated by this validator."
-msgstr ""
+msgstr "验证者已验证的区块数"
 
 #, elixir-format
 #: lib/block_scout_web/templates/tokens/overview/_details.html.eex:144
 msgid "Number of digits that come after the decimal place when displaying token value"
-msgstr ""
+msgstr "显示的小数位数"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address/overview.html.eex:201
 msgid "Number of transactions related to this address."
-msgstr ""
+msgstr "该地址相关交易数"
 
 #, elixir-format
 #: lib/block_scout_web/templates/tokens/overview/_details.html.eex:132
 msgid "Number of transfers for the token"
-msgstr ""
+msgstr "代币转账数目"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address/overview.html.eex:228
 msgid "Number of transfers to/from this address."
-msgstr ""
+msgstr "从该地址进出的转账次数"
 
 #, elixir-format
 #: lib/block_scout_web/templates/internal_transaction/_tile.html.eex:40
 #: lib/block_scout_web/templates/transaction/_tile.html.eex:82
 msgid "OUT"
-msgstr ""
+msgstr "出账"
 
 #, elixir-format
 #: lib/block_scout_web/templates/common_components/_rap_pagination_container.html.eex:13
 msgid "Only the first"
-msgstr ""
+msgstr "仅前"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address_contract/index.html.eex:61
 msgid "Optimization enabled"
-msgstr ""
+msgstr "优化已打开"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address_contract/index.html.eex:70
 #: lib/block_scout_web/templates/address_contract_verification_via_flattened_code/new.html.eex:58
 msgid "Optimization runs"
-msgstr ""
+msgstr "优化运行"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_modal_withdraw.html.eex:62
 msgid "Order Withdrawal"
-msgstr ""
+msgstr "订单提取"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_stats_item_account.html.eex:49
 #: lib/block_scout_web/templates/stakes/_stakes_stats_item_account.html.eex:50
 msgid "Ordered"
-msgstr ""
+msgstr "已下单"
 
 #, elixir-format
 #: lib/block_scout_web/templates/layout/_footer.html.eex:76
 msgid "Other Explorers"
-msgstr ""
+msgstr "其他浏览器"
 
 #, elixir-format
 #: lib/block_scout_web/templates/tokens/inventory/_token.html.eex:24
 msgid "Owner Address"
-msgstr ""
+msgstr "持有者地址"
 
 #, elixir-format
 #: lib/block_scout_web/templates/api_docs/_action_tile.html.eex:19
@@ -1786,191 +1786,191 @@ msgstr ""
 #, elixir-format
 #: lib/block_scout_web/templates/common_components/_pagination_container.html.eex:41
 msgid "Page"
-msgstr ""
+msgstr "页"
 
 #, elixir-format
 #: lib/block_scout_web/templates/api_docs/_action_tile.html.eex:33
 #: lib/block_scout_web/templates/api_docs/_eth_rpc_item.html.eex:40
 msgid "Parameters"
-msgstr ""
+msgstr "参数"
 
 #, elixir-format
 #: lib/block_scout_web/templates/block/overview.html.eex:139
 msgid "Parent Hash"
-msgstr ""
+msgstr "上级哈希"
 
 #, elixir-format
 #: lib/block_scout_web/templates/layout/_topnav.html.eex:55
 #: lib/block_scout_web/templates/stakes/_stakes_modal_delegators_list.html.eex:184 lib/block_scout_web/views/transaction_view.ex:348
 #: lib/block_scout_web/views/transaction_view.ex:386
 msgid "Pending"
-msgstr ""
+msgstr "待确认"
 
 #, elixir-format
 #: lib/block_scout_web/templates/pending_transaction/index.html.eex:5
 msgid "Pending Transactions"
-msgstr ""
+msgstr "待确认的交易"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_modal_stake.html.eex:45
 msgid "Place stake"
-msgstr ""
+msgstr "质押下单"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address/_custom_view_df_title.html.eex:9
 #: lib/block_scout_web/templates/address/_custom_view_df_title.html.eex:13
 msgid "Play"
-msgstr ""
+msgstr "参与"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_modal_pool_info.html.eex:11
 msgid "Please, sign transaction and wait for its mining..."
-msgstr ""
+msgstr "请对交易签名并等待确认..."
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_progress.html.eex:19
 #: lib/block_scout_web/templates/stakes/_table.html.eex:15
 msgid "Pool"
-msgstr ""
+msgstr "池子"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_modal_pool_info.html.eex:9
 msgid "Pool description"
-msgstr ""
+msgstr "池子描述"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_modal_pool_info.html.eex:8
 msgid "Pool name"
-msgstr ""
+msgstr "池子名称"
 
 #, elixir-format
 #: lib/block_scout_web/channels/stakes_channel.ex:884
 msgid "Pools searching is already in progress for this address"
-msgstr ""
+msgstr "在池子中对该地址的搜索正在进行中"
 
 #, elixir-format
 #: lib/block_scout_web/templates/transaction/overview.html.eex:438
 msgid "Position"
-msgstr ""
+msgstr "位置"
 
 #, elixir-format
 #: lib/block_scout_web/templates/block/overview.html.eex:254
 msgid "Position %{index}"
-msgstr ""
+msgstr "位置%{index}"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_modal_delegators_list.html.eex:55
 #: lib/block_scout_web/templates/stakes/_stakes_modal_delegators_list.html.eex:57
 msgid "Potential Reward Share"
-msgstr ""
+msgstr "潜在奖励份额"
 
 #, elixir-format
 #: lib/block_scout_web/templates/transaction/_decoded_input.html.eex:18
 #: lib/block_scout_web/templates/transaction/_decoded_input.html.eex:32
 msgid "Potential matches from our contract method database:"
-msgstr ""
+msgstr "在合约数据库中的潜在匹配性"
 
 #, elixir-format
 #: lib/block_scout_web/templates/layout/_search.html.eex:27
 msgid "Press / and focus will be moved to the search field"
-msgstr ""
+msgstr "点击/后，光标会移至搜索行"
 
 #, elixir-format
 #: lib/block_scout_web/templates/chain/show.html.eex:41
 #: lib/block_scout_web/templates/layout/app.html.eex:50 lib/block_scout_web/templates/tokens/overview/_details.html.eex:109
 msgid "Price"
-msgstr ""
+msgstr "价格"
 
 #, elixir-format
 #: lib/block_scout_web/templates/tokens/overview/_details.html.eex:108
 msgid "Price per token on the exchanges"
-msgstr ""
+msgstr "交易所价格"
 
 #, elixir-format
 #: lib/block_scout_web/templates/transaction/overview.html.eex:352
 msgid "Price per unit of gas specified by the sender. Higher gas prices can prioritize transaction inclusion during times of high usage."
-msgstr ""
+msgstr "由发起者指定的单位gas价格。在高峰期，更高的付费可以让交易优先执行。"
 
 #, elixir-format
 #: lib/block_scout_web/templates/block/overview.html.eex:225
 #: lib/block_scout_web/templates/transaction/overview.html.eex:402
 msgid "Priority Fee / Tip"
-msgstr ""
+msgstr "加急费用/提示"
 
 #, elixir-format
 #: lib/block_scout_web/templates/block/_tile.html.eex:62
 msgid "Priority Fees"
-msgstr ""
+msgstr "加急费用"
 
 #, elixir-format
 #: lib/block_scout_web/templates/common_components/_btn_qr_code.html.eex:10
 #: lib/block_scout_web/templates/common_components/_modal_qr_code.html.eex:5 lib/block_scout_web/templates/tokens/instance/overview/_details.html.eex:83
 msgid "QR Code"
-msgstr ""
+msgstr "二维码"
 
 #, elixir-format
 #: lib/block_scout_web/templates/smart_contract/_functions.html.eex:109
 msgid "Query"
-msgstr ""
+msgstr "询问"
 
 #, elixir-format
 #: lib/block_scout_web/templates/layout/_topnav.html.eex:133
 msgid "RPC"
-msgstr ""
+msgstr "RPC文档"
 
 #, elixir-format
 #: lib/block_scout_web/templates/transaction/overview.html.eex:447
 msgid "Raw Input"
-msgstr ""
+msgstr "输入值"
 
 #, elixir-format
 #: lib/block_scout_web/templates/transaction/_tabs.html.eex:24
 #: lib/block_scout_web/templates/transaction_raw_trace/index.html.eex:7 lib/block_scout_web/views/transaction_view.ex:514
 msgid "Raw Trace"
-msgstr ""
+msgstr "追踪"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address/_tabs.html.eex:81
 #: lib/block_scout_web/templates/tokens/overview/_tabs.html.eex:27 lib/block_scout_web/views/address_view.ex:366
 #: lib/block_scout_web/views/tokens/overview_view.ex:43
 msgid "Read Contract"
-msgstr ""
+msgstr "读取合约"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address/_tabs.html.eex:88
 #: lib/block_scout_web/templates/tokens/overview/_tabs.html.eex:41 lib/block_scout_web/views/address_view.ex:367
 msgid "Read Proxy"
-msgstr ""
+msgstr "读取代理"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_modal_pool_info.html.eex:32
 msgid "Reason for Ban: %{ban_reason}"
-msgstr ""
+msgstr "被禁原因: %{ban_reason}"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_modal_claim_reward_content.html.eex:58
 msgid "Recalculate"
-msgstr ""
+msgstr "重新计算"
 
 #, elixir-format
 #: lib/block_scout_web/templates/common_components/_pagination_container.html.eex:13
 msgid "Records"
-msgstr ""
+msgstr "记录"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_table.html.eex:58
 msgid "Refresh now"
-msgstr ""
+msgstr "刷新"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_top.html.eex:12
 msgid "Remove My Pool"
-msgstr ""
+msgstr "移除池子"
 
 #, elixir-format
 #: lib/block_scout_web/templates/api_docs/_action_tile.html.eex:155
 msgid "Request URL"
-msgstr ""
+msgstr "请求URL"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address_contract_verification_via_flattened_code/new.html.eex:142
@@ -1978,157 +1978,157 @@ msgstr ""
 #: lib/block_scout_web/templates/address_contract_verification_via_standard_json_input/new.html.eex:52
 #: lib/block_scout_web/templates/address_contract_verification_vyper/new.html.eex:48
 msgid "Reset"
-msgstr ""
+msgstr "重置"
 
 #, elixir-format
 #: lib/block_scout_web/templates/api_docs/_action_tile.html.eex:173
 #: lib/block_scout_web/templates/api_docs/_eth_rpc_item.html.eex:134
 msgid "Response Body"
-msgstr ""
+msgstr "响应正文"
 
 #, elixir-format
 #: lib/block_scout_web/templates/api_docs/_action_tile.html.eex:185
 #: lib/block_scout_web/templates/api_docs/_eth_rpc_item.html.eex:147
 msgid "Responses"
-msgstr ""
+msgstr "响应"
 
 #, elixir-format
 #: lib/block_scout_web/templates/transaction/overview.html.eex:92
 msgid "Result"
-msgstr ""
+msgstr "结果"
 
 #, elixir-format
 #: lib/block_scout_web/templates/transaction/overview.html.eex:129
 msgid "Revert reason"
-msgstr ""
+msgstr "退回原因"
 
 #, elixir-format
 #: lib/block_scout_web/templates/block/_tile.html.eex:52
 #: lib/block_scout_web/templates/chain/_block.html.eex:27 lib/block_scout_web/views/internal_transaction_view.ex:28
 msgid "Reward"
-msgstr ""
+msgstr "奖励"
 
 #, elixir-format
 #: lib/block_scout_web/channels/stakes_channel.ex:925
 msgid "Reward calculating is already in progress for this address"
-msgstr ""
+msgstr "该地址的奖励计算正在进行中"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_modal_delegators_list.html.eex:61
 msgid "Reward distribution is based on stake amount. Validator receives at least %{min}% of the pool reward."
-msgstr ""
+msgstr "奖励分发是基于质押数额。验证者至少收到%{min}%的池子奖励"
 
 #, elixir-format
 #: lib/block_scout_web/templates/admin/dashboard/index.html.eex:21
 msgid "Run"
-msgstr ""
+msgstr "运行"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_modal_pool_info.html.eex:10
 msgid "Save changes"
-msgstr ""
+msgstr "保存更改"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address_logs/index.html.eex:16
 #: lib/block_scout_web/templates/layout/_search.html.eex:34
 msgid "Search"
-msgstr ""
+msgstr "搜索"
 
 #, elixir-format
 #: lib/block_scout_web/templates/search/results.html.eex:17
 msgid "Search Results"
-msgstr ""
+msgstr "搜索结果"
 
 #, elixir-format
 #: lib/block_scout_web/templates/layout/_search.html.eex:3
 msgid "Search by address, token symbol name, transaction hash, or block number"
-msgstr ""
+msgstr "通过地址，币种，交易哈希和区块高度搜索"
 
 #, elixir-format
 #: lib/block_scout_web/templates/layout/_network_selector.html.eex:18
 msgid "Search network"
-msgstr ""
+msgstr "搜索网络"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address_token_balance/_token_balances.html.eex:47
 msgid "Search tokens"
-msgstr ""
+msgstr "搜索币种"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_modal_claim_reward.html.eex:9
 msgid "Searching for pools you have ever staked into. Please, wait..."
-msgstr ""
+msgstr "正在搜索您质押过的池子，请等待。。。"
 
 #, elixir-format
 #: lib/block_scout_web/views/internal_transaction_view.ex:27
 msgid "Self-Destruct"
-msgstr ""
+msgstr "自主销毁"
 
 #, elixir-format
 #: lib/block_scout_web/templates/api_docs/_action_tile.html.eex:163
 #: lib/block_scout_web/templates/api_docs/_eth_rpc_item.html.eex:124
 msgid "Server Response"
-msgstr ""
+msgstr "服务器响应"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_modal_pool_info.html.eex:65
 msgid "Share of Pool’s Reward"
-msgstr ""
+msgstr "奖池份额"
 
 #, elixir-format
 #: lib/block_scout_web/templates/common_components/_pagination_container.html.eex:7
 msgid "Show"
-msgstr ""
+msgstr "显示"
 
 #, elixir-format
 #: lib/block_scout_web/templates/common_components/_btn_qr_code.html.eex:11
 msgid "Show QR Code"
-msgstr ""
+msgstr "显示二维码"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address/overview.html.eex:47
 msgid "Show Validator Info"
-msgstr ""
+msgstr "显示验证信息"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_title.html.eex:22
 msgid "Show banned only"
-msgstr ""
+msgstr "只显示已禁止"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_title.html.eex:28
 msgid "Show only those I have stake in"
-msgstr ""
+msgstr "只显示已质押"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address_token/overview.html.eex:52
 msgid "Shows the current"
-msgstr ""
+msgstr "显示现有的"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address_token/overview.html.eex:59
 msgid "Shows the tokens held in the address (includes ERC-20, ERC-721 and ERC-1155)."
-msgstr ""
+msgstr "显示该地址持有的代币"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address_token/overview.html.eex:66
 msgid "Shows the total CRC balance in the address."
-msgstr ""
+msgstr "显示该地址的CRC余额"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address_token/overview.html.eex:45
 msgid "Shows total assets held in the address"
-msgstr ""
+msgstr "显示该地址资产"
 
 #, elixir-format
 #: lib/block_scout_web/templates/block/overview.html.eex:114
 msgid "Size"
-msgstr ""
+msgstr "大小"
 
 #, elixir-format
 #: lib/block_scout_web/templates/block/overview.html.eex:113
 msgid "Size of the block in bytes."
-msgstr ""
+msgstr "区块字节大小"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address_coin_balance/index.html.eex:30
@@ -2143,414 +2143,414 @@ msgstr ""
 #: lib/block_scout_web/templates/transaction_internal_transaction/index.html.eex:13 lib/block_scout_web/templates/transaction_log/index.html.eex:15
 #: lib/block_scout_web/templates/transaction_token_transfer/index.html.eex:14
 msgid "Something went wrong, click to reload."
-msgstr ""
+msgstr "页面出错，点击重新加载"
 
 #, elixir-format
 #: lib/block_scout_web/templates/chain/show.html.eex:237
 msgid "Something went wrong, click to retry."
-msgstr ""
+msgstr "页面出错，点击重试"
 
 #, elixir-format
 #: lib/block_scout_web/templates/transaction/not_found.html.eex:7
 msgid "Sorry, We are unable to locate this transaction Hash"
-msgstr ""
+msgstr "抱歉，无法找到该交易哈希"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_modal_move.html.eex:7
 msgid "Source Pool"
-msgstr ""
+msgstr "源池"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address_contract_verification_via_json/new.html.eex:14
 msgid "Sources and Metadata JSON"
-msgstr ""
+msgstr "源和元数据JSON"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_modal_stake.html.eex:7
 msgid "Stake"
-msgstr ""
+msgstr "质押"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_modal_stake.html.eex:43
 msgid "Stake More"
-msgstr ""
+msgstr "质押更多"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_modal_move.html.eex:64
 msgid "Stake placed on a candidate pool or an active validator pool <strong>during the current staking epoch</strong> can be moved from one pool to another. Active stake cannot be moved. To re-delegate active stake: order a withdrawal, claim the amount on the next staking epoch, and stake the amount on a different pool."
-msgstr ""
+msgstr "在<strong>此次周期</strong>于候选池或者验证池的质押可能会被移至另外的池子，线上池子不会受影响. 重新委托线上池: 质押取出, 在下个周期提取收益, 以及在其他池做质押。"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_modal_stake.html.eex:53
 msgid "Stake placed on a pool is <strong>pending</strong> for the current staking epoch. It will be applied to the next staking epoch. You may withdraw or move pending stake at any time until it becomes active. Once active (the pool you staked with becomes a validator), a withdrawal order can be placed. This amount will be available to claim after that staking epoch is complete."
-msgstr ""
+msgstr "该次周期的池子质押还在<strong>等待确认中</strong>，将在下个周期生效。在确认生效前，你可以自由提取或者移动质押。确认成功后，可以提前预订取出。在下个周期，将可以提取收益。"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_stats_item_account.html.eex:45
 #: lib/block_scout_web/templates/stakes/_stakes_stats_item_account.html.eex:46
 msgid "Staked"
-msgstr ""
+msgstr "已质押"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_table.html.eex:28
 msgid "Staked Amount"
-msgstr ""
+msgstr "质押数额"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_modal_delegators_list.html.eex:26
 msgid "Staker's Address"
-msgstr ""
+msgstr "质押者地址"
 
 #, elixir-format
 #: lib/block_scout_web/templates/layout/_topnav.html.eex:154
 msgid "Stakes"
-msgstr ""
+msgstr "质押"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_modal_pool_info.html.eex:59
 #: lib/block_scout_web/templates/stakes/_stakes_progress.html.eex:25 lib/block_scout_web/templates/stakes/_table.html.eex:34
 msgid "Stakes Ratio"
-msgstr ""
+msgstr "质押比例"
 
 #, elixir-format
 #: lib/block_scout_web/templates/layout/_topnav.html.eex:160
 msgid "Staking"
-msgstr ""
+msgstr "质押"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_modal_pool_info.html.eex:20
 msgid "Staking Address:"
-msgstr ""
+msgstr "质押地址："
 
 #, elixir-format
 #: lib/block_scout_web/channels/stakes_channel.ex:928
 msgid "Staking epochs are not specified or not in the allowed range"
-msgstr ""
+msgstr "未指定质押周期或者超出范围"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address_contract_verification_via_standard_json_input/new.html.eex:24
 msgid "Standard Input JSON"
-msgstr ""
+msgstr "标准JSON输入"
 
 #, elixir-format
 #: lib/block_scout_web/views/internal_transaction_view.ex:24
 msgid "Static Call"
-msgstr ""
+msgstr "静态访问"
 
 #, elixir-format
 #: lib/block_scout_web/templates/transaction/overview.html.eex:104
 msgid "Status"
-msgstr ""
+msgstr "状态"
 
 #, elixir-format
 #: lib/block_scout_web/templates/layout/_footer.html.eex:39
 msgid "Submit an Issue"
-msgstr ""
+msgstr "提交工单"
 
 #, elixir-format
 #: lib/block_scout_web/templates/transaction/_emission_reward_tile.html.eex:8
 #: lib/block_scout_web/views/transaction_view.ex:350
 msgid "Success"
-msgstr ""
+msgstr "成功"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_top.html.eex:38
 msgid "Swap STAKE on Honeyswap"
-msgstr ""
+msgstr "交换质押"
 
 #, elixir-format
 #: lib/block_scout_web/templates/transaction/_pending_tile.html.eex:21
 #: lib/block_scout_web/templates/transaction/_tile.html.eex:46
 msgid "TX Fee"
-msgstr ""
+msgstr "交易费"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_modal_move.html.eex:67
 msgid "Target Pool"
-msgstr ""
+msgstr "目标池"
 
 #, elixir-format
 #: lib/block_scout_web/templates/layout/_footer.html.eex:30
 msgid "Telegram"
-msgstr ""
+msgstr "电报群"
 
 #, elixir-format
 #: lib/block_scout_web/templates/layout/_footer.html.eex:65
 msgid "Test Networks"
-msgstr ""
+msgstr "测试网络"
 
 #, elixir-format
 #: lib/block_scout_web/templates/layout/_network_selector.html.eex:23
 msgid "Testnet"
-msgstr ""
+msgstr "测试网"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_modal_pool_info.html.eex:89
 msgid "The Number of Delegators in the Pool"
-msgstr ""
+msgstr "池子中的委托者"
 
 #, elixir-format
 #: lib/block_scout_web/templates/block/overview.html.eex:122
 msgid "The SHA256 hash of the block."
-msgstr ""
+msgstr "区块SHA256哈希"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_modal_withdraw.html.eex:39
 msgid "The amount can be claimed after the current epoch finishes."
-msgstr ""
+msgstr "此周期后，可提取的数额"
 
 #, elixir-format
 #: lib/block_scout_web/templates/block/overview.html.eex:51
 msgid "The block height of a particular block is defined as the number of blocks preceding it in the blockchain."
-msgstr ""
+msgstr "区块高度是指该区块在整个链上的序数。"
 
 #, elixir-format
 #: lib/block_scout_web/templates/smart_contract/_functions.html.eex:41
 msgid "The fallback function is executed on a call to the contract if none of the other functions match the given function signature, or if no data was supplied at all and there is no receive Ether function. The fallback function always receives data, but in order to also receive Ether it must be marked payable."
-msgstr ""
+msgstr "如果合约中没有匹配的函数或者要求输入，回调函数将会被执行。"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_table.html.eex:23
 msgid "The first amount is the candidate’s own stake, the second is the total amount staked into the pool by the candidate and all delegators."
-msgstr ""
+msgstr "第一组数据是候选者的质押，第二个是池子总和。"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_table.html.eex:25
 msgid "The first amount is the pool owner’s stake, the second is the total amount staked into the pool by the pool owner and all delegators."
-msgstr ""
+msgstr "第一组数据是池子创建人的质押，第二个是池子总和。"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_table.html.eex:21
 msgid "The first amount is the validator’s own stake, the second is the total amount staked into the pool by the validator and all delegators."
-msgstr ""
+msgstr "第一组数据是验证人的质押，第二个是池子总和。"
 
 #, elixir-format
 #: lib/block_scout_web/templates/block/overview.html.eex:138
 msgid "The hash of the block from which this block was generated."
-msgstr ""
+msgstr "区块生成时的哈希值"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address/overview.html.eex:92
 msgid "The name found in the source code of the Contract."
-msgstr ""
+msgstr "合约源码里找到的名称"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address/overview.html.eex:103
 msgid "The name of the validator."
-msgstr ""
+msgstr "验证者名称"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_table.html.eex:43
 msgid "The number of delegators providing stake to the pool. Click on the number to see more details."
-msgstr ""
+msgstr "提供质押的委托者总数，点击获得更多详情"
 
 #, elixir-format
 #: lib/block_scout_web/templates/block/overview.html.eex:79
 msgid "The number of transactions in the block."
-msgstr ""
+msgstr "区块交易数"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_table.html.eex:34
 msgid "The percentage of stake in a single pool relative to the total amount staked in all active pools. A higher ratio results in a greater likelihood of validator pool selection."
-msgstr ""
+msgstr "单一池子在所有活跃池子中的质押比例。高比例意味着为验证池的可能性高。"
 
 #, elixir-format
 #: lib/block_scout_web/templates/smart_contract/_functions.html.eex:43
 msgid "The receive function is executed on a call to the contract with empty calldata. This is the function that is executed on plain Ether transfers (e.g. via .send() or .transfer()). If no such function exists, but a payable fallback function exists, the fallback function will be called on a plain Ether transfer. If neither a receive Ether nor a payable fallback function is present, the contract cannot receive Ether through regular transactions and throws an exception."
-msgstr ""
+msgstr "对于合约的空数据调用会触发接收函数的执行。"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_modal_delegators_list.html.eex:105
 msgid "The rest addresses are delegators of its pool."
-msgstr ""
+msgstr "剩余地址为池子委托者"
 
 #, elixir-format
 #: lib/block_scout_web/templates/transaction/overview.html.eex:128
 msgid "The revert reason of the transaction."
-msgstr ""
+msgstr "交易回退的原因。"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_modal_claim_reward_content.html.eex:34
 msgid "The staking epochs for which the reward could be claimed (read-only field):"
-msgstr ""
+msgstr "质押奖励可领取的时间："
 
 #, elixir-format
 #: lib/block_scout_web/templates/transaction/overview.html.eex:103
 msgid "The status of the transaction: Confirmed or Unconfirmed."
-msgstr ""
+msgstr "交易状态：已确认或未确认"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_table.html.eex:58
 msgid "The table refreshed <span></span> block(s) ago."
-msgstr ""
+msgstr "列表于<span></span>区块前刷新过。"
 
 #, elixir-format
 #: lib/block_scout_web/templates/tokens/overview/_details.html.eex:82
 msgid "The total amount of tokens issued"
-msgstr ""
+msgstr "发行的代币总量"
 
 #, elixir-format
 #: lib/block_scout_web/templates/block/overview.html.eex:177
 msgid "The total gas amount used in the block and its percentage of gas filled in the block."
-msgstr ""
+msgstr "该区块使用的总gas以及百分比。"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address_validation/index.html.eex:16
 msgid "There are no blocks validated by this address."
-msgstr ""
+msgstr "此地址下无验证过的区块"
 
 #, elixir-format
 #: lib/block_scout_web/templates/block/index.html.eex:17
 msgid "There are no blocks."
-msgstr ""
+msgstr "无区块"
 
 #, elixir-format
 #: lib/block_scout_web/templates/tokens/holder/index.html.eex:28
 msgid "There are no holders for this Token."
-msgstr ""
+msgstr "该代币无持有人"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address_internal_transaction/index.html.eex:54
 msgid "There are no internal transactions for this address."
-msgstr ""
+msgstr "此地址下无内部交易"
 
 #, elixir-format
 #: lib/block_scout_web/templates/transaction_internal_transaction/index.html.eex:17
 msgid "There are no internal transactions for this transaction."
-msgstr ""
+msgstr "此交易下无内部交易"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address_logs/index.html.eex:28
 msgid "There are no logs for this address."
-msgstr ""
+msgstr "此地址无日志。"
 
 #, elixir-format
 #: lib/block_scout_web/templates/transaction_log/index.html.eex:20
 msgid "There are no logs for this transaction."
-msgstr ""
+msgstr "此交易无日志。"
 
 #, elixir-format
 #: lib/block_scout_web/templates/pending_transaction/index.html.eex:22
 msgid "There are no pending transactions."
-msgstr ""
+msgstr "无待确认交易。"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address_token_transfer/index.html.eex:53
 msgid "There are no token transfers for this address."
-msgstr ""
+msgstr "此地址下无代币转账。"
 
 #, elixir-format
 #: lib/block_scout_web/templates/transaction_token_transfer/index.html.eex:19
 msgid "There are no token transfers for this transaction"
-msgstr ""
+msgstr "该交易中无代币转账"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address_token/index.html.eex:65
 msgid "There are no tokens for this address."
-msgstr ""
+msgstr "此地址下无代币。"
 
 #, elixir-format
 #: lib/block_scout_web/templates/tokens/inventory/index.html.eex:27
 msgid "There are no tokens."
-msgstr ""
+msgstr "无代币。"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address_transaction/index.html.eex:55
 msgid "There are no transactions for this address."
-msgstr ""
+msgstr "此地址无交易"
 
 #, elixir-format
 #: lib/block_scout_web/templates/block_transaction/index.html.eex:27
 msgid "There are no transactions for this block."
-msgstr ""
+msgstr "此区块无交易"
 
 #, elixir-format
 #: lib/block_scout_web/templates/transaction/index.html.eex:31
 msgid "There are no transactions."
-msgstr ""
+msgstr "无交易"
 
 #, elixir-format
 #: lib/block_scout_web/templates/tokens/instance/holder/index.html.eex:28
 #: lib/block_scout_web/templates/tokens/instance/transfer/index.html.eex:28 lib/block_scout_web/templates/tokens/transfer/index.html.eex:26
 msgid "There are no transfers for this Token."
-msgstr ""
+msgstr "该代币无转账"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address_coin_balance/index.html.eex:35
 msgid "There is no coin history for this address."
-msgstr ""
+msgstr "未找到该地址资产历史"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address_decompiled_contract/index.html.eex:29
 msgid "There is no decompilded contracts for this address."
-msgstr ""
+msgstr "该地址合约无法反向编译"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_empty_content.html.eex:12
 msgid "There is no information currently available for this view. Deselect filters or choose another pool view to see current info. To participate as a delegator, select a pool address and click the Stake icon. To become a candidate, click the button below."
-msgstr ""
+msgstr "未找到可用信息，取消筛选查看其它。"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address_coin_balance/index.html.eex:21
 #: lib/block_scout_web/templates/chain/show.html.eex:9
 msgid "There was a problem loading the chart."
-msgstr ""
+msgstr "加载图表遇到问题。"
 
 #, elixir-format
 #: lib/block_scout_web/templates/api_docs/index.html.eex:6
 msgid "This API is provided for developers transitioning their applications from Etherscan to BlockScout. It supports GET and POST requests."
-msgstr ""
+msgstr "API接口可用于开发者集成新的应用"
 
 #, elixir-format
 #: lib/block_scout_web/templates/api_docs/eth_rpc.html.eex:7
 msgid "This API is provided to support some rpc methods in the exact format specified for ethereum nodes, which can be found "
-msgstr ""
+msgstr "API接口提供部分RPC方法"
 
 #, elixir-format
 #: lib/block_scout_web/views/block_transaction_view.ex:11
 msgid "This block has not been processed yet."
-msgstr ""
+msgstr "区块还未被处理。"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address_contract/index.html.eex:41
 msgid "This contract has been partially verified via Sourcify."
-msgstr ""
+msgstr "合约部分被Sourcify验证"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address_contract/index.html.eex:45
 msgid "This contract has been verified via Sourcify."
-msgstr ""
+msgstr "合约已被Sourcify验证"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_modal_delegators_list.html.eex:102
 msgid "This is a %{pool_type}."
-msgstr ""
+msgstr "这是%{pool_type}。"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_rows.html.eex:5
 msgid "This is a validator"
-msgstr ""
+msgstr "这是验证者"
 
 #, elixir-format
 #: lib/block_scout_web/templates/api_docs/eth_rpc.html.eex:10
 msgid "This is useful to allow sending requests to blockscout without having to change anything about the request."
-msgstr ""
+msgstr "在不做任何请求改动情况下，发送请求。"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_modal_pool_info.html.eex:31
 msgid "This pool is banned until block #%{banned_until} (%{estimated_unban_day})"
-msgstr ""
+msgstr "该池子被封禁直至区块#%{banned_until} (%{estimated_unban_day})"
 
 #, elixir-format
 #: lib/block_scout_web/templates/transaction/overview.html.eex:58
 msgid "This transaction is pending confirmation."
-msgstr ""
+msgstr "交易等待确认"
 
 #, elixir-format
 #: lib/block_scout_web/templates/block/overview.html.eex:71
 #: lib/block_scout_web/templates/transaction/overview.html.eex:171
 msgid "Timestamp"
-msgstr ""
+msgstr "时间戳"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address_internal_transaction/index.html.eex:32
@@ -2558,68 +2558,68 @@ msgstr ""
 #: lib/block_scout_web/templates/transaction/overview.html.eex:217 lib/block_scout_web/views/address_internal_transaction_view.ex:9
 #: lib/block_scout_web/views/address_token_transfer_view.ex:9 lib/block_scout_web/views/address_transaction_view.ex:9
 msgid "To"
-msgstr ""
+msgstr "进账"
 
 #, elixir-format
 #: lib/block_scout_web/templates/transaction/_decoded_input.html.eex:20
 msgid "To have guaranteed accuracy, use the link above to verify the contract's source code."
-msgstr ""
+msgstr "通过以上链接验证合约源码"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address_logs/_logs.html.eex:6
 #: lib/block_scout_web/templates/transaction/_decoded_input.html.eex:8 lib/block_scout_web/templates/transaction_log/_logs.html.eex:6
 msgid "To see accurate decoded input data, the contract must be verified."
-msgstr ""
+msgstr "只可查看已验证合约的输入数据。"
 
 #, elixir-format
 #: lib/block_scout_web/templates/layout/_topnav.html.eex:13
 msgid "Toggle navigation"
-msgstr ""
+msgstr "切换导航"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address/overview.html.eex:73
 msgid "Token"
-msgstr ""
+msgstr "代币"
 
 #, elixir-format
 #: lib/block_scout_web/templates/common_components/_token_transfer_type_display_name.html.eex:3 lib/block_scout_web/views/transaction_view.ex:448
 msgid "Token Burning"
-msgstr ""
+msgstr "代币销毁"
 
 #, elixir-format
 #: lib/block_scout_web/templates/common_components/_token_transfer_type_display_name.html.eex:7 lib/block_scout_web/views/transaction_view.ex:449
 msgid "Token Creation"
-msgstr ""
+msgstr "代币创建"
 
 #, elixir-format
 #: lib/block_scout_web/templates/tokens/instance/overview/_details.html.eex:10
 #: lib/block_scout_web/templates/tokens/overview/_details.html.eex:42
 msgid "Token Details"
-msgstr ""
+msgstr "代币明细"
 
 #, elixir-format
 #: lib/block_scout_web/templates/tokens/holder/index.html.eex:16
 #: lib/block_scout_web/templates/tokens/instance/holder/index.html.eex:16 lib/block_scout_web/templates/tokens/instance/overview/_tabs.html.eex:17
 #: lib/block_scout_web/templates/tokens/overview/_tabs.html.eex:11 lib/block_scout_web/views/tokens/overview_view.ex:42
 msgid "Token Holders"
-msgstr ""
+msgstr "代币持有者"
 
 #, elixir-format
 #: lib/block_scout_web/templates/tokens/instance/overview/_details.html.eex:38
 #: lib/block_scout_web/templates/tokens/inventory/_token.html.eex:18 lib/block_scout_web/templates/tokens/inventory/_token.html.eex:37
 msgid "Token ID"
-msgstr ""
+msgstr "代币ID"
 
 #, elixir-format
 #: lib/block_scout_web/templates/common_components/_token_transfer_type_display_name.html.eex:5 lib/block_scout_web/views/transaction_view.ex:447
 msgid "Token Minting"
-msgstr ""
+msgstr "代币挖矿"
 
 #, elixir-format
 #: lib/block_scout_web/templates/common_components/_token_transfer_type_display_name.html.eex:9
 #: lib/block_scout_web/templates/common_components/_token_transfer_type_display_name.html.eex:11 lib/block_scout_web/views/transaction_view.ex:450
 msgid "Token Transfer"
-msgstr ""
+msgstr "代币转账"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address/_tabs.html.eex:13
@@ -2630,17 +2630,17 @@ msgstr ""
 #: lib/block_scout_web/views/tokens/instance/overview_view.ex:195 lib/block_scout_web/views/tokens/overview_view.ex:41
 #: lib/block_scout_web/views/transaction_view.ex:511
 msgid "Token Transfers"
-msgstr ""
+msgstr "代币转账"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address/overview.html.eex:72
 msgid "Token name and symbol."
-msgstr ""
+msgstr "代币名称和代码"
 
 #, elixir-format
 #: lib/block_scout_web/templates/tokens/overview/_details.html.eex:156
 msgid "Token type"
-msgstr ""
+msgstr "代币类型"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address/_tabs.html.eex:21
@@ -2649,140 +2649,141 @@ msgstr ""
 #: lib/block_scout_web/templates/layout/_topnav.html.eex:101 lib/block_scout_web/templates/tokens/index.html.eex:10
 #: lib/block_scout_web/views/address_view.ex:360
 msgid "Tokens"
-msgstr ""
+msgstr "代币"
 
 #, elixir-format
 #: lib/block_scout_web/templates/transaction/overview.html.eex:290
 msgid "Tokens Burnt"
-msgstr ""
+msgstr "已销毁代币"
 
 #, elixir-format
 #: lib/block_scout_web/templates/transaction/overview.html.eex:306
 msgid "Tokens Created"
-msgstr ""
+msgstr "已创建代币"
 
 #, elixir-format
 #: lib/block_scout_web/templates/transaction/overview.html.eex:273
 msgid "Tokens Minted"
-msgstr ""
+msgstr "已挖代币"
 
 #, elixir-format
 #: lib/block_scout_web/templates/transaction/overview.html.eex:257
 msgid "Tokens Transferred"
-msgstr ""
+msgstr "已转代币"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address/_metatags.html.eex:13
 msgid "Top Accounts - %{subnetwork} Explorer"
-msgstr ""
+msgstr "头部账户 - %{subnetwork}浏览器"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address_logs/index.html.eex:14
 msgid "Topic"
-msgstr ""
+msgstr "主题"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address_logs/_logs.html.eex:71
 #: lib/block_scout_web/templates/transaction_log/_logs.html.eex:91
 msgid "Topics"
-msgstr ""
+msgstr "主题"
 
 #, elixir-format
 #: lib/block_scout_web/templates/block/overview.html.eex:169
 msgid "Total Difficulty"
-msgstr ""
+msgstr "总难度"
 
 #, elixir-format
 #: lib/block_scout_web/templates/tokens/overview/_details.html.eex:97
 msgid "Total Supply * Price"
-msgstr ""
+msgstr "总供应*价格"
 
 #, elixir-format
 #: lib/block_scout_web/templates/chain/show.html.eex:145
 msgid "Total blocks"
-msgstr ""
+msgstr "区块高度"
 
 #, elixir-format
 #: lib/block_scout_web/templates/block/overview.html.eex:168
 msgid "Total difficulty of the chain until this block."
-msgstr ""
+msgstr "最新出块难度"
 
 #, elixir-format
 #: lib/block_scout_web/templates/block/overview.html.eex:186
 msgid "Total gas limit provided by all transactions in the block."
-msgstr ""
+msgstr "该区块所有交易提供的总gas限制"
+
 
 #, elixir-format
 #: lib/block_scout_web/templates/transaction/overview.html.eex:337
 msgid "Total transaction fee."
-msgstr ""
+msgstr "总交易费。"
 
 #, elixir-format
 #: lib/block_scout_web/templates/chain/show.html.eex:124
 msgid "Total transactions"
-msgstr ""
+msgstr "总交易数"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_top.html.eex:52
 msgid "Trade STAKE on AscendEX"
-msgstr ""
+msgstr "顶峰交易所质押"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address_logs/_logs.html.eex:19
 #: lib/block_scout_web/views/transaction_view.ex:460
 msgid "Transaction"
-msgstr ""
+msgstr "交易"
 
 #, elixir-format
 #: lib/block_scout_web/templates/transaction/_metatags.html.eex:3
 msgid "Transaction %{transaction} - %{subnetwork} Explorer"
-msgstr ""
+msgstr "交易%{transaction} - %{subnetwork}浏览器"
 
 #, elixir-format
 #: lib/block_scout_web/templates/transaction/_metatags.html.eex:11
 msgid "Transaction %{transaction}, %{subnetwork} %{transaction}"
-msgstr ""
+msgstr "交易%{transaction}, %{subnetwork} %{transaction}"
 
 #, elixir-format
 #: lib/block_scout_web/templates/transaction/overview.html.eex:412
 msgid "Transaction Burnt Fee"
-msgstr ""
+msgstr "交易燃烧费"
 
 #, elixir-format
 #: lib/block_scout_web/templates/transaction/overview.html.eex:49
 msgid "Transaction Details"
-msgstr ""
+msgstr "交易明细"
 
 #, elixir-format
 #: lib/block_scout_web/templates/transaction/overview.html.eex:338
 msgid "Transaction Fee"
-msgstr ""
+msgstr "交易费"
 
 #, elixir-format
 #: lib/block_scout_web/templates/transaction/overview.html.eex:74
 msgid "Transaction Hash"
-msgstr ""
+msgstr "交易哈希"
 
 #, elixir-format
 #: lib/block_scout_web/templates/transaction/_decoded_input_body.html.eex:2
 #: lib/block_scout_web/templates/transaction/_decoded_input_body.html.eex:19
 msgid "Transaction Inputs"
-msgstr ""
+msgstr "交易输入"
 
 #, elixir-format
 #: lib/block_scout_web/templates/transaction/overview.html.eex:362
 msgid "Transaction Type"
-msgstr ""
+msgstr "交易类型"
 
 #, elixir-format
 #: lib/block_scout_web/templates/transaction/overview.html.eex:435
 msgid "Transaction number from the sending address. Each transaction sent from an address increments the nonce by 1."
-msgstr ""
+msgstr "发送地址的交易数。每笔从该地址发出的交易会使nonce增加1"
 
 #, elixir-format
 #: lib/block_scout_web/templates/transaction/overview.html.eex:361
 msgid "Transaction type, introduced in EIP-2718."
-msgstr ""
+msgstr "交易类型"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address/_tabs.html.eex:7
@@ -2792,56 +2793,56 @@ msgstr ""
 #: lib/block_scout_web/templates/chain/show.html.eex:228 lib/block_scout_web/templates/layout/_topnav.html.eex:43
 #: lib/block_scout_web/views/address_view.ex:362
 msgid "Transactions"
-msgstr ""
+msgstr "交易"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address/overview.html.eex:119
 msgid "Transactions and address of creation."
-msgstr ""
+msgstr "交易及创建地址"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address/_tile.html.eex:31
 msgid "Transactions sent"
-msgstr ""
+msgstr "交易"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address/overview.html.eex:229
 #: lib/block_scout_web/templates/address/overview.html.eex:235 lib/block_scout_web/templates/address/overview.html.eex:243
 #: lib/block_scout_web/templates/tokens/instance/overview/_details.html.eex:50 lib/block_scout_web/templates/tokens/overview/_details.html.eex:133
 msgid "Transfers"
-msgstr ""
+msgstr "转账"
 
 #, elixir-format
 #: lib/block_scout_web/templates/api_docs/_action_tile.html.eex:40
 #: lib/block_scout_web/templates/api_docs/_eth_rpc_item.html.eex:47
 msgid "Try it out"
-msgstr ""
+msgstr "试一试"
 
 #, elixir-format
 #: lib/block_scout_web/templates/layout/_footer.html.eex:27
 msgid "Twitter"
-msgstr ""
+msgstr "推特"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_modal_claim_reward_content.html.eex:53
 msgid "Tx Gas Limit:"
-msgstr ""
+msgstr "交易Gas上限："
 
 #, elixir-format
 #: lib/block_scout_web/templates/layout/app.html.eex:52
 msgid "Tx/day"
-msgstr ""
+msgstr "每日交易"
 
 #, elixir-format
 #: lib/block_scout_web/templates/log/_data_decoded_view.html.eex:5
 #: lib/block_scout_web/templates/transaction/_decoded_input_body.html.eex:22
 msgid "Type"
-msgstr ""
+msgstr "类型"
 
 #, elixir-format
 #: lib/block_scout_web/templates/tokens/overview/_details.html.eex:155
 msgid "Type of the token standard"
-msgstr ""
+msgstr "代币标准类型"
 
 #, elixir-format
 #: lib/block_scout_web/templates/transaction/overview.html.eex:461
@@ -2851,125 +2852,125 @@ msgstr ""
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_modal_claim_reward_content.html.eex:69
 msgid "Unable to find any pools you could claim a reward from."
-msgstr ""
+msgstr "未找到可领取奖励的池子"
 
 #, elixir-format
 #: lib/block_scout_web/views/block_view.ex:75
 msgid "Uncle Reward"
-msgstr ""
+msgstr "上层奖励"
 
 #, elixir-format
 #: lib/block_scout_web/templates/block/overview.html.eex:250
 #: lib/block_scout_web/templates/layout/_topnav.html.eex:31
 msgid "Uncles"
-msgstr ""
+msgstr "旁支"
 
 #, elixir-format
 #: lib/block_scout_web/views/transaction_view.ex:341
 msgid "Unconfirmed"
-msgstr ""
+msgstr "未确认"
 
 #, elixir-format
 #: lib/block_scout_web/templates/tokens/inventory/_token.html.eex:9
 msgid "Unique Token"
-msgstr ""
+msgstr "唯一代币"
 
 #, elixir-format
 #: lib/block_scout_web/templates/transaction/overview.html.eex:73
 msgid "Unique character string (TxID) assigned to every verified transaction."
-msgstr ""
+msgstr "识别每笔已验证交易的唯一的字符串(交易ID)"
 
 #, elixir-format
 #: lib/block_scout_web/channels/stakes_channel.ex:891
 #: lib/block_scout_web/channels/stakes_channel.ex:938
 msgid "Unknown address of Staking contract. Please, contact support"
-msgstr ""
+msgstr "未知质押合约地址，请联系支持人员。"
 
 #, elixir-format
 #: lib/block_scout_web/channels/stakes_channel.ex:931
 msgid "Unknown pool staking address. Please, contact support"
-msgstr ""
+msgstr "未知池质押地址，请联系支持人员。"
 
 #, elixir-format
 #: lib/block_scout_web/channels/stakes_channel.ex:887
 #: lib/block_scout_web/channels/stakes_channel.ex:934
 msgid "Unknown staker address. Please, choose your account in MetaMask"
-msgstr ""
+msgstr "未知质押者地址。请在MetaMask选择账户。"
 
 #, elixir-format
 #: lib/block_scout_web/templates/layout/_network_selector.html.eex:12
 msgid "Use the search box to find a hosted network, or select from the list of available networks below."
-msgstr ""
+msgstr "通过搜索框查询网络，或从以下可用网络中选择。"
 
 #, elixir-format
 #: lib/block_scout_web/templates/transaction/overview.html.eex:391
 msgid "User defined maximum fee (tip) per unit of gas paid to validator for transaction prioritization."
-msgstr ""
+msgstr "发给验证者的最大单位gas打赏"
 
 #, elixir-format
 #: lib/block_scout_web/templates/transaction/overview.html.eex:401
 msgid "User-defined tip sent to validator for transaction priority/inclusion."
-msgstr ""
+msgstr "发给验证者的打赏"
 
 #, elixir-format
 #: lib/block_scout_web/templates/block/overview.html.eex:224
 msgid "User-defined tips sent to validator for transaction priority/inclusion."
-msgstr ""
+msgstr "发给验证者的打赏"
 
 #, elixir-format
 #: lib/block_scout_web/templates/layout/_topnav.html.eex:47
 msgid "Validated"
-msgstr ""
+msgstr "已验证"
 
 #, elixir-format
 #: lib/block_scout_web/templates/transaction/index.html.eex:12
 msgid "Validated Transactions"
-msgstr ""
+msgstr "已验证交易"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address/_validator_metadata_modal.html.eex:30
 msgid "Validator Creation Date"
-msgstr ""
+msgstr "验证者创建日期"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address/_validator_metadata_modal.html.eex:5
 msgid "Validator Data"
-msgstr ""
+msgstr "验证者数据"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address/overview.html.eex:51
 msgid "Validator Info"
-msgstr ""
+msgstr "验证者信息"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address/overview.html.eex:104
 msgid "Validator Name"
-msgstr ""
+msgstr "验证者名称"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_table.html.eex:8
 msgid "Validator Pool Addresses."
-msgstr ""
+msgstr "验证池子地址"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_table.html.eex:32
 msgid "Validator pools can be banned for misbehavior (such as not revealing secret numbers). Validator and delegator stake contained in a banned pool cannot be withdrawn until the ban is over."
-msgstr ""
+msgstr "不当作为会导致验证者池被封禁。"
 
 #, elixir-format
 #: lib/block_scout_web/templates/transaction/overview.html.eex:323
 msgid "Value"
-msgstr ""
+msgstr "值"
 
 #, elixir-format
 #: lib/block_scout_web/templates/transaction/overview.html.eex:322
 msgid "Value sent in the native token (and USD) if applicable."
-msgstr ""
+msgstr "发送的币种价值"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address_contract/index.html.eex:82
 msgid "Verified at"
-msgstr ""
+msgstr "验证于"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address_contract/index.html.eex:27
@@ -2977,7 +2978,7 @@ msgstr ""
 #: lib/block_scout_web/templates/address_contract/index.html.eex:166 lib/block_scout_web/templates/address_contract/index.html.eex:197
 #: lib/block_scout_web/templates/address_contract/index.html.eex:203 lib/block_scout_web/templates/smart_contract/_functions.html.eex:14
 msgid "Verify & Publish"
-msgstr ""
+msgstr "验证并发布"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address_contract_verification_via_flattened_code/new.html.eex:141
@@ -2985,89 +2986,89 @@ msgstr ""
 #: lib/block_scout_web/templates/address_contract_verification_via_standard_json_input/new.html.eex:51
 #: lib/block_scout_web/templates/address_contract_verification_vyper/new.html.eex:47
 msgid "Verify & publish"
-msgstr ""
+msgstr "验证并发布"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address_logs/_logs.html.eex:10
 #: lib/block_scout_web/templates/transaction/_decoded_input.html.eex:12 lib/block_scout_web/templates/transaction_log/_logs.html.eex:10
 msgid "Verify the contract "
-msgstr ""
+msgstr "验证合约"
 
 #, elixir-format
 #: lib/block_scout_web/templates/layout/_footer.html.eex:91
 msgid "Version"
-msgstr ""
+msgstr "版本"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address_contract_verification/new.html.eex:33
 msgid "Via Sourcify: Sources and metadata JSON file"
-msgstr ""
+msgstr "通过Sourcify：源和元数据Json文件"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address_contract_verification/new.html.eex:27
 msgid "Via Standard Input JSON"
-msgstr ""
+msgstr "通过标准Json输入"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address_contract_verification/new.html.eex:22
 msgid "Via flattened source code"
-msgstr ""
+msgstr "通过简化源码"
 
 #, elixir-format
 #: lib/block_scout_web/templates/chain/show.html.eex:167
 msgid "View All Blocks"
-msgstr ""
+msgstr "查看所有区块"
 
 #, elixir-format
 #: lib/block_scout_web/templates/chain/show.html.eex:227
 msgid "View All Transactions"
-msgstr ""
+msgstr "查看所有交易"
 
 #, elixir-format
 #: lib/block_scout_web/templates/tokens/instance/overview/_details.html.eex:16
 #: lib/block_scout_web/templates/tokens/instance/overview/_details.html.eex:20
 msgid "View Contract"
-msgstr ""
+msgstr "查看合约"
 
 #, elixir-format
 #: lib/block_scout_web/templates/transaction/_tile.html.eex:67
 msgid "View Less Transfers"
-msgstr ""
+msgstr "显示更少"
 
 #, elixir-format
 #: lib/block_scout_web/templates/transaction/_tile.html.eex:66
 msgid "View More Transfers"
-msgstr ""
+msgstr "显示更多"
 
 #, elixir-format
 #: lib/block_scout_web/templates/block/overview.html.eex:39
 msgid "View next block"
-msgstr ""
+msgstr "查看下个区块"
 
 #, elixir-format
 #: lib/block_scout_web/templates/block/overview.html.eex:23
 msgid "View previous block"
-msgstr ""
+msgstr "查看上个区块"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address/_metatags.html.eex:9
 msgid "View the account balance, transactions, and other data for %{address} on the %{network}"
-msgstr ""
+msgstr "在%{network}上查看%{address}的账户余额，交易记录以及其他数据"
 
 #, elixir-format
 #: lib/block_scout_web/templates/block/_metatags.html.eex:10
 msgid "View the transactions, token transfers, and uncles for block number %{block_number}"
-msgstr ""
+msgstr "查看区块%{block_number}的交易，转账等记录"
 
 #, elixir-format
 #: lib/block_scout_web/templates/transaction/_metatags.html.eex:10
 msgid "View transaction %{transaction} on %{subnetwork}"
-msgstr ""
+msgstr "在%{subnetwork}查看交易%{transaction}"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address_contract_verification/new.html.eex:39
 msgid "Vyper contract"
-msgstr ""
+msgstr "Vyper合约"
 
 #, elixir-format
 #: lib/block_scout_web/templates/smart_contract/_functions.html.eex:145
@@ -3077,22 +3078,22 @@ msgstr ""
 #, elixir-format
 #: lib/block_scout_web/templates/smart_contract/_pending_contract_write.html.eex:9
 msgid "Waiting for transaction's confirmation..."
-msgstr ""
+msgstr "等待交易确认。。。"
 
 #, elixir-format
 #: lib/block_scout_web/templates/chain/show.html.eex:153
 msgid "Wallet addresses"
-msgstr ""
+msgstr "总地址数"
 
 #, elixir-format
 #: lib/block_scout_web/templates/common_components/_changed_bytecode_warning.html.eex:3
 msgid "Warning! Contract bytecode has been changed and doesn't match the verified one. Therefore, interaction with this smart contract may be risky."
-msgstr ""
+msgstr "提醒！合约代码已改变，和已验证版本不匹配。因此与该合约交互将有风险。"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_modal_claim_reward_content.html.eex:2
 msgid "We found the following pools you can claim reward from:"
-msgstr ""
+msgstr "可在以下池子提取奖励："
 
 #, elixir-format
 #: lib/block_scout_web/views/wei_helpers.ex:76
@@ -3102,264 +3103,289 @@ msgstr ""
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_modal_withdraw.html.eex:7
 msgid "Withdraw"
-msgstr ""
+msgstr "提取"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_modal_withdraw.html.eex:70
 msgid "Withdraw Now"
-msgstr ""
+msgstr "现在提取"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_rows.html.eex:52
 msgid "Withdraw after block #%{banned_delegators_until} (%{estimated_unban_day})"
-msgstr ""
+msgstr "在区块#%{banned_delegators_until} (%{estimated_unban_day})之后提取"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_modal_claim_withdrawal.html.eex:22
 msgid "Withdrawal orders made during an active staking epoch are available to claim after the epoch is complete."
-msgstr ""
+msgstr "对于线上质押，提取的请求在下个周期方可执行。"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_modal_delegators_list.html.eex:35
 msgid "Working Stake Amount"
-msgstr ""
+msgstr "质押数额"
 
 #, elixir-format
 #: lib/block_scout_web/templates/smart_contract/_functions.html.eex:109
 msgid "Write"
-msgstr ""
+msgstr "写入"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address/_tabs.html.eex:95
 #: lib/block_scout_web/templates/tokens/overview/_tabs.html.eex:34 lib/block_scout_web/views/address_view.ex:368
 msgid "Write Contract"
-msgstr ""
+msgstr "写入合约"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address/_tabs.html.eex:102
 #: lib/block_scout_web/templates/tokens/overview/_tabs.html.eex:48 lib/block_scout_web/views/address_view.ex:369
 msgid "Write Proxy"
-msgstr ""
+msgstr "写入代理"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address_contract_verification_common_fields/_fetch_constructor_args.html.eex:14
 #: lib/block_scout_web/templates/address_contract_verification_common_fields/_include_nightly_builds_field.html.eex:14
 #: lib/block_scout_web/templates/address_contract_verification_via_flattened_code/new.html.eex:47 lib/block_scout_web/templates/stakes/_rows.html.eex:24
 msgid "Yes"
-msgstr ""
+msgstr "是"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_modal_withdraw.html.eex:34
 msgid "You Can Order:"
-msgstr ""
+msgstr "您可预订："
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_modal_move.html.eex:15
 #: lib/block_scout_web/templates/stakes/_stakes_modal_withdraw.html.eex:12
 msgid "You Staked:"
-msgstr ""
+msgstr "您已质押："
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_modal_claim_reward.html.eex:11
 msgid "You can get your reward for all staking epochs during which the pool was a validator or specify separate epochs if <b>Tx Gas Limit</b> is too high. <b>Tx Gas Limit</b> depends on how long the pool was a validator and how many staking epochs you held your stake in the pool without movement."
-msgstr ""
+msgstr "您可在提取所有质押奖励。"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_modal_withdraw.html.eex:52
 msgid "You can withdraw this amount right now."
-msgstr ""
+msgstr "现在可提取数额"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_modal_pool_info.html.eex:38
 msgid "You will be able to withdraw after block #%{banned_delegators_until} (%{estimated_unban_day})"
-msgstr ""
+msgstr "在区块#%{banned_delegators_until} (%{estimated_unban_day})后，方可提取"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_modal_claim_reward_content.html.eex:48
 msgid "You will receive:"
-msgstr ""
+msgstr "您将会收到："
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_modal_become_candidate.html.eex:22 lib/block_scout_web/templates/stakes/_stakes_modal_stake.html.eex:28
 msgid "Your Balance:"
-msgstr ""
+msgstr "您的余额："
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_modal_stake.html.eex:16
 msgid "Your Current Stake:"
-msgstr ""
+msgstr "现有质押："
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_modal_become_candidate.html.eex:12
 msgid "Your Mining Address"
-msgstr ""
+msgstr "挖矿地址"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_modal_become_candidate.html.eex:14
 msgid "Your Pool Name"
-msgstr ""
+msgstr "池子名称"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_modal_become_candidate.html.eex:16
 msgid "Your Pool Short Description (optional)"
-msgstr ""
+msgstr "池子简短描述"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_modal_claim_withdrawal.html.eex:11
 msgid "Your ordered amount"
-msgstr ""
+msgstr "您的订单数额"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_modal_claim_reward_content.html.eex:41
 msgid "all epochs"
-msgstr ""
+msgstr "所有周期"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address/overview.html.eex:129
 msgid "at"
-msgstr ""
+msgstr "在"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address_token/overview.html.eex:52
 msgid "balance of the address"
-msgstr ""
+msgstr "地址余额"
 
 #, elixir-format
 #: lib/block_scout_web/templates/transaction/overview.html.eex:411
 msgid "burned for this transaction. Equals Block Base Fee per Gas * Gas Used."
-msgstr ""
+msgstr "交易燃烧费等于Gas价格乘以使用量"
 
 #, elixir-format
 #: lib/block_scout_web/templates/block/overview.html.eex:215
 msgid "burned from transactions included in the block (Base fee (per unit of gas) * Gas Used)."
-msgstr ""
+msgstr "交易燃烧费也包含于区块中"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address_contract/index.html.eex:27
 msgid "button"
-msgstr ""
+msgstr "按钮"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_modal_delegators_list.html.eex:19
 msgid "candidate"
-msgstr ""
+msgstr "候选者"
 
 #, elixir-format
 #: lib/block_scout_web/templates/transaction/overview.html.eex:228
 msgid "created"
-msgstr ""
+msgstr "已创建"
 
 #, elixir-format
 #: lib/block_scout_web/templates/api_docs/eth_rpc.html.eex:12
 msgid "custom RPC"
-msgstr ""
+msgstr "自定义RPC"
 
 #, elixir-format
 #: lib/block_scout_web/templates/common_components/_rap_pagination_container.html.eex:13
 msgid "elements are displayed"
-msgstr ""
+msgstr "条记录"
 
 #, elixir-format
 #: lib/block_scout_web/templates/smart_contract/_functions.html.eex:41
 msgid "fallback"
-msgstr ""
+msgstr "回调"
 
 #, elixir-format
 #: lib/block_scout_web/views/address_contract_view.ex:24
 msgid "false"
-msgstr ""
+msgstr "错误"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address_logs/_logs.html.eex:10
 #: lib/block_scout_web/templates/transaction/_decoded_input.html.eex:12 lib/block_scout_web/templates/transaction_log/_logs.html.eex:10
 msgid "here"
-msgstr ""
+msgstr "这里"
 
 #, elixir-format
 #: lib/block_scout_web/templates/api_docs/eth_rpc.html.eex:9
 msgid "here."
-msgstr ""
+msgstr "这里。"
 
 #, elixir-format
 #: lib/block_scout_web/templates/transaction/invalid.html.eex:8
 msgid "is not a valid transaction hash"
-msgstr ""
+msgstr "非法交易哈希"
 
 #, elixir-format
 #: lib/block_scout_web/templates/smart_contract/_function_response.html.eex:3
 msgid "method Response"
-msgstr ""
+msgstr "返回"
 
 #, elixir-format
 #: lib/block_scout_web/templates/common_components/_pagination_container.html.eex:41
 msgid "of"
-msgstr ""
+msgstr "的"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_modal_delegators_list.html.eex:20
 msgid "pool owner"
-msgstr ""
+msgstr "池子所有人"
 
 #, elixir-format
 #: lib/block_scout_web/templates/smart_contract/_functions.html.eex:43
 msgid "receive"
-msgstr ""
+msgstr "接收"
 
 #, elixir-format
 #: lib/block_scout_web/templates/api_docs/_action_tile.html.eex:58
 #: lib/block_scout_web/templates/api_docs/_action_tile.html.eex:69 lib/block_scout_web/templates/api_docs/_action_tile.html.eex:81
 #: lib/block_scout_web/templates/api_docs/_eth_rpc_item.html.eex:70
 msgid "required"
-msgstr ""
+msgstr "必填"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_modal_claim_reward_content.html.eex:42
 msgid "specified epochs only"
-msgstr ""
+msgstr "仅限指定周期"
 
 #, elixir-format
 #: lib/block_scout_web/templates/api_docs/_action_tile.html.eex:59
 #: lib/block_scout_web/templates/api_docs/_action_tile.html.eex:70
 msgid "string"
-msgstr ""
+msgstr "文本"
 
 #, elixir-format
 #: lib/block_scout_web/views/address_contract_view.ex:23
 msgid "true"
-msgstr ""
+msgstr "正确"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_modal_delegators_list.html.eex:18
 msgid "validator"
-msgstr ""
+msgstr "验证者"
 
 #, elixir-format
 #: lib/block_scout_web/templates/transaction/_tile.html.eex:9
 msgid "Error in internal transactions"
-msgstr ""
+msgstr "内部交易错误"
 
 #, elixir-format
 #: lib/block_scout_web/templates/chain/gas_price_oracle_legend_item.html.eex:21
 msgid "Average"
-msgstr ""
+msgstr "平均"
 
 #, elixir-format
 #: lib/block_scout_web/templates/chain/show.html.eex:84
 msgid "Daily Transactions"
-msgstr ""
+msgstr "24h交易数"
 
 #, elixir-format
 #: lib/block_scout_web/templates/chain/gas_price_oracle_legend_item.html.eex:22
 msgid "Fast"
-msgstr ""
+msgstr "快"
 
 #, elixir-format
 #: lib/block_scout_web/templates/chain/gas_price_oracle_legend_item.html.eex:3
 #: lib/block_scout_web/templates/chain/gas_price_oracle_legend_item.html.eex:18
 msgid "Gas Price"
-msgstr ""
+msgstr "Gas价格"
 
 #, elixir-format
 #: lib/block_scout_web/templates/chain/gas_price_oracle_legend_item.html.eex:20
 msgid "Slow"
-msgstr ""
+msgstr "慢"
+
+msgid "Holders Count"
+msgstr "持有地址数"
+
+msgid "Txn Count"
+msgstr "交易数"
+
+msgid "Percentage"
+msgstr "占比"
+
+msgid "Token name or symbol"
+msgstr "币种名称"
+
+msgid "Max Supply"
+msgstr "最大供应量"
+
+msgid "Market Supply"
+msgstr "流通量"
+
+msgid "Total Mkt Cap"
+msgstr "总市值"
+
+msgid "Current Price"
+msgstr "当前价格"
+
