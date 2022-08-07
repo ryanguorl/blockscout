@@ -100,7 +100,7 @@ defmodule Explorer.Chain.AddressTransactionCsvExporter do
           to_string(transaction.to_address),
           to_string(transaction.created_contract_address),
           type(transaction, address.hash),
-          Wei.to(transaction.value, :wei),
+          Wei.to(transaction.value, :ether),
           fee(transaction),
           transaction.status,
           transaction.error,
