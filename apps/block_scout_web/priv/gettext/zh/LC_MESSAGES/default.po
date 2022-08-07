@@ -2720,7 +2720,7 @@ msgstr "该区块所有交易提供的总gas限制"
 #, elixir-format
 #: lib/block_scout_web/templates/tokens/overview/_details.html.eex:83
 msgid "Total supply"
-msgstr "总量"
+msgstr "供应总量"
 
 #, elixir-format
 #: lib/block_scout_web/templates/transaction/overview.html.eex:337
@@ -2730,7 +2730,7 @@ msgstr "总交易费。"
 #, elixir-format
 #: lib/block_scout_web/templates/chain/show.html.eex:124
 msgid "Total transactions"
-msgstr "总交易"
+msgstr "交易总数"
 
 #, elixir-format
 #: lib/block_scout_web/templates/stakes/_stakes_top.html.eex:52
