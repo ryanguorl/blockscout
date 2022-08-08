@@ -261,8 +261,8 @@ class MarketHistoryChart {
 
     this.availableSupply = availableSupply
 
-    const txChartTitle = 'Daily Txn | 每日交易'
-    const marketChartTitle = 'Price & Market Cap | 价格和市值'
+    const txChartTitle = 'Daily Transactions'
+    const marketChartTitle = 'Daily Price & Market Cap'
     let chartTitle = ''
     if (Object.keys(dataConfig).join() === 'transactions') {
       chartTitle = txChartTitle
