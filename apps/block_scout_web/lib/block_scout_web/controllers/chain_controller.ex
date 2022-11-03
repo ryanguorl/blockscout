@@ -43,6 +43,8 @@ defmodule BlockScoutWeb.ChainController do
 
     exchange_rate = Market.get_exchange_rate(Explorer.coin()) || Token.null()
 
+    Logger.info("exchange_rate.usd_value = #{exchange_rate.usd_value}; circulating_supply = #{circulating_supply}")
+
     circulating_market_cap = Decimal.round(Decimal.mult(circulating_supply, exchange_rate.usd_value))
     total_market_cap = Decimal.round(Decimal.mult(max_supply, exchange_rate.usd_value))
 
