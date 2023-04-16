@@ -728,7 +728,6 @@ endif
 else
 	@echo "==> Creating new PostgreSQL container"
 	@docker run -d --name $(PG_CONTAINER_NAME) \
-					postgres -N 300 \
 					-e POSTGRES_PASSWORD="" \
 					-e POSTGRES_USER="postgres" \
 					-e POSTGRES_HOST_AUTH_METHOD="trust" \
