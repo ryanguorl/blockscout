@@ -1,9 +1,9 @@
 SYSTEM := $(shell uname -s)
 HOST := host.docker.internal
-DOCKER_REPO := blockscout
-APP_NAME := blockscout
+DOCKER_REPO := pego
+APP_NAME := pego-browser
 BS_CONTAINER_IMAGE := $(DOCKER_REPO)/$(APP_NAME)
-BS_CONTAINER_NAME := blockscout
+BS_CONTAINER_NAME := pego-browser
 PG_CONTAINER_IMAGE := postgres:14
 PG_CONTAINER_NAME := db
 THIS_FILE = $(lastword $(MAKEFILE_LIST))
@@ -11,6 +11,20 @@ RELEASE_VERSION ?= '5.1.3'
 PORT ?= '4000'
 TAG := $(RELEASE_VERSION)-commit-$(shell git log -1 --pretty=format:"%h")
 STABLE_TAG := $(RELEASE_VERSION)
+
+COIN = PG
+
+NETWORK = Mainnet
+
+SUBNETWORK = PEGO
+
+ETHEREUM_JSONRPC_VARIANT = geth
+
+ETHEREUM_JSONRPC_HTTP_URL = http://127.0.0.1:8545
+
+ETHEREUM_JSONRPC_WS_URL = ws://127.0.0.1:8545
+
+FIRST_BLOCK = 0
 
 ifeq ($(SYSTEM), Linux)
 	HOST=localhost
@@ -198,9 +212,11 @@ endif
 ifdef SHOW_ADDRESS_MARKETCAP_PERCENTAGE
 	BLOCKSCOUT_CONTAINER_PARAMS += -e 'SHOW_ADDRESS_MARKETCAP_PERCENTAGE=$(SHOW_ADDRESS_MARKETCAP_PERCENTAGE)'
 endif
+BLOCKSCOUT_PROTOCOL = https
 ifdef BLOCKSCOUT_PROTOCOL
 	BLOCKSCOUT_CONTAINER_PARAMS += -e 'BLOCKSCOUT_PROTOCOL=$(BLOCKSCOUT_PROTOCOL)'
 endif
+BLOCKSCOUT_HOST = browser.pegotest.net
 ifdef BLOCKSCOUT_HOST
 	BLOCKSCOUT_CONTAINER_PARAMS += -e 'BLOCKSCOUT_HOST=$(BLOCKSCOUT_HOST)'
 endif
@@ -722,7 +738,7 @@ endif
 
 start: build postgres
 	@echo "==> Starting blockscout"
-	@docker run --rm --name $(BS_CONTAINER_NAME) \
+	@docker run -d --name $(BS_CONTAINER_NAME) \
 					$(BLOCKSCOUT_CONTAINER_PARAMS) \
 					-p 4000:4000 \
 					$(BS_CONTAINER_IMAGE) /bin/sh -c "./bin/blockscout start"
