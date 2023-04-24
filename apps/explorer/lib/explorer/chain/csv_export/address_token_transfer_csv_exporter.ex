@@ -4,7 +4,7 @@ defmodule Explorer.Chain.CSVExport.AddressTokenTransferCsvExporter do
   """
 
   alias Explorer.{Chain, PagingOptions}
-  alias Explorer.Chain.{Address, TokenTransfer}
+  alias Explorer.Chain.{Address, TokenTransfer, Wei}
   alias Explorer.Chain.CSVExport.Helper
 
   @paging_options %PagingOptions{page_size: Helper.page_size() + 1, asc_order: true}
@@ -68,7 +68,7 @@ defmodule Explorer.Chain.CSVExport.AddressTokenTransferCsvExporter do
           token_transfer.token_contract_address_hash |> to_string() |> String.downcase(),
           type(token_transfer, address.hash),
           token_transfer.token.symbol,
-          token_transfer.amount,
+          %Wei{value: Decimal.new(token_transfer.amount)} |> Wei.to(:ether),
           fee(token_transfer.transaction),
           token_transfer.transaction.status,
           token_transfer.transaction.error
@@ -86,7 +86,7 @@ defmodule Explorer.Chain.CSVExport.AddressTokenTransferCsvExporter do
 
   defp fee(transaction) do
     transaction
-    |> Chain.fee(:wei)
+    |> Chain.fee(:ether)
     |> case do
       {:actual, value} -> value
       {:maximum, value} -> "Max of #{value}"

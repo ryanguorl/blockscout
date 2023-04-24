@@ -112,7 +112,7 @@ defmodule Explorer.Chain.CSVExport.AddressTransactionCsvExporter do
 
   defp fee(transaction) do
     transaction
-    |> Chain.fee(:wei)
+    |> Chain.fee(:ether)
     |> case do
       {:actual, value} -> value
       {:maximum, value} -> "Max of #{value}"
