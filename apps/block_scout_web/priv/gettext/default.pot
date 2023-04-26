@@ -500,7 +500,7 @@ msgstr ""
 
 #: lib/block_scout_web/templates/layout/_footer.html.eex:22
 #, elixir-autogen, elixir-format
-msgid "Pego Explorer is a tool for inspecting and analyzing EVM based blockchains. Blockchain explorer for Pego Networks."
+msgid "PEGO is a Web3 infrastructure that provides high autonomy, scalability, and sustainability for decentralized applications."
 msgstr ""
 
 #: lib/block_scout_web/templates/transaction_state/_state_change.html.eex:8
@@ -2406,6 +2406,9 @@ msgstr ""
 #: lib/block_scout_web/templates/layout/_footer.html.eex:30
 #, elixir-autogen, elixir-format
 msgid "Telegram"
+msgstr ""
+
+msgid "Discord"
 msgstr ""
 
 #: lib/block_scout_web/templates/layout/_footer.html.eex:65
