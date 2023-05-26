@@ -3,6 +3,7 @@ version: '3.8'
 services:
   db:
     image: postgres:14
+    shm_size: 10g
     restart: always
     container_name: 'postgres'
     command: postgres -c 'max_connections=200'
