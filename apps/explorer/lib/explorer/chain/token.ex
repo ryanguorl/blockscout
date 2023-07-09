@@ -39,11 +39,12 @@ defmodule Explorer.Chain.Token do
     `t:Explorer.Chain.CurrentTokenBalance.t/0` `value > 0`.  Can be `nil` when data not migrated.
   * `fiat_value` - The price of a token in a configured currency (USD by default).
   * `circulating_market_cap` - The circulating market cap of a token in a configured currency (USD by default).
+  * `icon_url` - URL of the token's icon.
   """
   @type t :: %Token{
           name: String.t(),
           symbol: String.t(),
-          total_supply: Decimal.t(),
+          total_supply: Decimal.t() | nil,
           decimals: non_neg_integer(),
           type: String.t(),
           cataloged: boolean(),
@@ -53,7 +54,8 @@ defmodule Explorer.Chain.Token do
           skip_metadata: boolean(),
           total_supply_updated_at_block: non_neg_integer() | nil,
           fiat_value: Decimal.t() | nil,
-          circulating_market_cap: Decimal.t() | nil
+          circulating_market_cap: Decimal.t() | nil,
+          icon_url: String.t()
         }
 
   @derive {Poison.Encoder,
@@ -85,6 +87,7 @@ defmodule Explorer.Chain.Token do
     field(:total_supply_updated_at_block, :integer)
     field(:fiat_value, :decimal)
     field(:circulating_market_cap, :decimal)
+    field(:icon_url, :string)
 
     belongs_to(
       :contract_address,
@@ -99,7 +102,7 @@ defmodule Explorer.Chain.Token do
   end
 
   @required_attrs ~w(contract_address_hash type)a
-  @optional_attrs ~w(cataloged decimals name symbol total_supply skip_metadata total_supply_updated_at_block updated_at fiat_value circulating_market_cap)a
+  @optional_attrs ~w(cataloged decimals name symbol total_supply skip_metadata total_supply_updated_at_block updated_at fiat_value circulating_market_cap icon_url)a
 
   @doc false
   def changeset(%Token{} = token, params \\ %{}) do
@@ -150,24 +153,7 @@ defmodule Explorer.Chain.Token do
     )
   end
 
-  @doc """
-  Builds an `Ecto.Query` to fetch a `batch_size` number of the tokens,
-  possibly starting from `last_updated_address_hash` ordered by `contract_address_hash`.
-  """
-  def tokens_to_update_fiat_value(nil, batch_size) do
-    from(
-      token in __MODULE__,
-      order_by: token.contract_address_hash,
-      limit: ^batch_size
-    )
-  end
-
-  def tokens_to_update_fiat_value(last_updated_address_hash, batch_size) do
-    from(
-      token in __MODULE__,
-      order_by: token.contract_address_hash,
-      where: token.contract_address_hash > ^last_updated_address_hash,
-      limit: ^batch_size
-    )
+  def tokens_by_contract_address_hashes(contract_address_hashes) do
+    from(token in __MODULE__, where: token.contract_address_hash in ^contract_address_hashes)
   end
 end

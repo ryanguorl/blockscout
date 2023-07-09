@@ -25,6 +25,8 @@ defmodule EthereumJSONRPC do
   documentation for `EthereumJSONRPC.RequestCoordinator`.
   """
 
+  require Logger
+
   alias EthereumJSONRPC.{
     Block,
     Blocks,
@@ -262,6 +264,17 @@ defmodule EthereumJSONRPC do
   end
 
   @doc """
+  Fetches blocks by block number list.
+  """
+  @spec fetch_blocks_by_numbers([block_number()], json_rpc_named_arguments) ::
+          {:ok, Blocks.t()} | {:error, reason :: term}
+  def fetch_blocks_by_numbers(block_numbers, json_rpc_named_arguments) do
+    block_numbers
+    |> Enum.map(fn number -> %{number: number} end)
+    |> fetch_blocks_by_params(&Block.ByNumber.request/1, json_rpc_named_arguments)
+  end
+
+  @doc """
   Fetches uncle blocks by nephew hashes and indices.
   """
   @spec fetch_uncle_blocks([nephew_index()], json_rpc_named_arguments) :: {:ok, Blocks.t()} | {:error, reason :: term}
@@ -371,6 +384,29 @@ defmodule EthereumJSONRPC do
   end
 
   @doc """
+  Assigns not matched ids between requests and responses to responses with incorrect ids
+  """
+  def sanitize_responses(responses, id_to_params) do
+    responses
+    |> Enum.reduce(
+      {[], Map.keys(id_to_params) -- Enum.map(responses, & &1.id)},
+      fn
+        %{id: nil} = res, {result_res, [id | rest]} ->
+          Logger.error(
+            "Empty id in response: #{inspect(res)}, stacktrace: #{inspect(Process.info(self(), :current_stacktrace))}"
+          )
+
+          {[%{res | id: id} | result_res], rest}
+
+        res, {result_res, non_matched} ->
+          {[res | result_res], non_matched}
+      end
+    )
+    |> elem(0)
+    |> Enum.reverse()
+  end
+
+  @doc """
     1. POSTs JSON `payload` to `url`
     2. Decodes the response
     3. Handles the response
@@ -411,7 +447,7 @@ defmodule EthereumJSONRPC do
   @doc """
   Converts `t:quantity/0` to `t:non_neg_integer/0`.
   """
-  @spec quantity_to_integer(quantity) :: non_neg_integer() | :error
+  @spec quantity_to_integer(quantity) :: non_neg_integer() | nil
   def quantity_to_integer("0x" <> hexadecimal_digits) do
     String.to_integer(hexadecimal_digits, 16)
   end
@@ -421,9 +457,11 @@ defmodule EthereumJSONRPC do
   def quantity_to_integer(string) when is_binary(string) do
     case Integer.parse(string) do
       {integer, ""} -> integer
-      _ -> :error
+      _ -> nil
     end
   end
+
+  def quantity_to_integer(_), do: nil
 
   @doc """
   Converts `t:non_neg_integer/0` to `t:quantity/0`
@@ -492,7 +530,7 @@ defmodule EthereumJSONRPC do
   """
   def timestamp_to_datetime(timestamp) do
     case quantity_to_integer(timestamp) do
-      :error ->
+      nil ->
         nil
 
       quantity ->
