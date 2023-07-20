@@ -128,7 +128,7 @@ defmodule Explorer.Chain do
   # keccak256("Error(string)")
   @revert_error_method_id "08c379a0"
 
-  @burn_address_hash_str "0x0000000000000000000000000000000000000000"
+  @burn_address_hash_str "0x000000000000000000000000000000000000dEaD"
 
   @limit_showing_transactions 10_000
   @default_page_size 50
