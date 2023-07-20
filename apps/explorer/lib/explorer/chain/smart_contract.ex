@@ -21,7 +21,7 @@ defmodule Explorer.Chain.SmartContract do
   alias Explorer.SmartContract.Reader
   alias Timex.Duration
 
-  @burn_address_hash_str "0x0000000000000000000000000000000000000000"
+  @burn_address_hash_str "0x000000000000000000000000000000000000dEaD"
 
   @typep api? :: {:api?, true | false}
 
