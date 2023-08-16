@@ -15,12 +15,19 @@ defmodule BlockScoutWeb.ChainController do
   alias Explorer.ExchangeRates.Token
   alias Explorer.Market
   alias Phoenix.View
+  alias Explorer.Chain.Cache.AddressSumMinusBurnt
+  alias Explorer.Chain.Wei
 
   def show(conn, _params) do
     transaction_estimated_count = TransactionCache.estimated_count()
     total_gas_usage = GasUsage.total()
     block_count = BlockCache.estimated_count()
     address_count = Chain.address_estimated_count()
+    circulating_supply = %Wei{value: Decimal.new(AddressSumMinusBurnt.get_sum_minus_burnt())}
+                         |> Wei.to(:ether)
+                         |> Decimal.round(0)
+                         |> Decimal.to_integer()
+    max_supply = 21000000
 
     market_cap_calculation =
       case Application.get_env(:explorer, :supply) do
@@ -32,6 +39,9 @@ defmodule BlockScoutWeb.ChainController do
       end
 
     exchange_rate = Market.get_exchange_rate(Explorer.coin()) || Token.null()
+
+    circulating_market_cap = Decimal.round(Decimal.mult(circulating_supply, exchange_rate.usd_value))
+    total_market_cap = Decimal.round(Decimal.mult(max_supply, exchange_rate.usd_value))
 
     transaction_stats = Helper.get_transaction_stats()
 
@@ -57,7 +67,11 @@ defmodule BlockScoutWeb.ChainController do
       transactions_path: recent_transactions_path(conn, :index),
       transaction_stats: transaction_stats,
       block_count: block_count,
-      gas_price: Application.get_env(:block_scout_web, :gas_price)
+      gas_price: Application.get_env(:block_scout_web, :gas_price),
+      circulating_supply: circulating_supply,
+      circulating_market_cap: circulating_market_cap,
+      max_supply: max_supply,
+      total_market_cap: total_market_cap
     )
   end
 
