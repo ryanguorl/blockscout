@@ -3,6 +3,7 @@ defmodule BlockScoutWeb.API.V2.AddressControllerTest do
 
   alias BlockScoutWeb.Models.UserFromAuth
   alias Explorer.{Chain, Repo}
+  alias Explorer.Chain.Address.Counters
 
   alias Explorer.Chain.{
     Address,
@@ -159,9 +160,9 @@ defmodule BlockScoutWeb.API.V2.AddressControllerTest do
 
       insert(:block, miner: address)
 
-      Chain.transaction_count(address)
-      Chain.token_transfers_count(address)
-      Chain.gas_usage_count(address)
+      Counters.transaction_count(address)
+      Counters.token_transfers_count(address)
+      Counters.gas_usage_count(address)
 
       request = get(conn, "/api/v2/addresses/#{address.hash}/counters")
 
@@ -1729,6 +1730,7 @@ defmodule BlockScoutWeb.API.V2.AddressControllerTest do
     assert Address.checksum(log.address_hash) == json["address"]["hash"]
     assert to_string(log.transaction_hash) == json["tx_hash"]
     assert json["block_number"] == log.block_number
+    assert json["block_hash"] == to_string(log.block_hash)
   end
 
   defp compare_item(%Withdrawal{} = withdrawal, json) do
