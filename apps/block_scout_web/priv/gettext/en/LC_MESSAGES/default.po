@@ -1377,7 +1377,7 @@ msgstr ""
 #: lib/block_scout_web/templates/chain/gas_price_oracle_legend_item.html.eex:3
 #: lib/block_scout_web/templates/chain/gas_price_oracle_legend_item.html.eex:18
 #, elixir-autogen, elixir-format
-msgid "Gas tracker"
+msgid "Gas Price"
 msgstr ""
 
 #: lib/block_scout_web/templates/address/overview.html.eex:239
