@@ -31,13 +31,15 @@ config :block_scout_web,
   permanent_light_mode_enabled: ConfigHelper.parse_bool_env_var("PERMANENT_LIGHT_MODE_ENABLED"),
   display_token_icons: ConfigHelper.parse_bool_env_var("DISPLAY_TOKEN_ICONS"),
   hide_block_miner: ConfigHelper.parse_bool_env_var("HIDE_BLOCK_MINER"),
-  show_tenderly_link: ConfigHelper.parse_bool_env_var("SHOW_TENDERLY_LINK")
+  show_tenderly_link: ConfigHelper.parse_bool_env_var("SHOW_TENDERLY_LINK"),
+  sensitive_endpoints_api_key: System.get_env("API_SENSITIVE_ENDPOINTS_KEY")
 
 config :block_scout_web, :recaptcha,
   v2_client_key: System.get_env("RE_CAPTCHA_CLIENT_KEY"),
   v2_secret_key: System.get_env("RE_CAPTCHA_SECRET_KEY"),
   v3_client_key: System.get_env("RE_CAPTCHA_V3_CLIENT_KEY"),
-  v3_secret_key: System.get_env("RE_CAPTCHA_V3_SECRET_KEY")
+  v3_secret_key: System.get_env("RE_CAPTCHA_V3_SECRET_KEY"),
+  is_disabled: ConfigHelper.parse_bool_env_var("RE_CAPTCHA_DISABLED")
 
 network_path =
   "NETWORK_PATH"
@@ -73,9 +75,11 @@ config :block_scout_web, BlockScoutWeb.Chain,
 config :block_scout_web, :footer,
   logo: System.get_env("FOOTER_LOGO"),
   chat_link: System.get_env("FOOTER_CHAT_LINK", "https://discord.gg/blockscout"),
-  forum_link: System.get_env("FOOTER_FORUM_LINK", "https://forum.poa.network/c/blockscout"),
   github_link: System.get_env("FOOTER_GITHUB_LINK", "https://github.com/blockscout/blockscout"),
   forum_link_enabled: ConfigHelper.parse_bool_env_var("FOOTER_FORUM_LINK_ENABLED"),
+  forum_link: System.get_env("FOOTER_FORUM_LINK", "https://forum.poa.network/c/blockscout"),
+  telegram_link_enabled: ConfigHelper.parse_bool_env_var("FOOTER_TELEGRAM_LINK_ENABLED"),
+  telegram_link: System.get_env("FOOTER_TELEGRAM_LINK"),
   link_to_other_explorers: ConfigHelper.parse_bool_env_var("FOOTER_LINK_TO_OTHER_EXPLORERS"),
   other_explorers: System.get_env("FOOTER_OTHER_EXPLORERS", "")
 
@@ -109,6 +113,9 @@ price_chart_config =
     %{}
   end
 
+price_chart_legend_enabled? =
+  ConfigHelper.parse_bool_env_var("SHOW_PRICE_CHART") || ConfigHelper.parse_bool_env_var("SHOW_PRICE_CHART_LEGEND")
+
 tx_chart_config =
   if ConfigHelper.parse_bool_env_var("SHOW_TXS_CHART", "true") do
     %{transactions: [:transactions_per_day]}
@@ -116,16 +123,14 @@ tx_chart_config =
     %{}
   end
 
-config :block_scout_web,
-  chart_config: Map.merge(price_chart_config, tx_chart_config)
+config :block_scout_web, :chart,
+  chart_config: Map.merge(price_chart_config, tx_chart_config),
+  price_chart_legend_enabled?: price_chart_legend_enabled?
 
 config :block_scout_web, BlockScoutWeb.Chain.Address.CoinBalance,
   coin_balance_history_days: ConfigHelper.parse_integer_env_var("COIN_BALANCE_HISTORY_DAYS", 10)
 
 config :block_scout_web, BlockScoutWeb.API.V2, enabled: ConfigHelper.parse_bool_env_var("API_V2_ENABLED")
-
-config :block_scout_web, :account,
-  authenticate_endpoint_api_key: System.get_env("ACCOUNT_AUTHENTICATE_ENDPOINT_API_KEY")
 
 # Configures Ueberauth's Auth0 auth provider
 config :ueberauth, Ueberauth.Strategy.Auth0.OAuth,
@@ -134,9 +139,7 @@ config :ueberauth, Ueberauth.Strategy.Auth0.OAuth,
   client_secret: System.get_env("ACCOUNT_AUTH0_CLIENT_SECRET")
 
 # Configures Ueberauth local settings
-config :ueberauth, Ueberauth,
-  logout_url: System.get_env("ACCOUNT_AUTH0_LOGOUT_URL"),
-  logout_return_to_url: System.get_env("ACCOUNT_AUTH0_LOGOUT_RETURN_URL")
+config :ueberauth, Ueberauth, logout_url: "https://#{System.get_env("ACCOUNT_AUTH0_DOMAIN")}/v2/logout"
 
 ########################
 ### Ethereum JSONRPC ###
@@ -146,6 +149,12 @@ config :ethereum_jsonrpc,
   rpc_transport: if(System.get_env("ETHEREUM_JSONRPC_TRANSPORT", "http") == "http", do: :http, else: :ipc),
   ipc_path: System.get_env("IPC_PATH"),
   disable_archive_balances?: ConfigHelper.parse_bool_env_var("ETHEREUM_JSONRPC_DISABLE_ARCHIVE_BALANCES")
+
+config :ethereum_jsonrpc, EthereumJSONRPC.HTTP,
+  headers:
+    %{"Content-Type" => "application/json"}
+    |> Map.merge(ConfigHelper.parse_json_env_var("ETHEREUM_JSONRPC_HTTP_HEADERS", "{}"))
+    |> Map.to_list()
 
 config :ethereum_jsonrpc, EthereumJSONRPC.Geth,
   debug_trace_transaction_timeout: System.get_env("ETHEREUM_JSONRPC_DEBUG_TRACE_TRANSACTION_TIMEOUT", "5s"),
@@ -167,9 +176,12 @@ exchange_rates_coin = System.get_env("EXCHANGE_RATES_COIN")
 config :explorer,
   coin: System.get_env("COIN") || exchange_rates_coin || "ETH",
   coin_name: System.get_env("COIN_NAME") || exchange_rates_coin || "ETH",
-  allowed_evm_versions:
-    System.get_env("CONTRACT_VERIFICATION_ALLOWED_EVM_VERSIONS") ||
-      "homestead,tangerineWhistle,spuriousDragon,byzantium,constantinople,petersburg,istanbul,berlin,london,paris,default",
+  allowed_solidity_evm_versions:
+    System.get_env("CONTRACT_VERIFICATION_ALLOWED_SOLIDITY_EVM_VERSIONS") ||
+      "homestead,tangerineWhistle,spuriousDragon,byzantium,constantinople,petersburg,istanbul,berlin,london,paris,shanghai,default",
+  allowed_vyper_evm_versions:
+    System.get_env("CONTRACT_VERIFICATION_ALLOWED_VYPER_EVM_VERSIONS") ||
+      "byzantium,constantinople,petersburg,istanbul,berlin,paris,shanghai,default",
   include_uncles_in_average_block_time: ConfigHelper.parse_bool_env_var("UNCLES_IN_AVERAGE_BLOCK_TIME"),
   healthy_blocks_period: ConfigHelper.parse_time_env_var("HEALTHY_BLOCKS_PERIOD", "5m"),
   realtime_events_sender:
@@ -213,6 +225,9 @@ config :explorer, Explorer.Chain.Cache.Block,
 config :explorer, Explorer.Chain.Cache.Transaction,
   global_ttl: ConfigHelper.parse_time_env_var("CACHE_TXS_COUNT_PERIOD", "2h")
 
+config :explorer, Explorer.Chain.Cache.PendingBlockOperation,
+  global_ttl: ConfigHelper.parse_time_env_var("CACHE_PBO_COUNT_PERIOD", "20m")
+
 config :explorer, Explorer.Chain.Cache.GasPriceOracle,
   global_ttl: ConfigHelper.parse_time_env_var("GAS_PRICE_ORACLE_CACHE_PERIOD", "30s"),
   num_of_blocks: ConfigHelper.parse_integer_env_var("GAS_PRICE_ORACLE_NUM_OF_BLOCKS", 200),
@@ -254,7 +269,8 @@ config :explorer, Explorer.ExchangeRates,
 config :explorer, Explorer.ExchangeRates.Source, source: ConfigHelper.exchange_rates_source()
 
 config :explorer, Explorer.ExchangeRates.Source.CoinMarketCap,
-  api_key: System.get_env("EXCHANGE_RATES_COINMARKETCAP_API_KEY")
+  api_key: System.get_env("EXCHANGE_RATES_COINMARKETCAP_API_KEY"),
+  coin_id: System.get_env("EXCHANGE_RATES_COINMARKETCAP_COIN_ID")
 
 config :explorer, Explorer.ExchangeRates.Source.CoinGecko,
   platform: System.get_env("EXCHANGE_RATES_COINGECKO_PLATFORM_ID"),
@@ -320,6 +336,10 @@ config :explorer, Explorer.Chain.Cache.Uncles,
   ttl_check_interval: ConfigHelper.cache_ttl_check_interval(disable_indexer?),
   global_ttl: ConfigHelper.cache_global_ttl(disable_indexer?)
 
+config :explorer, Explorer.Chain.Cache.Uncles,
+  ttl_check_interval: ConfigHelper.cache_ttl_check_interval(disable_indexer?),
+  global_ttl: ConfigHelper.cache_global_ttl(disable_indexer?)
+
 config :explorer, Explorer.ThirdPartyIntegrations.Sourcify,
   server_url: System.get_env("SOURCIFY_SERVER_URL") || "https://sourcify.dev/server",
   enabled: ConfigHelper.parse_bool_env_var("SOURCIFY_INTEGRATION_ENABLED"),
@@ -353,7 +373,8 @@ config :explorer, Explorer.Account,
   sendgrid: [
     sender: System.get_env("ACCOUNT_SENDGRID_SENDER"),
     template: System.get_env("ACCOUNT_SENDGRID_TEMPLATE")
-  ]
+  ],
+  resend_interval: ConfigHelper.parse_time_env_var("ACCOUNT_VERIFICATION_EMAIL_RESEND_INTERVAL", "5m")
 
 config :explorer, :token_id_migration,
   first_block: ConfigHelper.parse_integer_env_var("TOKEN_ID_MIGRATION_FIRST_BLOCK", 0),
@@ -373,8 +394,10 @@ config :explorer, Explorer.Chain.Cache.TransactionActionTokensData,
   max_cache_size: ConfigHelper.parse_integer_env_var("INDEXER_TX_ACTIONS_MAX_TOKEN_CACHE_SIZE", 100_000)
 
 config :explorer, Explorer.Chain.Fetcher.LookUpSmartContractSourcesOnDemand,
-  fetch_interval:
-    ConfigHelper.parse_time_env_var("MICROSERVICE_MICROSERVICE_ETH_BYTECODE_DB_INTERVAL_BETWEEN_LOOKUPS", "10m")
+  fetch_interval: ConfigHelper.parse_time_env_var("MICROSERVICE_ETH_BYTECODE_DB_INTERVAL_BETWEEN_LOOKUPS", "10m")
+
+config :explorer, Explorer.Chain.Cache.MinMissingBlockNumber,
+  enabled: !ConfigHelper.parse_bool_env_var("DISABLE_INDEXER")
 
 ###############
 ### Indexer ###
@@ -391,7 +414,9 @@ config :indexer,
   fetch_rewards_way: System.get_env("FETCH_REWARDS_WAY", "trace_block"),
   memory_limit: ConfigHelper.indexer_memory_limit(),
   receipts_batch_size: ConfigHelper.parse_integer_env_var("INDEXER_RECEIPTS_BATCH_SIZE", 250),
-  receipts_concurrency: ConfigHelper.parse_integer_env_var("INDEXER_RECEIPTS_CONCURRENCY", 10)
+  receipts_concurrency: ConfigHelper.parse_integer_env_var("INDEXER_RECEIPTS_CONCURRENCY", 10),
+  hide_indexing_progress_alert: ConfigHelper.parse_bool_env_var("INDEXER_HIDE_INDEXING_PROGRESS_ALERT"),
+  fetcher_init_limit: ConfigHelper.parse_integer_env_var("INDEXER_FETCHER_INIT_QUERY_LIMIT", 100)
 
 config :indexer, Indexer.Supervisor, enabled: !ConfigHelper.parse_bool_env_var("DISABLE_INDEXER")
 
@@ -402,12 +427,28 @@ config :indexer, Indexer.Fetcher.TransactionAction,
   reindex_first_block: System.get_env("INDEXER_TX_ACTIONS_REINDEX_FIRST_BLOCK"),
   reindex_last_block: System.get_env("INDEXER_TX_ACTIONS_REINDEX_LAST_BLOCK"),
   reindex_protocols: System.get_env("INDEXER_TX_ACTIONS_REINDEX_PROTOCOLS", ""),
-  aave_v3_pool: System.get_env("INDEXER_TX_ACTIONS_AAVE_V3_POOL_CONTRACT")
+  aave_v3_pool: System.get_env("INDEXER_TX_ACTIONS_AAVE_V3_POOL_CONTRACT"),
+  uniswap_v3_factory:
+    ConfigHelper.safe_get_env(
+      "INDEXER_TX_ACTIONS_UNISWAP_V3_FACTORY_CONTRACT",
+      "0x1F98431c8aD98523631AE4a59f267346ea31F984"
+    ),
+  uniswap_v3_nft_position_manager:
+    ConfigHelper.safe_get_env(
+      "INDEXER_TX_ACTIONS_UNISWAP_V3_NFT_POSITION_MANAGER_CONTRACT",
+      "0xC36442b4a4522E871399CD717aBDD847Ab11FE88"
+    )
 
 config :indexer, Indexer.Fetcher.PendingTransaction.Supervisor,
   disabled?:
     System.get_env("ETHEREUM_JSONRPC_VARIANT") == "besu" ||
       ConfigHelper.parse_bool_env_var("INDEXER_DISABLE_PENDING_TRANSACTIONS_FETCHER")
+
+config :indexer, Indexer.Fetcher.Token, concurrency: ConfigHelper.parse_integer_env_var("INDEXER_TOKEN_CONCURRENCY", 10)
+
+config :indexer, Indexer.Fetcher.TokenBalance,
+  batch_size: ConfigHelper.parse_integer_env_var("INDEXER_TOKEN_BALANCES_BATCH_SIZE", 100),
+  concurrency: ConfigHelper.parse_integer_env_var("INDEXER_TOKEN_BALANCES_CONCURRENCY", 10)
 
 config :indexer, Indexer.Fetcher.TokenBalanceOnDemand,
   threshold: ConfigHelper.parse_time_env_var("TOKEN_BALANCE_ON_DEMAND_FETCHER_THRESHOLD", "1h"),
@@ -435,11 +476,20 @@ config :indexer, Indexer.Fetcher.EmptyBlocksSanitizer.Supervisor,
 config :indexer, Indexer.Block.Realtime.Supervisor,
   enabled: !ConfigHelper.parse_bool_env_var("DISABLE_REALTIME_INDEXER")
 
-config :indexer, Indexer.Fetcher.TokenInstance.Supervisor,
-  disabled?: ConfigHelper.parse_bool_env_var("DISABLE_TOKEN_INSTANCE_FETCHER")
+config :indexer, Indexer.Fetcher.TokenInstance.Realtime.Supervisor,
+  disabled?: ConfigHelper.parse_bool_env_var("INDEXER_DISABLE_TOKEN_INSTANCE_REALTIME_FETCHER")
+
+config :indexer, Indexer.Fetcher.TokenInstance.Retry.Supervisor,
+  disabled?: ConfigHelper.parse_bool_env_var("INDEXER_DISABLE_TOKEN_INSTANCE_RETRY_FETCHER")
+
+config :indexer, Indexer.Fetcher.TokenInstance.Sanitize.Supervisor,
+  disabled?: ConfigHelper.parse_bool_env_var("INDEXER_DISABLE_TOKEN_INSTANCE_SANITIZE_FETCHER")
 
 config :indexer, Indexer.Fetcher.EmptyBlocksSanitizer,
   batch_size: ConfigHelper.parse_integer_env_var("INDEXER_EMPTY_BLOCKS_SANITIZER_BATCH_SIZE", 100)
+
+config :indexer, Indexer.Block.Realtime.Fetcher,
+  max_gap: ConfigHelper.parse_integer_env_var("INDEXER_REALTIME_FETCHER_MAX_GAP", 1000)
 
 config :indexer, Indexer.Block.Catchup.MissingRangesCollector,
   batch_size: ConfigHelper.parse_integer_env_var("INDEXER_CATCHUP_MISSING_RANGES_BATCH_SIZE", 100_000)
@@ -452,17 +502,30 @@ config :indexer, Indexer.Fetcher.BlockReward,
   batch_size: ConfigHelper.parse_integer_env_var("INDEXER_BLOCK_REWARD_BATCH_SIZE", 10),
   concurrency: ConfigHelper.parse_integer_env_var("INDEXER_BLOCK_REWARD_CONCURRENCY", 4)
 
-config :indexer, Indexer.Fetcher.TokenInstance,
-  batch_size: ConfigHelper.parse_integer_env_var("INDEXER_TOKEN_INSTANCE_BATCH_SIZE", 1),
-  concurrency: ConfigHelper.parse_integer_env_var("INDEXER_TOKEN_INSTANCE_CONCURRENCY", 10)
+config :indexer, Indexer.Fetcher.TokenInstance.Retry,
+  concurrency: ConfigHelper.parse_integer_env_var("INDEXER_TOKEN_INSTANCE_RETRY_CONCURRENCY", 10),
+  refetch_interval: ConfigHelper.parse_time_env_var("INDEXER_TOKEN_INSTANCE_RETRY_REFETCH_INTERVAL", "24h")
+
+config :indexer, Indexer.Fetcher.TokenInstance.Realtime,
+  concurrency: ConfigHelper.parse_integer_env_var("INDEXER_TOKEN_INSTANCE_REALTIME_CONCURRENCY", 10)
+
+config :indexer, Indexer.Fetcher.TokenInstance.Sanitize,
+  concurrency: ConfigHelper.parse_integer_env_var("INDEXER_TOKEN_INSTANCE_SANITIZE_CONCURRENCY", 10)
 
 config :indexer, Indexer.Fetcher.InternalTransaction,
   batch_size: ConfigHelper.parse_integer_env_var("INDEXER_INTERNAL_TRANSACTIONS_BATCH_SIZE", 10),
-  concurrency: ConfigHelper.parse_integer_env_var("INDEXER_INTERNAL_TRANSACTIONS_CONCURRENCY", 4)
+  concurrency: ConfigHelper.parse_integer_env_var("INDEXER_INTERNAL_TRANSACTIONS_CONCURRENCY", 4),
+  indexing_finished_threshold:
+    ConfigHelper.parse_integer_env_var("INDEXER_INTERNAL_TRANSACTIONS_INDEXING_FINISHED_THRESHOLD", 1000)
 
 config :indexer, Indexer.Fetcher.CoinBalance,
   batch_size: ConfigHelper.parse_integer_env_var("INDEXER_COIN_BALANCES_BATCH_SIZE", 500),
   concurrency: ConfigHelper.parse_integer_env_var("INDEXER_COIN_BALANCES_CONCURRENCY", 4)
+
+config :indexer, Indexer.Fetcher.Withdrawal.Supervisor,
+  disabled?: System.get_env("INDEXER_DISABLE_WITHDRAWALS_FETCHER", "true") == "true"
+
+config :indexer, Indexer.Fetcher.Withdrawal, first_block: System.get_env("WITHDRAWALS_FIRST_BLOCK")
 
 Code.require_file("#{config_env()}.exs", "config/runtime")
 

@@ -12,7 +12,6 @@ services:
       service: db
 
   blockscout:
-    platform: linux/x86_64
     depends_on:
       - db
       - smart-contract-verifier
@@ -24,7 +23,7 @@ services:
     container_name: 'blockscout'
     links:
       - db:database
-    command: bash -c "bin/blockscout eval \"Elixir.Explorer.ReleaseTasks.create_and_migrate()\" && bin/blockscout start"
+    command: sh -c "bin/blockscout eval \"Elixir.Explorer.ReleaseTasks.create_and_migrate()\" && bin/blockscout start"
     extra_hosts:
       - 'host.docker.internal:host-gateway'
     env_file:
