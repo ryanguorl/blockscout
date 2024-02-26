@@ -4,6 +4,8 @@ defmodule BlockScoutWeb.AddressChannel do
   """
   use BlockScoutWeb, :channel
 
+  import Explorer.Chain.SmartContract, only: [burn_address_hash_string: 0]
+
   alias BlockScoutWeb.API.V2.AddressView, as: AddressViewAPI
   alias BlockScoutWeb.API.V2.SmartContractView, as: SmartContractViewAPI
   alias BlockScoutWeb.API.V2.TransactionView, as: TransactionViewAPI
@@ -32,7 +34,7 @@ defmodule BlockScoutWeb.AddressChannel do
     "address_current_token_balances"
   ])
 
-  {:ok, burn_address_hash} = Chain.string_to_address_hash("0x0000000000000000000000000000000000000000")
+  {:ok, burn_address_hash} = Chain.string_to_address_hash(burn_address_hash_string())
   @burn_address_hash burn_address_hash
   @current_token_balances_limit 50
 
@@ -244,7 +246,20 @@ defmodule BlockScoutWeb.AddressChannel do
   end
 
   defp push_current_token_balances(socket, address_current_token_balances, event_postfix, token_type) do
-    filtered_ctbs = address_current_token_balances |> Enum.filter(fn ctb -> ctb.token_type == token_type end)
+    filtered_ctbs =
+      address_current_token_balances
+      |> Enum.filter(fn ctb -> ctb.token_type == token_type end)
+      |> Enum.sort_by(
+        fn ctb ->
+          value =
+            if ctb.token.decimals,
+              do: Decimal.div(ctb.value, Decimal.new(Integer.pow(10, Decimal.to_integer(ctb.token.decimals)))),
+              else: ctb.value
+
+          {(ctb.token.fiat_value && Decimal.mult(value, ctb.token.fiat_value)) || Decimal.new(0), value}
+        end,
+        &sorter/2
+      )
 
     push(socket, "updated_token_balances_" <> event_postfix, %{
       token_balances:
@@ -253,6 +268,15 @@ defmodule BlockScoutWeb.AddressChannel do
         }),
       overflow: Enum.count(filtered_ctbs) > @current_token_balances_limit
     })
+  end
+
+  defp sorter({fiat_value_1, value_1}, {fiat_value_2, value_2}) do
+    case {Decimal.compare(fiat_value_1, fiat_value_2), Decimal.compare(value_1, value_2)} do
+      {:gt, _} -> true
+      {:eq, :gt} -> true
+      {:eq, :eq} -> true
+      _ -> false
+    end
   end
 
   def push_current_coin_balance(
