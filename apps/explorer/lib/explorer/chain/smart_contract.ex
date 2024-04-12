@@ -41,9 +41,7 @@ defmodule Explorer.Chain.SmartContract do
   @burn_address_hash_string "0x0000000000000000000000000000000000000000"
   @burn_address_hash_string_32 "0x0000000000000000000000000000000000000000000000000000000000000000"
 
-  defguard is_burn_signature(term) when term in ["0x", "0x0", @burn_address_hash_string_32]
-  defguard is_burn_signature_or_nil(term) when is_burn_signature(term) or term == nil
-  defguard is_burn_signature_extended(term) when is_burn_signature(term) or term == @burn_address_hash_string
+  defguard is_burn_signature(term) when term in ["0x", "0x0", @burn_address_hash_string, @burn_address_hash_string_32]
 
   @doc """
     Returns burn address hash
@@ -265,6 +263,8 @@ defmodule Explorer.Chain.SmartContract do
   * `abi` - The [JSON ABI specification](https://solidity.readthedocs.io/en/develop/abi-spec.html#json) for this
     contract.
   * `verified_via_sourcify` - whether contract verified through Sourcify utility or not.
+  * `verified_via_eth_bytecode_db` - whether contract automatically verified via eth-bytecode-db or not.
+  * `verified_via_verifier_alliance` - whether contract automatically verified via Verifier Alliance or not.
   * `partially_verified` - whether contract verified using partial matched source code or not.
   * `is_vyper_contract` - boolean flag, determines if contract is Vyper or not
   * `file_path` - show the filename or path to the file of the contract source file
@@ -277,7 +277,6 @@ defmodule Explorer.Chain.SmartContract do
   * `implementation_address_hash` - address hash of the proxy's implementation if any
   * `autodetect_constructor_args` - field was added for storing user's choice
   * `is_yul` - field was added for storing user's choice
-  * `verified_via_eth_bytecode_db` - whether contract automatically verified via eth-bytecode-db or not.
   """
   typed_schema "smart_contracts" do
     field(:name, :string, null: false)
@@ -290,6 +289,8 @@ defmodule Explorer.Chain.SmartContract do
     embeds_many(:external_libraries, ExternalLibrary, on_replace: :delete)
     field(:abi, {:array, :map})
     field(:verified_via_sourcify, :boolean)
+    field(:verified_via_eth_bytecode_db, :boolean)
+    field(:verified_via_verifier_alliance, :boolean)
     field(:partially_verified, :boolean)
     field(:file_path, :string)
     field(:is_vyper_contract, :boolean)
@@ -303,7 +304,6 @@ defmodule Explorer.Chain.SmartContract do
     field(:autodetect_constructor_args, :boolean, virtual: true)
     field(:is_yul, :boolean, virtual: true)
     field(:metadata_from_verified_twin, :boolean, virtual: true)
-    field(:verified_via_eth_bytecode_db, :boolean)
     field(:license_type, Ecto.Enum, values: @license_enum, default: :none)
 
     has_many(
@@ -346,6 +346,8 @@ defmodule Explorer.Chain.SmartContract do
       :evm_version,
       :optimization_runs,
       :verified_via_sourcify,
+      :verified_via_eth_bytecode_db,
+      :verified_via_verifier_alliance,
       :partially_verified,
       :file_path,
       :is_vyper_contract,
@@ -356,7 +358,6 @@ defmodule Explorer.Chain.SmartContract do
       :compiler_settings,
       :implementation_address_hash,
       :implementation_fetched_at,
-      :verified_via_eth_bytecode_db,
       :license_type
     ])
     |> validate_required([
@@ -390,6 +391,8 @@ defmodule Explorer.Chain.SmartContract do
         :optimization_runs,
         :constructor_arguments,
         :verified_via_sourcify,
+        :verified_via_eth_bytecode_db,
+        :verified_via_verifier_alliance,
         :partially_verified,
         :file_path,
         :is_vyper_contract,
@@ -398,7 +401,6 @@ defmodule Explorer.Chain.SmartContract do
         :contract_code_md5,
         :implementation_name,
         :autodetect_constructor_args,
-        :verified_via_eth_bytecode_db,
         :license_type
       ])
       |> (&if(verification_with_files?,
@@ -594,7 +596,7 @@ defmodule Explorer.Chain.SmartContract do
   def save_implementation_data(nil, _, _, _), do: {nil, nil}
 
   def save_implementation_data(empty_address_hash_string, proxy_address_hash, metadata_from_verified_twin, options)
-      when is_burn_signature_extended(empty_address_hash_string) do
+      when is_burn_signature(empty_address_hash_string) do
     if is_nil(metadata_from_verified_twin) or !metadata_from_verified_twin do
       proxy_address_hash
       |> address_hash_to_smart_contract_without_twin(options)
@@ -676,7 +678,9 @@ defmodule Explorer.Chain.SmartContract do
       from(
         tx in Transaction,
         where: tx.created_contract_address_hash == ^address_hash,
-        where: tx.status == ^1
+        where: tx.status == ^1,
+        order_by: [desc: tx.block_number],
+        limit: ^1
       )
 
     tx =

@@ -322,7 +322,7 @@ defmodule Explorer.Chain.Import.Runner.InternalTransactions do
   end
 
   defp invalid_block_numbers(transactions, internal_transactions_params) do
-    # Finds all mistmatches between transactions and internal transactions
+    # Finds all mismatches between transactions and internal transactions
     # for a block number:
     # - there are no internal txs for some transactions
     # - there are internal txs with a different block number than their transactions
@@ -363,7 +363,9 @@ defmodule Explorer.Chain.Import.Runner.InternalTransactions do
   end
 
   defp valid_internal_transactions(transactions, internal_transactions_params, invalid_block_numbers) do
-    if Enum.count(transactions) > 0 do
+    if Enum.empty?(transactions) do
+      {:ok, []}
+    else
       blocks_map = Map.new(transactions, &{&1.block_number, &1.block_hash})
 
       valid_internal_txs =
@@ -375,8 +377,6 @@ defmodule Explorer.Chain.Import.Runner.InternalTransactions do
         end)
 
       {:ok, valid_internal_txs}
-    else
-      {:ok, []}
     end
   end
 
@@ -708,7 +708,9 @@ defmodule Explorer.Chain.Import.Runner.InternalTransactions do
   end
 
   defp remove_consensus_of_invalid_blocks(repo, invalid_block_numbers, %{updated_at: updated_at}) do
-    if Enum.count(invalid_block_numbers) > 0 do
+    if Enum.empty?(invalid_block_numbers) do
+      {:ok, []}
+    else
       update_block_query =
         from(
           block in Block,
@@ -757,8 +759,6 @@ defmodule Explorer.Chain.Import.Runner.InternalTransactions do
         postgrex_error in Postgrex.Error ->
           {:error, %{exception: postgrex_error, invalid_block_numbers: invalid_block_numbers}}
       end
-    else
-      {:ok, []}
     end
   end
 

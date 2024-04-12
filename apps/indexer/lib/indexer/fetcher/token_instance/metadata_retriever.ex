@@ -1,6 +1,6 @@
 defmodule Indexer.Fetcher.TokenInstance.MetadataRetriever do
   @moduledoc """
-  Fetches ERC-721 & ERC-1155 token instance metadata.
+  Fetches ERC-721/ERC-1155/ERC-404 token instance metadata.
   """
 
   require Logger
@@ -85,17 +85,17 @@ defmodule Indexer.Fetcher.TokenInstance.MetadataRetriever do
     fetch_metadata_inner(token_uri, token_id, hex_token_id, from_base_uri?)
   end
 
-  defp fetch_json_from_uri({:ok, ["data:application/json," <> json]}, token_id, hex_token_id, from_base_uri?) do
-    decoded_json = URI.decode(json)
+  defp fetch_json_from_uri(
+         {:ok, [type = "data:application/json;utf8," <> json]},
+         token_id,
+         hex_token_id,
+         from_base_uri?
+       ) do
+    fetch_json_from_json_string(json, token_id, hex_token_id, from_base_uri?, type)
+  end
 
-    fetch_json_from_uri({:ok, [decoded_json]}, token_id, hex_token_id, from_base_uri?)
-  rescue
-    e ->
-      Logger.warn(["Unknown metadata format #{inspect(json)}.", Exception.format(:error, e, __STACKTRACE__)],
-        fetcher: :token_instances
-      )
-
-      {:error, "invalid data:application/json"}
+  defp fetch_json_from_uri({:ok, [type = "data:application/json," <> json]}, token_id, hex_token_id, from_base_uri?) do
+    fetch_json_from_json_string(json, token_id, hex_token_id, from_base_uri?, type)
   end
 
   defp fetch_json_from_uri(
@@ -155,6 +155,19 @@ defmodule Indexer.Fetcher.TokenInstance.MetadataRetriever do
     {:error, "unknown metadata uri format"}
   end
 
+  defp fetch_json_from_json_string(json, token_id, hex_token_id, from_base_uri?, type) do
+    decoded_json = URI.decode(json)
+
+    fetch_json_from_uri({:ok, [decoded_json]}, token_id, hex_token_id, from_base_uri?)
+  rescue
+    e ->
+      Logger.warn(["Unknown metadata format #{inspect(json)}.", Exception.format(:error, e, __STACKTRACE__)],
+        fetcher: :token_instances
+      )
+
+      {:error, "invalid #{type}"}
+  end
+
   defp fetch_from_ipfs(ipfs_uid, hex_token_id) do
     ipfs_url = ipfs_link() <> ipfs_uid
     fetch_metadata_inner(ipfs_url, nil, hex_token_id)
@@ -197,7 +210,7 @@ defmodule Indexer.Fetcher.TokenInstance.MetadataRetriever do
         check_content_type(content_type, uri, hex_token_id, body)
 
       {:ok, %Response{body: body, status_code: code}} ->
-        Logger.warn(
+        Logger.debug(
           ["Request to token uri: #{inspect(uri)} failed with code #{code}. Body:", inspect(body)],
           fetcher: :token_instances
         )

@@ -20,6 +20,7 @@ defmodule Indexer.Supervisor do
   alias Indexer.Block.Realtime, as: BlockRealtime
   alias Indexer.Fetcher.CoinBalance.Catchup, as: CoinBalanceCatchup
   alias Indexer.Fetcher.CoinBalance.Realtime, as: CoinBalanceRealtime
+  alias Indexer.Fetcher.Stability.Validator, as: ValidatorStability
   alias Indexer.Fetcher.TokenInstance.LegacySanitize, as: TokenInstanceLegacySanitize
   alias Indexer.Fetcher.TokenInstance.Realtime, as: TokenInstanceRealtime
   alias Indexer.Fetcher.TokenInstance.Retry, as: TokenInstanceRetry
@@ -44,6 +45,9 @@ defmodule Indexer.Supervisor do
     UncleBlock,
     Withdrawal
   }
+
+  alias Indexer.Fetcher.ZkSync.BatchesStatusTracker, as: ZkSyncBatchesStatusTracker
+  alias Indexer.Fetcher.ZkSync.TransactionBatch, as: ZkSyncTransactionBatch
 
   alias Indexer.Temporary.{
     BlocksTransactionsMismatch,
@@ -138,6 +142,17 @@ defmodule Indexer.Supervisor do
          [[json_rpc_named_arguments: json_rpc_named_arguments, memory_monitor: memory_monitor]]},
         {ReplacedTransaction.Supervisor, [[memory_monitor: memory_monitor]]},
         {Indexer.Fetcher.RollupL1ReorgMonitor.Supervisor, [[memory_monitor: memory_monitor]]},
+        configure(
+          Indexer.Fetcher.Optimism.TxnBatch.Supervisor,
+          [[memory_monitor: memory_monitor, json_rpc_named_arguments: json_rpc_named_arguments]]
+        ),
+        configure(Indexer.Fetcher.Optimism.OutputRoot.Supervisor, [[memory_monitor: memory_monitor]]),
+        configure(Indexer.Fetcher.Optimism.Deposit.Supervisor, [[memory_monitor: memory_monitor]]),
+        configure(
+          Indexer.Fetcher.Optimism.Withdrawal.Supervisor,
+          [[memory_monitor: memory_monitor, json_rpc_named_arguments: json_rpc_named_arguments]]
+        ),
+        configure(Indexer.Fetcher.Optimism.WithdrawalEvent.Supervisor, [[memory_monitor: memory_monitor]]),
         configure(Indexer.Fetcher.PolygonEdge.Deposit.Supervisor, [[memory_monitor: memory_monitor]]),
         configure(Indexer.Fetcher.PolygonEdge.DepositExecute.Supervisor, [
           [memory_monitor: memory_monitor, json_rpc_named_arguments: json_rpc_named_arguments]
@@ -153,6 +168,12 @@ defmodule Indexer.Supervisor do
         configure(Indexer.Fetcher.PolygonZkevm.BridgeL1.Supervisor, [[memory_monitor: memory_monitor]]),
         configure(Indexer.Fetcher.PolygonZkevm.BridgeL1Tokens.Supervisor, [[memory_monitor: memory_monitor]]),
         configure(Indexer.Fetcher.PolygonZkevm.BridgeL2.Supervisor, [
+          [json_rpc_named_arguments: json_rpc_named_arguments, memory_monitor: memory_monitor]
+        ]),
+        configure(ZkSyncTransactionBatch.Supervisor, [
+          [json_rpc_named_arguments: json_rpc_named_arguments, memory_monitor: memory_monitor]
+        ]),
+        configure(ZkSyncBatchesStatusTracker.Supervisor, [
           [json_rpc_named_arguments: json_rpc_named_arguments, memory_monitor: memory_monitor]
         ]),
         configure(Indexer.Fetcher.PolygonZkevm.TransactionBatch.Supervisor, [
@@ -191,7 +212,10 @@ defmodule Indexer.Supervisor do
       ]
       |> List.flatten()
 
-    all_fetchers = maybe_add_bridged_tokens_fetchers(basic_fetchers)
+    all_fetchers =
+      basic_fetchers
+      |> maybe_add_bridged_tokens_fetchers()
+      |> add_chain_type_dependent_fetchers()
 
     Supervisor.init(
       all_fetchers,
@@ -213,6 +237,16 @@ defmodule Indexer.Supervisor do
       [{SetAmbBridgedMetadataForTokens, [[], []]} | extended_fetchers]
     else
       extended_fetchers
+    end
+  end
+
+  defp add_chain_type_dependent_fetchers(fetchers) do
+    case Application.get_env(:explorer, :chain_type) do
+      "stability" ->
+        [{ValidatorStability, []} | fetchers]
+
+      _ ->
+        fetchers
     end
   end
 
