@@ -568,7 +568,7 @@ msgstr ""
 
 #: lib/block_scout_web/templates/layout/_footer.html.eex:22
 #, elixir-autogen, elixir-format
-msgid "Blockscout is a tool for inspecting and analyzing EVM based blockchains. Blockchain explorer for Ethereum Networks."
+msgid "Pandora Explorer is a tool for inspecting and analyzing EVM based blockchains. Blockchain explorer for Ethereum Networks."
 msgstr ""
 
 #: lib/block_scout_web/templates/transaction_state/_state_change.html.eex:8
