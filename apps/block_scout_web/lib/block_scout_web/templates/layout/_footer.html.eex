@@ -36,8 +36,9 @@
       </div>
 
       <div class="col-xs-12 col-md-4 col-lg-<%= col_size %> footer-list">
-        <h3>Pandora Scan</h3>
+        <h3>Pandora Chain</h3>
         <ul>
+          <li><a href="https://athenawallet.gitbook.io/athena-wallet/operation-guide/pandora-chain-tutorial-manual" rel="noreferrer" class="footer-link" target="_blank"><%= gettext("Chain Tutorial") %></a></li>
           <li><a href="<%= issue_link(@conn) %>" rel="noreferrer" class="footer-link" target="_blank"><%= gettext("Submit an Issue") %></a></li>
           <%= if Application.get_env(:block_scout_web, :footer)[:forum_link_enabled] && Application.get_env(:block_scout_web, :footer)[:forum_link] do %>
             <li><a href="<%= Application.get_env(:block_scout_web, :footer)[:forum_link] %>" rel="noreferrer" class="footer-link"><%= gettext("Forum") %></a></li>

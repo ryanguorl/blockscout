@@ -2538,6 +2538,8 @@ msgstr ""
 #, elixir-autogen, elixir-format
 msgid "Submit an Issue"
 msgstr ""
+msgid "Chain Tutorial"
+msgstr ""
 
 #: lib/block_scout_web/templates/transaction/_emission_reward_tile.html.eex:8
 #: lib/block_scout_web/views/transaction_view.ex:370
