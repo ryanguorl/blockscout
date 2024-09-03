@@ -1,6 +1,6 @@
 {
     "template_values": {
-        "native_coin_symbol": "PG"
+        "native_coin_symbol": "PDA"
     },
     "counters": {
         "total_blocks": {
