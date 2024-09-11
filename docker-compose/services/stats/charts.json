@@ -1,0 +1,165 @@
+{
+    "template_values": {
+        "native_coin_symbol": "PDA"
+    },
+    "counters": {
+        "total_blocks": {
+            "title": "Total blocks",
+            "description": "Number of blocks over all time"
+        },
+        "total_addresses": {
+            "title": "Total addresses",
+            "description": "Number of addresses that participated in the blockchain"
+        },
+        "average_block_time": {
+            "title": "Average block time",
+            "description": "Average time taken in seconds for a block to be included in the blockchain",
+            "units": "s"
+        },
+        "completed_txns": {
+            "title": "Completed txns",
+            "description": "Number of transactions with success status"
+        },
+        "total_accounts": {
+            "title": "Total accounts",
+            "description": "Number of EOAs that sent at least 1 transaction"
+        },
+        "total_native_coin_transfers": {
+            "title": "Total {{native_coin_symbol}} transfers",
+            "description": "Number of transactions with the transfer of the {{native_coin_symbol}}"
+        },
+        "total_tokens": {
+            "title": "Total tokens",
+            "description": "Number of all token contracts"
+        },
+        "total_txns": {
+            "title": "Total txns",
+            "description": "All transactions including pending, dropped, replaced, failed transactions"
+        },
+        "last_new_contracts": {
+            "title": "Number of deployed contracts today",
+            "description": "Number of deployed contracts today"
+        },
+        "total_contracts": {
+            "title": "Total contracts",
+            "description": "Number of contracts"
+        },
+        "last_new_verified_contracts": {
+            "title": "Number of verified contracts today",
+            "description": "Number of contracts verified today"
+        },
+        "total_verified_contracts": {
+            "title": "Total verified contracts",
+            "description": "Number of verified contracts"
+        },
+        "total_native_coin_holders": {
+            "enabled": false,
+            "title": "Total {{native_coin_symbol}} holders",
+            "description": "Number of accounts with {{native_coin_symbol}}"
+        }
+    },
+    "line_charts": {
+        "active_accounts": {
+            "title": "Active accounts",
+            "description": "Active accounts number per period"
+        },
+        "accounts_growth": {
+            "title": "Number of accounts",
+            "description": "Cumulative account growth over time"
+        },
+        "new_accounts": {
+            "title": "New accounts",
+            "description": "Number of newly added accounts"
+        },
+        "average_txn_fee": {
+            "title": "Average transaction fee",
+            "description": "Average amount of {{native_coin_symbol}} spent on gas fees per transaction",
+            "units": "{{native_coin_symbol}}"
+        },
+        "txns_fee": {
+            "title": "Transaction fees",
+            "description": "Sum of {{native_coin_symbol}} spent on gas fees",
+            "units": "{{native_coin_symbol}}"
+        },
+        "new_txns": {
+            "title": "New transactions",
+            "description": "Number of new transactions"
+        },
+        "txns_growth": {
+            "title": "Number of transactions",
+            "description": "Cumulative transaction growth over time"
+        },
+        "txns_success_rate": {
+            "title": "Transaction success rate",
+            "description": "Success rate for all included transactions"
+        },
+        "new_block_rewards": {
+            "enabled": false,
+            "title": "New block rewards",
+            "description": "New block rewards number"
+        },
+        "new_blocks": {
+            "title": "New blocks",
+            "description": "Number of new blocks added to the chain"
+        },
+        "average_block_size": {
+            "title": "Average block size",
+            "description": "Space (in bytes) taken up by all block fields",
+            "units": "Bytes"
+        },
+        "average_block_rewards": {
+            "title": "Average block rewards",
+            "description": "Average amount of reward",
+            "units": "{{native_coin_symbol}}"
+        },
+        "new_native_coin_transfers": {
+            "title": "Number of {{native_coin_symbol}} transfers",
+            "description": "Completed token transfers"
+        },
+        "native_coin_holders_growth": {
+            "enabled": false,
+            "title": "{{native_coin_symbol}} holders",
+            "description": "Number of accounts holding {{native_coin_symbol}}"
+        },
+        "new_native_coin_holders": {
+            "enabled": false,
+            "title": "New {{native_coin_symbol}} holders",
+            "description": "Number of new accounts holding {{native_coin_symbol}}"
+        },
+        "native_coin_supply": {
+            "enabled": false,
+            "title": "{{native_coin_symbol}} circulating supply",
+            "description": "Amount of publicly available {{native_coin_symbol}}",
+            "units": "{{native_coin_symbol}}"
+        },
+        "average_gas_limit": {
+            "title": "Average gas limit",
+            "description": "Average block gas limit"
+        },
+        "gas_used_growth": {
+            "title": "Total gas usage",
+            "description": "Cumulative gas used over time"
+        },
+        "average_gas_price": {
+            "title": "Average gas price",
+            "description": "Average price (Gwei) per unit of gas",
+            "units": "Gwei"
+        },
+        "new_verified_contracts": {
+            "title": "New verified contracts",
+            "description": "Number of newly verified contracts"
+        },
+        "verified_contracts_growth": {
+            "title": "Number of verified contracts",
+            "description": "Cumulative verified contract growth over time"
+        },
+        "new_contracts": {
+            "title": "New contracts",
+            "description": "Number of new contracts in the network"
+        },
+        "contracts_growth": {
+            "title": "Number of contracts",
+            "description": "Cumulative contract growth over time"
+        }
+    }
+}
