@@ -177,6 +177,16 @@ defmodule Explorer.Repo do
     end
   end
 
+  defmodule Celo do
+    use Ecto.Repo,
+      otp_app: :explorer,
+      adapter: Ecto.Adapters.Postgres
+
+    def init(_, opts) do
+      ConfigHelper.init_repo_module(__MODULE__, opts)
+    end
+  end
+
   defmodule RSK do
     use Ecto.Repo,
       otp_app: :explorer,
@@ -217,6 +227,16 @@ defmodule Explorer.Repo do
     end
   end
 
+  defmodule Arbitrum do
+    use Ecto.Repo,
+      otp_app: :explorer,
+      adapter: Ecto.Adapters.Postgres
+
+    def init(_, opts) do
+      ConfigHelper.init_repo_module(__MODULE__, opts)
+    end
+  end
+
   defmodule BridgedTokens do
     use Ecto.Repo,
       otp_app: :explorer,
@@ -248,6 +268,16 @@ defmodule Explorer.Repo do
   end
 
   defmodule Mud do
+    use Ecto.Repo,
+      otp_app: :explorer,
+      adapter: Ecto.Adapters.Postgres
+
+    def init(_, opts) do
+      ConfigHelper.init_repo_module(__MODULE__, opts)
+    end
+  end
+
+  defmodule ShrunkInternalTransactions do
     use Ecto.Repo,
       otp_app: :explorer,
       adapter: Ecto.Adapters.Postgres

@@ -158,7 +158,7 @@ defmodule BlockScoutWeb.PagingHelper do
         [
           necessity_by_association: %{
             :transactions => :optional,
-            [miner: :names] => :optional,
+            [miner: [:names, :smart_contract, :proxy_implementations]] => :optional,
             :nephews => :required,
             :rewards => :optional
           },
@@ -169,7 +169,7 @@ defmodule BlockScoutWeb.PagingHelper do
         [
           necessity_by_association: %{
             :transactions => :optional,
-            [miner: :names] => :optional,
+            [miner: [:names, :smart_contract, :proxy_implementations]] => :optional,
             :rewards => :optional
           },
           block_type: "Reorg"
@@ -184,12 +184,23 @@ defmodule BlockScoutWeb.PagingHelper do
     do: [
       necessity_by_association: %{
         :transactions => :optional,
-        [miner: :names] => :optional,
+        [miner: [:names, :smart_contract, :proxy_implementations]] => :optional,
         :rewards => :optional
       },
       block_type: "Block"
     ]
 
+  @doc """
+    Removes redundant parameters from the parameter map used when calling
+    `next_page_params` function.
+
+    ## Parameters
+    - `params`: A map of parameter entries.
+
+    ## Returns
+    - A modified map without redundant parameters needed for `next_page_params` function.
+  """
+  @spec delete_parameters_from_next_page_params(map()) :: map() | nil
   def delete_parameters_from_next_page_params(params) when is_map(params) do
     params
     |> Map.drop([
@@ -202,7 +213,10 @@ defmodule BlockScoutWeb.PagingHelper do
       "q",
       "sort",
       "order",
-      "state_filter"
+      "state_filter",
+      "l2_block_range_start",
+      "l2_block_range_end",
+      "batch_number"
     ])
   end
 

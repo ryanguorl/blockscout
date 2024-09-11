@@ -59,13 +59,16 @@ for repo <- [
       Explorer.Repo.PolygonEdge,
       Explorer.Repo.PolygonZkevm,
       Explorer.Repo.ZkSync,
+      Explorer.Repo.Celo,
       Explorer.Repo.RSK,
       Explorer.Repo.Shibarium,
       Explorer.Repo.Suave,
+      Explorer.Repo.Arbitrum,
       Explorer.Repo.BridgedTokens,
       Explorer.Repo.Filecoin,
       Explorer.Repo.Stability,
-      Explorer.Repo.Mud
+      Explorer.Repo.Mud,
+      Explorer.Repo.ShrunkInternalTransactions
     ] do
   config :explorer, repo,
     database: database,

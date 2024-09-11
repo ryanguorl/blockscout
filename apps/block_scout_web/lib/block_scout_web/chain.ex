@@ -14,14 +14,18 @@ defmodule BlockScoutWeb.Chain do
       string_to_transaction_hash: 1
     ]
 
+  import Explorer.PagingOptions,
+    only: [
+      default_paging_options: 0,
+      page_size: 0
+    ]
+
   import Explorer.Helper, only: [parse_integer: 1]
 
   alias BlockScoutWeb.PagingHelper
   alias Ecto.Association.NotLoaded
-  alias Explorer.Chain.UserOperation
   alias Explorer.Account.{TagAddress, TagTransaction, WatchlistAddress}
   alias Explorer.Chain.Beacon.Reader, as: BeaconReader
-  alias Explorer.Chain.Block.Reward
 
   alias Explorer.Chain.{
     Address,
@@ -29,6 +33,7 @@ defmodule BlockScoutWeb.Chain do
     Address.CurrentTokenBalance,
     Beacon.Blob,
     Block,
+    Block.Reward,
     Hash,
     InternalTransaction,
     Log,
@@ -44,6 +49,7 @@ defmodule BlockScoutWeb.Chain do
   }
 
   alias Explorer.Chain.Optimism.Deposit, as: OptimismDeposit
+  alias Explorer.Chain.Optimism.FrameSequence, as: OptimismFrameSequence
   alias Explorer.Chain.Optimism.OutputRoot, as: OptimismOutputRoot
 
   alias Explorer.Chain.PolygonZkevm.TransactionBatch
@@ -58,14 +64,10 @@ defmodule BlockScoutWeb.Chain do
     end
   end
 
-  @page_size 50
-  @default_paging_options %PagingOptions{page_size: @page_size + 1}
+  @page_size page_size()
+  @default_paging_options default_paging_options()
   @address_hash_len 40
   @full_hash_len 64
-
-  def default_paging_options do
-    @default_paging_options
-  end
 
   def current_filter(%{paging_options: paging_options} = params) do
     params
@@ -433,7 +435,12 @@ defmodule BlockScoutWeb.Chain do
     end
   end
 
-  # clause for Polygon Edge Deposits and Withdrawals and for account's entities pagination
+  # clause for pagination of entities:
+  # - Account's entities
+  # - Optimism frame sequences
+  # - Polygon Edge Deposits
+  # - Polygon Edge Withdrawals
+  # - Arbitrum cross chain messages
   def paging_options(%{"id" => id_string}) when is_binary(id_string) do
     case Integer.parse(id_string) do
       {id, ""} ->
@@ -444,7 +451,12 @@ defmodule BlockScoutWeb.Chain do
     end
   end
 
-  # clause for Polygon Edge Deposits and Withdrawals and for account's entities pagination
+  # clause for pagination of entities:
+  # - Account's entities
+  # - Optimism frame sequences
+  # - Polygon Edge Deposits
+  # - Polygon Edge Withdrawals
+  # - Arbitrum cross chain messages
   def paging_options(%{"id" => id}) when is_integer(id) do
     [paging_options: %{@default_paging_options | key: {id}}]
   end
@@ -611,6 +623,10 @@ defmodule BlockScoutWeb.Chain do
 
   defp paging_params({%Token{} = token, _}) do
     paging_params(token)
+  end
+
+  defp paging_params(%OptimismFrameSequence{id: id}) do
+    %{"id" => id}
   end
 
   defp paging_params(%TagAddress{id: id}) do

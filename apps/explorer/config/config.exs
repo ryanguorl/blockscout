@@ -85,9 +85,6 @@ config :explorer, Explorer.Chain.Cache.TransactionActionTokensData, enabled: tru
 
 config :explorer, Explorer.Chain.Cache.TransactionActionUniswapPools, enabled: true
 
-config :explorer, Explorer.ExchangeRates,
-  cache_period: ConfigHelper.parse_time_env_var("CACHE_EXCHANGE_RATES_PERIOD", "10m")
-
 config :explorer, Explorer.ExchangeRates.TokenExchangeRates, enabled: true
 
 config :explorer, Explorer.Counters.TokenHoldersCounter,
@@ -122,6 +119,11 @@ config :explorer, Explorer.Migrator.AddressTokenBalanceTokenType, enabled: true
 config :explorer, Explorer.Migrator.SanitizeMissingBlockRanges, enabled: true
 config :explorer, Explorer.Migrator.SanitizeIncorrectNFTTokenTransfers, enabled: true
 config :explorer, Explorer.Migrator.TokenTransferTokenType, enabled: true
+config :explorer, Explorer.Migrator.SanitizeIncorrectWETHTokenTransfers, enabled: true
+config :explorer, Explorer.Migrator.TransactionBlockConsensus, enabled: true
+config :explorer, Explorer.Migrator.TokenTransferBlockConsensus, enabled: true
+config :explorer, Explorer.Migrator.RestoreOmittedWETHTransfers, enabled: true
+config :explorer, Explorer.Migrator.SanitizeMissingTokenBalances, enabled: true
 
 config :explorer, Explorer.Chain.Fetcher.CheckBytecodeMatchingOnDemand, enabled: true
 

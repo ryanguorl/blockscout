@@ -57,10 +57,7 @@ defmodule Indexer.Fetcher.Optimism.WithdrawalEvent do
   def handle_continue(:ok, _state) do
     Logger.metadata(fetcher: @fetcher_name)
 
-    env = Application.get_all_env(:indexer)[__MODULE__]
-    optimism_l1_portal = Application.get_all_env(:indexer)[Indexer.Fetcher.Optimism][:optimism_l1_portal]
-
-    Optimism.init_continue(env, optimism_l1_portal, __MODULE__)
+    Optimism.init_continue(nil, __MODULE__)
   end
 
   @impl GenServer
@@ -207,7 +204,8 @@ defmodule Indexer.Fetcher.Optimism.WithdrawalEvent do
         Map.put(acc, block_number, timestamp)
       end)
 
-    Enum.map(events, fn event ->
+    events
+    |> Enum.map(fn event ->
       tx_hash = event["transactionHash"]
 
       {l1_event_type, game_index} =
@@ -233,6 +231,17 @@ defmodule Indexer.Fetcher.Optimism.WithdrawalEvent do
         game_index: game_index
       }
     end)
+    |> Enum.reduce(%{}, fn e, acc ->
+      key = {e.withdrawal_hash, e.l1_event_type}
+      prev_game_index = Map.get(acc, key, %{game_index: 0}).game_index
+
+      if prev_game_index < e.game_index or is_nil(prev_game_index) do
+        Map.put(acc, key, e)
+      else
+        acc
+      end
+    end)
+    |> Map.values()
   end
 
   def get_last_l1_item do
