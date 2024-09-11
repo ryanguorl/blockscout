@@ -533,7 +533,7 @@ msgstr ""
 
 #: lib/block_scout_web/templates/chain/_metatags.html.eex:4
 #, elixir-autogen, elixir-format
-msgid "BlockScout provides analytics data, API, and Smart Contract tools for the %{subnetwork}"
+msgid "Pandora Scan provides analytics data, API, and Smart Contract tools for the %{subnetwork}"
 msgstr ""
 
 #: lib/block_scout_web/templates/layout/_topnav.html.eex:29
@@ -568,7 +568,7 @@ msgstr ""
 
 #: lib/block_scout_web/templates/layout/_footer.html.eex:22
 #, elixir-autogen, elixir-format
-msgid "Blockscout is a tool for inspecting and analyzing EVM based blockchains. Blockchain explorer for Ethereum Networks."
+msgid "Pandora Scan is a tool for inspecting and analyzing EVM based blockchains. Blockchain explorer for Pandora Networks."
 msgstr ""
 
 #: lib/block_scout_web/templates/transaction_state/_state_change.html.eex:8
@@ -2537,6 +2537,8 @@ msgstr ""
 #: lib/block_scout_web/templates/layout/_footer.html.eex:41
 #, elixir-autogen, elixir-format
 msgid "Submit an Issue"
+msgstr ""
+msgid "Chain Tutorial"
 msgstr ""
 
 #: lib/block_scout_web/templates/transaction/_emission_reward_tile.html.eex:8

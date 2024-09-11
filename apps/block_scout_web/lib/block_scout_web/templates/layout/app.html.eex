@@ -75,7 +75,7 @@
           <%= raw(System.get_env("MAINTENANCE_ALERT_MESSAGE")) %>
         </div>
       <% end %>
-      <% hide_indexing_progress_alert = Application.get_env(:indexer, :hide_indexing_progress_alert) %>
+      <% hide_indexing_progress_alert = true %>
       <%= unless hide_indexing_progress_alert do %>
         <% indexed_ratio_blocks = Chain.indexed_ratio_blocks() %>
         <% indexed_ratio =
