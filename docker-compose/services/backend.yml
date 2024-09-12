@@ -2,7 +2,7 @@ version: '3.9'
 
 services:
   backend:
-    image: pego-explorer-backend:latest
+    image: pandora-explorer-backend:latest
     restart: always
     stop_grace_period: 5m
     container_name: 'backend'

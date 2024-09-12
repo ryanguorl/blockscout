@@ -97,19 +97,19 @@ services:
       service: proxy
     labels:
       - traefik.enable=true
-      - traefik.http.routers.blockscout.rule=Host(`scan-new.pego.network`)
+      - traefik.http.routers.blockscout.rule=Host(`scan-new.pandorachain.org`)
       - traefik.http.routers.blockscout.entrypoints=web-secure
       - traefik.http.routers.blockscout.tls=true
       - traefik.http.routers.blockscout.tls.certresolver=letsencrypt-tls
       - traefik.http.services.blockscout.loadbalancer.server.port=80
       # Stats Router and Service
-      - traefik.http.routers.stats.rule=Host(`scan-new.pego.network`) && PathPrefix(/api/v1/lines, /api/v1/counters)
+      - traefik.http.routers.stats.rule=Host(`scan-new.pandorachain.org`) && PathPrefix(/api/v1/lines, /api/v1/counters)
       - traefik.http.routers.stats.entrypoints=web-secure
       - traefik.http.routers.stats.tls=true
       - traefik.http.routers.stats.service=stats-service
       - traefik.http.services.stats-service.loadbalancer.server.port=8080
       # Visualizer Router and Service
-      - traefik.http.routers.visualizer.rule=Host(`scan-new.pego.network`) && PathPrefix(`/visualizer`)
+      - traefik.http.routers.visualizer.rule=Host(`scan-new.pandorachain.org`) && PathPrefix(`/visualizer`)
       - traefik.http.routers.visualizer.entrypoints=web-secure
       - traefik.http.routers.visualizer.tls=true
       - traefik.http.routers.visualizer.service=visualizer-service

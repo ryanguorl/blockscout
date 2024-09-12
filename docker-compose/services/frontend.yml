@@ -2,7 +2,7 @@ version: '3.9'
 
 services:
   frontend:
-    image: pego-explorer-frontend:latest
+    image: pandora-explorer-frontend:latest
     restart: always
     container_name: 'frontend'
     env_file:

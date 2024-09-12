@@ -1,9 +1,9 @@
-DOCKER_REPO := pego
-BACKEND_APP_NAME := pego-browser-be
-FRONTEND_APP_NAME := pego-browser-fe
+DOCKER_REPO := pandora
+BACKEND_APP_NAME := pandora-browser-be
+FRONTEND_APP_NAME := pandora-browser-fe
 BACKEND_CONTAINER_IMAGE := $(DOCKER_REPO)/$(BACKEND_APP_NAME)
-BACKEND_CONTAINER_NAME := pego-browser-be
-FRONTEND_CONTAINER_NAME := pego-browser-fe
+BACKEND_CONTAINER_NAME := pandora-browser-be
+FRONTEND_CONTAINER_NAME := pandora-browser-fe
 VISUALIZER_CONTAINER_NAME := visualizer
 SIG_PROVIDER_CONTAINER_NAME := sig-provider
 STATS_CONTAINER_NAME := stats
