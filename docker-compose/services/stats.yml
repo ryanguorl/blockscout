@@ -14,10 +14,10 @@ services:
   stats-db:
     image: postgres:15
     user: 2000:2000
-    shm_size: 256m
+    shm_size: 1g
     restart: always
     container_name: 'stats-db'
-    command: postgres -c 'max_connections=200'
+    command: postgres -c 'max_connections=500'
     environment:
         POSTGRES_DB: 'stats'
         POSTGRES_USER: 'stats'
@@ -35,7 +35,7 @@ services:
       start_period: 10s
 
   stats:
-    image: ghcr.io/blockscout/stats:${STATS_DOCKER_TAG:-latest}
+    image: ghcr.io/blockscout/stats:${STATS_DOCKER_TAG:-v2.1.1}
     pull_policy: always
     platform: linux/amd64
     restart: always
@@ -44,8 +44,11 @@ services:
       - 'host.docker.internal:host-gateway'
     env_file:
       -  ../envs/common-stats.env
+    volumes:
+      - ./stats:/app/custom-config
     environment:
       - STATS__DB_URL=${STATS__DB_URL:-postgres://stats:n0uejXPl61ci6ldCuE2gQU5Y@stats-db:5432/stats}
       - STATS__BLOCKSCOUT_DB_URL=${STATS__BLOCKSCOUT_DB_URL:-postgresql://blockscout:ceWb1MeLBEeOIfk65gU8EjF8@db:5432/blockscout}
       - STATS__CREATE_DATABASE=${STATS__CREATE_DATABASE:-true}
       - STATS__RUN_MIGRATIONS=${STATS__RUN_MIGRATIONS:-true}
+      - STATS__CHARTS_CONFIG=./custom-config/charts.json
